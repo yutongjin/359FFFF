@@ -2,14 +2,21 @@ package com.bookmarkers.Data.Item;
 
 import java.util.Date;
 import java.util.List;
+
 import com.bookmarkers.Data.User;
+import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
+import javafx.beans.InvalidationListener;
+import javafx.beans.Observable;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+import javafx.beans.value.ObservableValue;
 
 /**
  * @Author : Yutong Jin
  * @date : 8/15/18
  * @Description :
  */
-public  class Item {
+public  class Item extends RecursiveTreeObject<Item> implements Observable {
     private String Id; // id number
     private String name; // item name
     private String author;
@@ -22,6 +29,17 @@ public  class Item {
 
     public String getId() {
         return Id;
+    }
+
+
+    public StringProperty spIdProperty() {
+        return SpId;
+    }
+
+    StringProperty SpId;
+
+    public Item(String Id){
+        this.SpId = new SimpleStringProperty(Id);
     }
 
     List<String> KeyWord;
@@ -63,5 +81,15 @@ public  class Item {
         this.booker = booker;
 
         KeyWord = keyWord;
+    }
+
+    @Override
+    public void addListener(InvalidationListener listener) {
+
+    }
+
+    @Override
+    public void removeListener(InvalidationListener listener) {
+
     }
 }

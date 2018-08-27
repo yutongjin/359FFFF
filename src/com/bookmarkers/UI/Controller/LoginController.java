@@ -50,6 +50,7 @@ public class LoginController   implements ControlledStage{
                //stage.close();
                User user = new Mem();
                user.setName(new UserServiceImpl().getName(userName));
+               ((Mem) user).setItemList(new UserServiceImpl().getCheckOutInfo("001"));
                stageManager.setStage(user,"UserPanel","Login");
 
 
