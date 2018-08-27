@@ -41,6 +41,8 @@ public class SearchByKeywords extends SearchService  {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return null;
     }
+
 }
 

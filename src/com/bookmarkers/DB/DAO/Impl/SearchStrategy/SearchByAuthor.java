@@ -33,7 +33,6 @@ public class SearchByAuthor extends SearchService {
         // look up status
         String sql = "SELECT Id ,name ,ItemType ,Type, Arthur ,ReturnDate FROM Item where Booker = " + id;
 
-        String sql = "SELECT Id ,name ,ItemType ,Type, Arthur ,ReturnDate FROM Item where Arthur like '%" + info + "%'";
         System.out.println("start searching");
 
         try (ResultSet resultSet = statement.executeQuery(sql)) {
