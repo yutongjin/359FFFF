@@ -11,7 +11,7 @@
 <AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@main.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bookmarkers.UI.Controller.CheckedOutRatioPanelController">
 
     <children>
-        <JFXButton fx:id="btnBack" layoutX="448.0" layoutY="310.0" onAction="#onBtnBackClicked" text="Back" />
+        <JFXButton fx:id="btnBack" layoutX="426.0" layoutY="310.0" onAction="#onBtnBackClicked" text="Back" />
         <Label layoutX="115.0" layoutY="107.0" text="books:" />
         <Label layoutX="115.0" layoutY="192.0" text="magazines:" />
         <Label layoutX="115.0" layoutY="147.0" text="video:" />

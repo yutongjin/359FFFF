@@ -11,9 +11,9 @@
 <AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@main.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bookmarkers.UI.Controller.SearchPanelController">
    <children>
       <JFXTextField fx:id="textfieldInpput" layoutX="131.0" layoutY="26.0" onAction="#onTextfieldInpputClicked" />
-      <JFXButton fx:id="btnBack" layoutX="504.0" layoutY="347.0" onAction="#onBtnBackClicked" text="Back" />
+      <JFXButton fx:id="btnBack" layoutX="414.0" layoutY="346.0" onAction="#onBtnBackClicked" text="Back" />
       <JFXTreeTableView layoutX="38.0" layoutY="151.0" prefHeight="174.0" prefWidth="466.0" />
-      <JFXButton fx:id="btnSearch" layoutX="360.0" layoutY="26.0" onAction="#onBtnSearchClicked" text="Search" />
+      <JFXButton fx:id="btnSearch" layoutX="317.0" layoutY="26.0" onAction="#onBtnSearchClicked" text="Search" />
       <HBox layoutX="56.0" layoutY="79.0" prefHeight="55.0" prefWidth="358.0">
          <children>
             <VBox prefHeight="102.0" prefWidth="178.0" spacing="10.0">

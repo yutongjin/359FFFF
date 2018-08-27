@@ -9,12 +9,16 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@main.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bookmarkers.UI.Controller.UserPanelController">
     <children>
-        <JFXButton fx:id="btnCheckMyAccount" layoutX="127.0" layoutY="126.0" onAction="#onBtnCheckMyAccountClicked" text="check my account" />
-        <JFXButton fx:id="btnSearch" layoutX="131.0" layoutY="173.0" onAction="#onBtnSearchClicked" text="search for books" />
-        <JFXButton fx:id="btnCheckOutBooks" layoutX="132.0" layoutY="223.0" onAction="#onBtnCheckOutBooksClicked" text="check out books" />
-        <JFXButton fx:id="btnReturnBooks" layoutX="144.0" layoutY="275.0" onAction="#onBtnReturnBooksClicked" text="return books" />
-        <Label fx:id="labelWelcome" layoutX="170.0" layoutY="68.0" prefHeight="16.0" prefWidth="226.0" text="Welcome to Bookmarks Libaray" />
+        <Label fx:id="labelWelcome" layoutX="161.0" layoutY="68.0" prefHeight="16.0" prefWidth="226.0" text="Welcome to Bookmarks Libaray" />
         <Label fx:id="labelUsername" layoutX="98.0" layoutY="68.0" text="Label" />
-        <JFXButton fx:id="btnLogout" layoutX="461.0" layoutY="262.0" onAction="#onBtnLogoutClicked" text="logout" />
+        <JFXButton fx:id="btnLogout" layoutX="412.0" layoutY="296.0" onAction="#onBtnLogoutClicked" text="logout" />
+      <VBox layoutX="97.0" layoutY="131.0" prefHeight="178.0" prefWidth="147.0" spacing="20.0">
+         <children>
+              <JFXButton fx:id="btnCheckMyAccount" onAction="#onBtnCheckMyAccountClicked" text="check my account" />
+              <JFXButton fx:id="btnSearch" onAction="#onBtnSearchClicked" text="search for books" />
+              <JFXButton fx:id="btnCheckOutBooks" onAction="#onBtnCheckOutBooksClicked" text="check out books" />
+              <JFXButton fx:id="btnReturnBooks" onAction="#onBtnReturnBooksClicked" text="return books" />
+         </children>
+      </VBox>
     </children>
 </AnchorPane>

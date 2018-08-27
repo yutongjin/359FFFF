@@ -44,6 +44,7 @@
     -jfx-button-type: FLAT;
     -fx-background-color: #039BE5;
     -fx-text-fill: black;
+    -fx-pref-width: 150px;
 }
 
 /*Raised button example*/
@@ -52,6 +53,7 @@
     -fx-background-color: #039BE5;
     -fx-text-fill: white;
     -jfx-disable-visual-focus: true;
+    -fx-pref-width: 150px;
 }
 
 .jfx-toggle-button {

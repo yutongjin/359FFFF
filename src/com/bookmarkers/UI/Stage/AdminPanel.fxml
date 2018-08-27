@@ -9,11 +9,15 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@main.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bookmarkers.UI.Controller.AdminPanelController">
     <children>
-        <JFXButton fx:id="btnCheckInventory" layoutX="127.0" layoutY="126.0" onAction="#onBtnCheckInventoryClicked" text="check Inventory" />
-        <JFXButton fx:id="btnSearch" layoutX="124.0" layoutY="235.0" onAction="#onBtnSearchClicked" text="search for books" />
-        <JFXButton fx:id="btnCheckRatio" layoutX="132.0" layoutY="180.0" onAction="#onBtnCheckRatioClicked" text="check Ratio" />
         <Label fx:id="labelWelcome" layoutX="170.0" layoutY="68.0" prefHeight="16.0" prefWidth="226.0" text="Welcome to Bookmarks Libaray" />
         <Label fx:id="labelUsername" layoutX="98.0" layoutY="68.0" text="Label" />
-        <JFXButton fx:id="btnLogout" layoutX="461.0" layoutY="262.0" onAction="#onBtnLogoutClicked" text="logout" />
+        <JFXButton fx:id="btnLogout" layoutX="412.0" layoutY="304.0" onAction="#onBtnLogoutClicked" text="logout" />
+      <VBox layoutX="132.0" layoutY="142.0" prefHeight="136.0" prefWidth="150.0" spacing="20.0">
+         <children>
+              <JFXButton fx:id="btnCheckInventory" onAction="#onBtnCheckInventoryClicked" text="check Inventory" />
+              <JFXButton fx:id="btnCheckRatio" onAction="#onBtnCheckRatioClicked" text="check Ratio" />
+              <JFXButton fx:id="btnSearch" onAction="#onBtnSearchClicked" text="search for books" />
+         </children>
+      </VBox>
     </children>
 </AnchorPane>

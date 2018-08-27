@@ -47,6 +47,9 @@ public class LoginController implements ControlledStage, Initializable {
     private JFXButton userlogin;
 
     @FXML
+    private JFXButton adminlogin;
+
+    @FXML
     void login(ActionEvent event) {
         String userName = username.getText();
         String passWord = password.getText();

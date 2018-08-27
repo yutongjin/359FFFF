@@ -41,8 +41,8 @@
       </HBox>
       <HBox layoutX="194.0" layoutY="277.0" prefHeight="27.0" prefWidth="254.0" spacing="60.0">
          <children>
-            <JFXButton onAction="#loginAsAdmin" text="Admin Login" />
             <JFXButton fx:id="userlogin" onAction="#login" text="Reader Login" />
+            <JFXButton fx:id="adminLogin" onAction="#loginAsAdmin" text="Admin Login" />
          </children>
       </HBox>
    </children>
