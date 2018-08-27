@@ -1,6 +1,8 @@
 
 package com.bookmarkers.DB.DatabaseConnection;
 import java.sql.*;
+import org.sqlite.JDBC;
+
 //Return connection with database
 //Singleton
 public class DataBaseConnection {
@@ -13,8 +15,9 @@ public class DataBaseConnection {
     }
     public Connection getDBConnection() {
         try {
-            Class.forName("com.mysql.jdbc.Driver");//加载数据库驱动
+            Class.forName("org.sqlite.JDBC");//加载数据库驱动
             Connection connection = getConnection();
+            System.out.println("zhe");
             if(connection != null) {
                 System.out.println("DataBase loaded successfully!");
             }
@@ -30,14 +33,19 @@ public class DataBaseConnection {
     }
     private static Connection getConnection() throws ClassNotFoundException, SQLException {
         String serverName = "localhost";
-        String database = "cooper1";
-        String url = "jdbc:mysql://localhost:3306/cooper1" ;
+        String database = "main";
+        String url = "jdbc:sqlite:identifier.sqlite" ;
 
         // 数据配置用户和密码
         String user = "root";
-        String password = "Jyt6554056!";
+        String password = "jyt6554056!";
 
-        return DriverManager.getConnection(url, user, password);
+
+        Connection c = DriverManager.getConnection(url);
+        System.out.println("sqlite 链接成功");
+
+        return DriverManager.getConnection(url);
+
     }
 }
 
