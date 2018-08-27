@@ -6,8 +6,14 @@ import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.ToggleGroup;
+
+import java.net.URL;
+import java.util.ResourceBundle;
+
 //5 搜索入口界面
-public class SearchPanelController implements ControlledStage{
+public class SearchPanelController implements ControlledStage,Initializable {
     StageManager stageManager;
     @Override
     public void setStageController(StageManager stageManager) {
@@ -20,10 +26,10 @@ public class SearchPanelController implements ControlledStage{
     private JFXButton btnSearch;
 
     @FXML
-    private JFXRadioButton rbtnID;
+    private JFXTextField textfieldInpput;
 
     @FXML
-    private JFXTextField textfieldInpput;
+    private JFXRadioButton rbtnID;
 
     @FXML
     private JFXRadioButton rbtnName;
@@ -73,4 +79,13 @@ public class SearchPanelController implements ControlledStage{
         }
     }
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        //TODO: see if below code works
+        final ToggleGroup group = new ToggleGroup();
+        rbtnID.setToggleGroup(group);
+        rbtnAuthor.setToggleGroup(group);
+        rbtnName.setToggleGroup(group);
+        rbtnKeyword.setToggleGroup(group);
+    }
 }

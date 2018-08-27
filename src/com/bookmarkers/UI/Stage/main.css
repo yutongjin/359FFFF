@@ -1,5 +1,6 @@
 
 .root {
+    -fx-background-color : #d3d6c5;
     /*-fx-background-image: url("bg.png");*/
 }
 /*
@@ -7,7 +8,19 @@
     -fx-text-fill: #ff8c00;
 }*/
 
+.text-field {
+    -fx-max-width: 300;
+}
 
+.jfx-text-field, .jfx-password-field {
+    -fx-background-color: WHITE;
+    -fx-font-weight: BOLD;
+    -fx-prompt-text-fill: #808080;
+    -fx-alignment: top-left;
+    -jfx-focus-color: #4059A9;
+    -jfx-unfocus-color: #4d4d4d;
+    -fx-max-width: 300;
+}
 
 .jfx-hamburger-icon{
     -fx-spacing: 5;
@@ -89,5 +102,22 @@
     -fx-background-radius: 2em;
 }
 
+.tree-table-view {
+    -fx-tree-table-color: rgba(255, 0, 0, 0.2);
+    -fx-tree-table-rippler-color: rgba(255, 0, 0, 0.4);
+}
+
+.tree-table-view .jfx-text-field{
+    -fx-background-color: transparent;
+}
+
+.tree-table-view .menu-item:focused {
+    -fx-background-color: -fx-tree-table-color;
+
+}
+
+.tree-table-view .menu-item .label {
+    -fx-padding: 5 0 5 0;
+}
 
 

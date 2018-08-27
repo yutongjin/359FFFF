@@ -14,6 +14,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
@@ -21,13 +22,15 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import com.bookmarkers.UI.Stage.*;
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 /**
  * @Author : Yutong Jin
  * @date : 8/25/18
  * @Description :
  */
-public class LoginController   implements ControlledStage{
+public class LoginController implements ControlledStage, Initializable {
 
     StageManager stageManager;
 
@@ -87,11 +90,17 @@ public class LoginController   implements ControlledStage{
 
     }
 
+
+
     @Override
     public void setStageController(StageManager stageManager) {
         this.stageManager = stageManager;
     }
 
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        //this.setTitle("BookMarkers");
+    }
 }
 

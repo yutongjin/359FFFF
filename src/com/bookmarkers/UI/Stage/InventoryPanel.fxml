@@ -7,8 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bookmarkers.UI.Controller.InventoryPanelController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@main.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bookmarkers.UI.Controller.InventoryPanelController">
    <children>
       <JFXButton fx:id="btnBack" layoutX="448.0" layoutY="310.0" onAction="#onBtnBackClicked" text="Back" />
       <JFXButton fx:id="btnCheckRatio" layoutX="335.0" layoutY="94.0" onAction="#onBtnCheckRatioClicked" text="Check Ratio of checked out items" />
