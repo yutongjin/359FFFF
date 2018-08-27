@@ -7,6 +7,8 @@ import com.bookmarkers.Data.Mem;
 import com.bookmarkers.Data.User;
 import com.bookmarkers.Main;
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXPasswordField;
+import com.jfoenix.controls.JFXTextField;
 import com.sun.javafx.robot.impl.FXRobotHelper;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -27,39 +29,42 @@ import java.io.IOException;
  */
 public class LoginController   implements ControlledStage{
 
-        StageManager stageManager;
-
-        @FXML
-        private PasswordField password;
-
-        @FXML
-        private TextField username;
-
-        @FXML
-        private JFXButton userlogin;
-
-        @FXML
-        void login(ActionEvent event) {
-            String userName = username.getText();
-            String passWord = password.getText();
-            System.out.println(userName + passWord);
-           boolean result =  new UserServiceImpl().login(userName,passWord);
-           if(result){
-               //
-               System.out.println("正确");
-               //stage.close();
-               User user = new Mem();
-               user.setName(new UserServiceImpl().getName(userName));
-               ((Mem) user).setItemList(new UserServiceImpl().getCheckOutInfo("001"));
-               stageManager.setStage(user,"UserPanel","Login");
+    StageManager stageManager;
 
 
-               //跳转至用户界面
-           }
-           //弹出登陆失败界面
-           else System.out.println("login failed");
+    @FXML
+    private JFXPasswordField password;
 
-        }
+
+    @FXML
+    private JFXTextField username;
+
+
+    @FXML
+    private JFXButton userlogin;
+
+    @FXML
+    void login(ActionEvent event) {
+        String userName = username.getText();
+        String passWord = password.getText();
+        System.out.println(userName + passWord);
+       boolean result =  new UserServiceImpl().login(userName,passWord);
+       if(result){
+           //
+           System.out.println("正确");
+           //stage.close();
+           User user = new Mem();
+           user.setName(new UserServiceImpl().getName(userName));
+           ((Mem) user).setItemList(new UserServiceImpl().getCheckOutInfo("001"));
+           stageManager.setStage(user,"UserPanel","Login");
+
+
+           //跳转至用户界面
+       }
+       //弹出登陆失败界面
+       else System.out.println("login failed");
+
+    }
 
     @FXML
     void loginAsAdmin(ActionEvent event) {

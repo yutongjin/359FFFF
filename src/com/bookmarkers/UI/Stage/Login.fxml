@@ -10,9 +10,12 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bookmarkers.UI.Controller.LoginController">
    <children>
-      <TextField fx:id="username" layoutX="44.0" layoutY="39.0" />
-      <PasswordField fx:id="password" layoutX="44.0" layoutY="91.0" />
-      <JFXButton fx:id="userlogin" layoutX="86.0" layoutY="162.0" onAction="#login" text="Button" />
-      <JFXButton layoutX="169.0" layoutY="162.0" onAction="#loginAsAdmin" text="Login as admin" />
+      <JFXButton fx:id="userlogin" layoutX="158.0" layoutY="272.0" onAction="#login" text="Reader Login" />
+      <JFXButton layoutX="308.0" layoutY="272.0" onAction="#loginAsAdmin" text="Admin Login" />
+      <JFXTextField fx:id="username" layoutX="232.0" layoutY="118.0" />
+      <Label layoutX="112.0" layoutY="137.0" text="User Name" />
+      <Label layoutX="117.0" layoutY="206.0" text="Password" />
+      <JFXPasswordField fx:id="password" layoutX="232.0" layoutY="193.0" />
+      <Label layoutX="111.0" layoutY="72.0" prefHeight="17.0" prefWidth="242.0" text="Welcome To Bookmarks Library" />
    </children>
 </AnchorPane>
