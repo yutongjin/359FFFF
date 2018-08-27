@@ -1,5 +1,6 @@
 package com.bookmarkers.Data.Item;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -35,6 +36,11 @@ public  class Item extends RecursiveTreeObject<Item> implements Observable {
     StringProperty SpDateCreated;
     StringProperty SpActive;
     StringProperty SpBooker;
+    StringProperty SpReturnDate;
+
+    public void setSpReturnDate(String spReturnDate) {
+        this.SpReturnDate.set(spReturnDate);
+    }
 
     public String getId() {
         return Id;
@@ -66,6 +72,14 @@ public  class Item extends RecursiveTreeObject<Item> implements Observable {
 
     public String getSpType() {
         return SpType.get();
+    }
+
+    public String getSpReturnDate() {
+        return SpReturnDate.get();
+    }
+
+    public StringProperty spReturnDateProperty() {
+        return SpReturnDate;
     }
 
     public StringProperty spTypeProperty() {
@@ -171,11 +185,13 @@ public  class Item extends RecursiveTreeObject<Item> implements Observable {
     public Item(String Id){
         this.SpId = new SimpleStringProperty(Id);
     }
-    public Item(String Id,String name ,String Author,String Type ){
+    public Item(String Id,String name ,String Author,String Type,String DetailedType,Date ReturnDate){
         this.SpId =new  SimpleStringProperty(Id);
         this.SpName = new SimpleStringProperty(name);
         this.SpAuthor = new SimpleStringProperty(Author);
         this.SpType = new SimpleStringProperty(Type);
+        this.SpDetailedType = new SimpleStringProperty(DetailedType);
+        this.SpReturnDate = new SimpleStringProperty(new SimpleDateFormat("yyyy/MM/dd").format(ReturnDate));
 
     }
     List<String> KeyWord;

@@ -72,7 +72,7 @@ public class UserAccountController implements Initializable  , ControlledStage {
         JFXTreeTableColumn<Item,String> Author = new JFXTreeTableColumn<>("Author");
         JFXTreeTableColumn<Item,String> Type = new JFXTreeTableColumn<>("Type");
         JFXTreeTableColumn<Item,String>  DetailedType= new JFXTreeTableColumn<>("SpecificType");
-        JFXTreeTableColumn<Item,String> DateCheckedOut = new JFXTreeTableColumn<>("CheckOutDate");
+        JFXTreeTableColumn<Item,String> ReturnDate = new JFXTreeTableColumn<>("ReturnDate");
         JFXTreeTableColumn<Item,String> Status = new JFXTreeTableColumn<>("Status");
         //JFXTreeTableColumn<Item,String> Booker = new JFXTreeTableColumn<>("Name");
 
@@ -81,7 +81,7 @@ public class UserAccountController implements Initializable  , ControlledStage {
         Author.setPrefWidth(70);
         Type.setPrefWidth(40);
         DetailedType.setPrefWidth(70);
-        DateCheckedOut.setPrefWidth(70);
+        ReturnDate.setPrefWidth(70);
         Status.setPrefWidth(40);
 
         Id.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<Item, String>, ObservableValue<String>>() {
@@ -115,10 +115,10 @@ public class UserAccountController implements Initializable  , ControlledStage {
                 return param.getValue().getValue().spDetailedTypeProperty();            }
         });
 
-        DateCheckedOut.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<Item, String>, ObservableValue<String>>() {
+        ReturnDate.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<Item, String>, ObservableValue<String>>() {
             @Override
             public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<Item, String> param) {
-                return param.getValue().getValue().spDateCreatedProperty();            }
+                return param.getValue().getValue().spReturnDateProperty();  }
         });
 
         Status.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<Item, String>, ObservableValue<String>>() {
@@ -133,11 +133,11 @@ public class UserAccountController implements Initializable  , ControlledStage {
         System.out.println(stageManager.getUser().getName() + "name");
         List<Item> list = new UserServiceImpl().getCheckOutInfo(id);
         for(Item item : list) {
-            items.add(new Item(item.getId(),item.getName(),item.getAuthor(),item.getType()));
+            items.add(new Item(item.getId(),item.getName(),item.getAuthor(),item.getType(),item.getDetailedType(),item.getReturnDate()));
             System.out.println(item.getId());
         }
         final TreeItem<Item> root = new RecursiveTreeItem<Item>(items,RecursiveTreeObject::getChildren);
-        tableCurrentItems.getColumns().setAll(Id,Name,Author,Type);
+        tableCurrentItems.getColumns().setAll(Id,Name,Author,Type,DetailedType,ReturnDate);
         tableCurrentItems.setRoot(root);
         tableCurrentItems.setShowRoot(false);
     }
