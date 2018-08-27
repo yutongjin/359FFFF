@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.*?>
 <?import com.jfoenix.controls.JFXButton?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bookmarkers.UI.Controller.LoginController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@main.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bookmarkers.UI.Controller.LoginController">
    <children>
       <JFXButton fx:id="userlogin" layoutX="158.0" layoutY="272.0" onAction="#login" text="Reader Login" />
       <JFXButton layoutX="308.0" layoutY="272.0" onAction="#loginAsAdmin" text="Admin Login" />
