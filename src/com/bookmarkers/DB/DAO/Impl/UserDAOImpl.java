@@ -147,4 +147,26 @@ public class UserDAOImpl extends AbstractDAO implements UserDAO {
 
         return name;
     }
+
+    @Override
+    public String getId(String userName) throws SQLException {
+        String sql = "SELECT Id FROM user where username ='" + userName+"'";
+        System.out.println("准备找");
+        java.sql.Connection connection = this.conn;
+        Statement statement = connection.createStatement();
+        String id = "";
+        try (ResultSet resultSet = statement.executeQuery(sql)) {
+            ResultSetMetaData metaData = resultSet.getMetaData();
+            while (resultSet.next()) {
+                System.out.println("找到了");
+                String columnName = metaData.getColumnLabel(1);
+                id = resultSet.getString(columnName);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        //end : look up status
+
+        return id;
+    }
 }

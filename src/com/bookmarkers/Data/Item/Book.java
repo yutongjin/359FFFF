@@ -12,9 +12,5 @@ import java.util.List;
  * @Description :
  */
 public class Book extends IndividualItem{
-    Type type;
 
-    public Book(String id, String name, Date dateCreated, boolean active, Date returnDate, User booker, List<String> keyWord) {
-        super(id, name, dateCreated, active, returnDate, booker, keyWord);
-    }
 }

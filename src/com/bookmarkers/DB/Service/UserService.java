@@ -14,6 +14,7 @@ public interface UserService {
     public abstract void searchByKeyWord(String KeyWord) ;
     public abstract boolean login(String username,String password);
     public abstract String getName(String username) throws SQLException;
+    public abstract String getId(String username) throws SQLException;
 
-    public List<Item> getCheckOutInfo(String username);
+    public List<Item> getCheckOutInfo(String userId);
 }

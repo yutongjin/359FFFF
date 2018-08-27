@@ -8,4 +8,5 @@ public interface UserDAO {
     public void returnItem(String userId,String itemType);
     public boolean login(String username,String password) throws SQLException;
     public String getName(String username) throws SQLException;
+    public String getId(String username) throws SQLException;
 }

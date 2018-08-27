@@ -23,5 +23,6 @@
       <Label fx:id="labelBookBalance" layoutX="477.0" layoutY="192.0" text="Label" />
       <Label fx:id="labelVideoBalance" layoutX="477.0" layoutY="222.0" text="Label" />
       <Label fx:id="labelMagBalance" layoutX="480.0" layoutY="251.0" text="Label" />
+      <JFXButton layoutX="102.0" layoutY="319.0" onAction="#Show" text="Button" />
    </children>
 </AnchorPane>

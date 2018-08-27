@@ -113,9 +113,14 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public String getId(String username) throws SQLException {
+        return new UserServiceImpl().getId(username);
+    }
+
+    @Override
     public List<Item> getCheckOutInfo(String Id) {
         List<Item> list = new ArrayList<>();
-        list =  new ItemDAOImpl(dbc).getItemListById("001");
+        list =  new ItemDAOImpl(dbc).getItemListById(Id);
         for(Item item : list) {
             System.out.println(item.toString());
 

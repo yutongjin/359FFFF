@@ -25,18 +25,110 @@ public  class Item extends RecursiveTreeObject<Item> implements Observable {
     private Date dateCreated;
     private boolean active;
     private Date returnDate;
-    private User booker;
+    private String booker;
+
+    StringProperty SpId;
+    StringProperty SpName;
+    StringProperty SpAuthor;
+    StringProperty SpType;
+    StringProperty SpDetailedType;
+    StringProperty SpDateCreated;
+    StringProperty SpActive;
+    StringProperty SpBooker;
 
     public String getId() {
         return Id;
     }
 
+    public String getSpName() {
+        return SpName.get();
+    }
+
+    public StringProperty spNameProperty() {
+        return SpName;
+    }
+
+    public void setSpName(String spName) {
+        this.SpName.set(spName);
+    }
+
+    public String getSpAuthor() {
+        return SpAuthor.get();
+    }
+
+    public StringProperty spAuthorProperty() {
+        return SpAuthor;
+    }
+
+    public void setSpAuthor(String spAuthor) {
+        this.SpAuthor.set(spAuthor);
+    }
+
+    public String getSpType() {
+        return SpType.get();
+    }
+
+    public StringProperty spTypeProperty() {
+        return SpType;
+    }
+
+    public void setSpType(String spType) {
+        this.SpType.set(spType);
+    }
+
+    public String getSpDetailedType() {
+        return SpDetailedType.get();
+    }
+
+    public StringProperty spDetailedTypeProperty() {
+        return SpDetailedType;
+    }
+
+    public void setSpDetailedType(String spDetailedType) {
+        this.SpDetailedType.set(spDetailedType);
+    }
+
+    public String getSpDateCreated() {
+        return SpDateCreated.get();
+    }
+
+    public StringProperty spDateCreatedProperty() {
+        return SpDateCreated;
+    }
+
+    public void setSpDateCreated(String spDateCreated) {
+        this.SpDateCreated.set(spDateCreated);
+    }
+
+    public String getSpActive() {
+        return SpActive.get();
+    }
+
+    public StringProperty spActiveProperty() {
+        return SpActive;
+    }
+
+    public void setSpActive(String spActive) {
+        this.SpActive.set(spActive);
+    }
+
+    public String getSpBooker() {
+        return SpBooker.get();
+    }
+
+    public StringProperty spBookerProperty() {
+        return SpBooker;
+    }
+
+    public void setSpBooker(String spBooker) {
+        this.SpBooker.set(spBooker);
+    }
 
     public StringProperty spIdProperty() {
         return SpId;
     }
 
-    StringProperty SpId;
+
 
     public Item(String Id){
         this.SpId = new SimpleStringProperty(Id);
@@ -70,18 +162,8 @@ public  class Item extends RecursiveTreeObject<Item> implements Observable {
 
     public Item(){
 
-
     }
-    public Item(String id, String name, Date dateCreated, boolean active, Date returnDate, User booker, List<String> keyWord) {
-        Id = id;
-        this.name = name;
-        this.dateCreated = dateCreated;
-        this.active = active;
-        this.returnDate = returnDate;
-        this.booker = booker;
 
-        KeyWord = keyWord;
-    }
 
     @Override
     public void addListener(InvalidationListener listener) {

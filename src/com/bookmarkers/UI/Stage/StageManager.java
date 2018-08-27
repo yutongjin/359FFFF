@@ -18,7 +18,7 @@ public class StageManager {
     private HashMap<String, Stage> stages = new HashMap<String, Stage>();
 
     public User getUser() {
-        return user;
+        System.out.println(user.getName());return this.user;
     }
 
     User user;

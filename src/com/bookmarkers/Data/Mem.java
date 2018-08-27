@@ -64,6 +64,6 @@ public class Mem extends User {
     }
 
     public String getId() {
-        return super.getId();
+        System.out.println("Id ：" + this.Id);return this.Id;
     }
 }

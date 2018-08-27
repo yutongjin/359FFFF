@@ -23,6 +23,7 @@ import javafx.stage.Stage;
 import com.bookmarkers.UI.Stage.*;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 /**
@@ -50,7 +51,7 @@ public class LoginController implements ControlledStage, Initializable {
     private JFXButton adminlogin;
 
     @FXML
-    void login(ActionEvent event) {
+    void login(ActionEvent event) throws SQLException {
         String userName = username.getText();
         String passWord = password.getText();
         System.out.println(userName + passWord);
@@ -60,8 +61,10 @@ public class LoginController implements ControlledStage, Initializable {
            System.out.println("正确");
            //stage.close();
            User user = new Mem();
-           user.setName(new UserServiceImpl().getName(userName));
-           ((Mem) user).setItemList(new UserServiceImpl().getCheckOutInfo("001"));
+           //user.setName(new UserServiceImpl().getName(userName));
+           //user.setId(new UserServiceImpl().getId(userName));
+           System.out.println(" chadaode "+ new UserServiceImpl().getId(userName));
+          // ((Mem) user).setItemList(new UserServiceImpl().getCheckOutInfo("001"));
            stageManager.setStage(user,"UserPanel","Login");
 
 
