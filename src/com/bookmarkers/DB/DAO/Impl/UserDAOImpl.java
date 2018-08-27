@@ -32,7 +32,7 @@ public class UserDAOImpl extends AbstractDAO implements UserDAO {
         // look up status
       //  System.out.println("UPDATE Item SET Booker ='" + userId + "' where Id = " );
       //String sql = "SELECT Active FROM Item where Id = " + itemId;
-        String sql = "SELECT "+type +" FROM user where uId =" + userId;
+        String sql = "SELECT "+type +" FROM user where uId = '" + userId+"'";
         //System.out.println(sql);
         try (ResultSet resultSet = statement.executeQuery(sql)) {
             ResultSetMetaData metaData = resultSet.getMetaData();
@@ -59,7 +59,7 @@ public class UserDAOImpl extends AbstractDAO implements UserDAO {
             default:type = "balanceVideo";
         }
         System.out.println("booking");
-        String sql2 = "UPDATE user SET " + type+" = " + type + "- 1  where uId = " + userId;
+        String sql2 = "UPDATE user SET " + type+" = " + type + "- 1  where uId = '" + userId+"'";
         try {
             java.sql.Connection connection = this.conn;
             Statement statement = connection.createStatement();
@@ -85,7 +85,7 @@ public class UserDAOImpl extends AbstractDAO implements UserDAO {
             default:type = "balanceVideo";
         }
         System.out.println(type);
-        String sql2 = "UPDATE user SET " + type+" = " + type + "+ 1  where uId = " + userId;
+        String sql2 = "UPDATE user SET " + type+" = " + type + "+ 1  where uId = '" + userId+"'";
         try {
             java.sql.Connection connection = this.conn;
             Statement statement = connection.createStatement();
@@ -136,21 +136,21 @@ public class UserDAOImpl extends AbstractDAO implements UserDAO {
         try (ResultSet resultSet = statement.executeQuery(sql)) {
             ResultSetMetaData metaData = resultSet.getMetaData();
             while (resultSet.next()) {
-                System.out.println("找到了");
+
                 String columnName = metaData.getColumnLabel(1);
                 name = resultSet.getString(columnName);
+                System.out.println("找到了" + name);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
         //end : look up status
-
         return name;
     }
 
     @Override
     public String getId(String userName) throws SQLException {
-        String sql = "SELECT Id FROM user where username ='" + userName+"'";
+        String sql = "SELECT uId FROM user where username ='" + userName+"'";
         System.out.println("准备找");
         java.sql.Connection connection = this.conn;
         Statement statement = connection.createStatement();

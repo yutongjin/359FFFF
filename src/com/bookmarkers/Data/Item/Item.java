@@ -128,16 +128,60 @@ public  class Item extends RecursiveTreeObject<Item> implements Observable {
         return SpId;
     }
 
+    public String getName() {
+        return name;
+    }
 
+    public String getAuthor() {
+        return author;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public String getDetailedType() {
+        return detailedType;
+    }
+
+    public Date getDateCreated() {
+        return dateCreated;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public Date getReturnDate() {
+        return returnDate;
+    }
+
+    public String getBooker() {
+        return booker;
+    }
+
+    public String getSpId() {
+        return SpId.get();
+    }
+
+    public List<String> getKeyWord() {
+        return KeyWord;
+    }
 
     public Item(String Id){
         this.SpId = new SimpleStringProperty(Id);
     }
+    public Item(String Id,String name ,String Author,String Type ){
+        this.SpId =new  SimpleStringProperty(Id);
+        this.SpName = new SimpleStringProperty(name);
+        this.SpAuthor = new SimpleStringProperty(Author);
+        this.SpType = new SimpleStringProperty(Type);
 
+    }
     List<String> KeyWord;
 
     public void setId(String id) {
-        Id = id;
+        this.Id = id;
     }
 
     public void setName(String name) {

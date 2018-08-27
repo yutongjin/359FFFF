@@ -29,15 +29,42 @@ public class Mem extends User {
     public Mem(String name,boolean b){
         super(name,b);
     }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public List<Item> getItemList() {
+        return itemList;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
     public Mem(String id) {
+super(id);
 
-        super(id);
-
-    }
-
-    public void setId(String id) {
         this.Id = id;
+
     }
+
+   // public void setId(String id) {
+    //    this.Id = id;
+   // }
 
     public void setName(String name) {
         this.name = name;
@@ -63,7 +90,14 @@ public class Mem extends User {
         this.password = password;
     }
 
+    @Override
+    public void setId(String id) {
+        Id = id;
+    }
+
     public String getId() {
-        System.out.println("Id ：" + this.Id);return this.Id;
+        System.out.println("Id ：" + this.Id);
+
+        return this.Id;
     }
 }

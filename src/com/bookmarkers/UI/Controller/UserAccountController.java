@@ -77,11 +77,11 @@ public class UserAccountController implements Initializable  , ControlledStage {
         //JFXTreeTableColumn<Item,String> Booker = new JFXTreeTableColumn<>("Name");
 
         Id.setPrefWidth(40);
-        Name.setPrefWidth(40);
-        Author.setPrefWidth(40);
+        Name.setPrefWidth(100);
+        Author.setPrefWidth(70);
         Type.setPrefWidth(40);
-        DetailedType.setPrefWidth(40);
-        DateCheckedOut.setPrefWidth(40);
+        DetailedType.setPrefWidth(70);
+        DateCheckedOut.setPrefWidth(70);
         Status.setPrefWidth(40);
 
         Id.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<Item, String>, ObservableValue<String>>() {
@@ -133,7 +133,8 @@ public class UserAccountController implements Initializable  , ControlledStage {
         System.out.println(stageManager.getUser().getName() + "name");
         List<Item> list = new UserServiceImpl().getCheckOutInfo(id);
         for(Item item : list) {
-            items.add(item);
+            items.add(new Item(item.getId(),item.getName(),item.getAuthor(),item.getType()));
+            System.out.println(item.getId());
         }
         final TreeItem<Item> root = new RecursiveTreeItem<Item>(items,RecursiveTreeObject::getChildren);
         tableCurrentItems.getColumns().setAll(Id,Name,Author,Type);

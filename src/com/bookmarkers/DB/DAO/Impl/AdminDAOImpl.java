@@ -17,7 +17,7 @@ public class AdminDAOImpl extends AbstractDAO implements AdminDAO {
 
     @Override
     public boolean login(String userName, String passWord) throws SQLException {
-        String sql = "SELECT password FROM Admin where adminName ='" + userName+"'";
+        String sql = "SELECT password FROM Admin where adminName ='" + userName+ "'";
         System.out.println("准备找");
         java.sql.Connection connection = this.conn;
         Statement statement = connection.createStatement();

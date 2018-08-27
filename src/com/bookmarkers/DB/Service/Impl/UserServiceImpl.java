@@ -4,6 +4,7 @@ import com.bookmarkers.DB.DAO.Impl.ItemDAOImpl;
 import com.bookmarkers.DB.DAO.Impl.SearchStrategy.SearchByAuthor;
 import com.bookmarkers.DB.DAO.Impl.SearchStrategy.SearchById;
 import com.bookmarkers.DB.DAO.Impl.SearchStrategy.SearchByKeywords;
+import com.bookmarkers.DB.DAO.Impl.UserDAOImpl;
 import com.bookmarkers.DB.DatabaseConnection.DataBaseConnection;
 import com.bookmarkers.DB.Factory.DAOFactory.DAOFactory;
 import com.bookmarkers.DB.DAO.SearchService;
@@ -51,6 +52,7 @@ public class UserServiceImpl implements UserService {
             System.out.println("judging");
             String bookerId = DAOFactory.getItemDAOInstance(dbc).getBookerId(itemId);
             String type = DAOFactory.getItemDAOInstance(dbc).getType(itemId);
+            System.out.println("bookiD" + bookerId );
             if( bookerId != null &&bookerId.equals(userId)&& !DAOFactory.getItemDAOInstance(dbc).active(itemId)) {
                 result = DAOFactory.getItemDAOInstance(dbc).returnItem(userId, itemId);
 
@@ -114,13 +116,13 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public String getId(String username) throws SQLException {
-        return new UserServiceImpl().getId(username);
+        return new UserDAOImpl(dbc).getId(username);
     }
 
     @Override
     public List<Item> getCheckOutInfo(String Id) {
         List<Item> list = new ArrayList<>();
-        list =  new ItemDAOImpl(dbc).getItemListById(Id);
+        list =  DAOFactory.getItemDAOInstance(dbc).getItemListById(Id);
         for(Item item : list) {
             System.out.println(item.toString());
 

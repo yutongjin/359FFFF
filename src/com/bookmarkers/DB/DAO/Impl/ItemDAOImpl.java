@@ -55,14 +55,14 @@ public class ItemDAOImpl extends AbstractDAO implements ItemDAO {
         String sql4 = "";
         if(setNumber == 0) {
 
-             sql2 = "UPDATE Item SET Active = 0 where Id = " + itemId;
-             sql3 = "UPDATE Item SET Booker ='" + userId + "' where Id = " + itemId;
-             sql4 = "UPDATE Item SET ReturnDate = '" + reStr + "' where Id = " + itemId;
+             sql2 = "UPDATE Item SET Active = 0 where Id = '" + itemId + "'";
+             sql3 = "UPDATE Item SET Booker ='" + userId + "' where Id = '" + itemId +"'";
+             sql4 = "UPDATE Item SET ReturnDate = '" + reStr + "' where Id = '" + itemId + "'";
         }
         else{
-             sql2 = "UPDATE Item SET Active = 0 where setNumber = " + setNumber;
-             sql3 = "UPDATE Item SET Booker ='" + userId + "' where setNumber = " + setNumber;
-             sql4 = "UPDATE Item SET ReturnDate = '" + reStr + "' where setNumber = " + setNumber;
+             sql2 = "UPDATE Item SET Active = 0 where setNumber = '" + setNumber + "'";
+             sql3 = "UPDATE Item SET Booker ='" + userId + "' where setNumber = '" + setNumber +"'";
+             sql4 = "UPDATE Item SET ReturnDate = '" + reStr + "' where setNumber = '" + setNumber +"'";
             //String nowTime = new SimpleDateFormat("yyyy-MM-ddHH:mm:ss").format(returnDate);//将时间格式转换成符合Timestamp要求的格式.
             //Timestamp goodsC_date =Timestamp.valueOf(returnDate);//把时间转换
 
@@ -86,19 +86,19 @@ public class ItemDAOImpl extends AbstractDAO implements ItemDAO {
     @Override
     public boolean returnItem(String userId, String itemId) {
         int setNumber = getSetNumber(itemId);
-
+        System.out.println("userid" + userId + " itemI到"+ itemId);
         String sql2 ="";
         String sql3 = "";
         String sql4 = "";
         if(setNumber == 0) {
-             sql2 = "UPDATE Item SET Active = 1 where Id = " + itemId;
-             sql3 = "UPDATE Item SET Booker =null " + " where Id = " + itemId;
-             sql4 = "UPDATE Item SET ReturnDate = null" + " where Id = " + itemId;
+             sql2 = "UPDATE Item SET Active = 1 where Id = '" + itemId+"'";
+             sql3 = "UPDATE Item SET Booker =null  where Id = '" + itemId+"'";
+             sql4 = "UPDATE Item SET ReturnDate = null where Id = '" + itemId+"'";
         }
           else{
-            sql2 = "UPDATE Item SET Active = 1 where setNumber = " + setNumber;
-            sql3 = "UPDATE Item SET Booker = null where setNumber = " + setNumber;
-            sql4 = "UPDATE Item SET ReturnDate =  null where setNumber = " + setNumber;
+            sql2 = "UPDATE Item SET Active = 1 where setNumber = '" + setNumber +"'";
+            sql3 = "UPDATE Item SET Booker = null where setNumber = '" + setNumber +"'";
+            sql4 = "UPDATE Item SET ReturnDate =  null where setNumber = '" + setNumber +"'";
             //String nowTime = new SimpleDateFormat("yyyy-MM-ddHH:mm:ss").format(returnDate);//将时间格式转换成符合Timestamp要求的格式.
             //Timestamp goodsC_date =Timestamp.valueOf(returnDate);//把时间转换
         }
@@ -128,7 +128,7 @@ public class ItemDAOImpl extends AbstractDAO implements ItemDAO {
         Statement statement = connection.createStatement();
         int active = -1;
         // look up status
-        String sql = "SELECT Active FROM Item where Id = " + itemId;
+        String sql = "SELECT Active FROM Item where Id = '" + itemId+ "'";
         try (ResultSet resultSet = statement.executeQuery(sql)) {
             ResultSetMetaData metaData = resultSet.getMetaData();
             while (resultSet.next()) {
@@ -151,12 +151,14 @@ public class ItemDAOImpl extends AbstractDAO implements ItemDAO {
         Statement statement = connection.createStatement();
         String bookerId = "";
         // look up status
-        String sql = "SELECT Booker FROM Item where Id = " + itemId;
+        String sql = "SELECT Booker FROM Item where Id = '" + itemId+"'";
         try (ResultSet resultSet = statement.executeQuery(sql)) {
             ResultSetMetaData metaData = resultSet.getMetaData();
             while (resultSet.next()) {
+
                 String columnName = metaData.getColumnLabel(1);
                 bookerId = resultSet.getString(columnName);
+                System.out.println("found" + bookerId);
             }
 
 
@@ -178,7 +180,7 @@ public class ItemDAOImpl extends AbstractDAO implements ItemDAO {
         }
         String type = "";
         // look up status
-        String sql = "SELECT ItemType FROM Item where Id = " + itemId;
+        String sql = "SELECT ItemType FROM Item where Id = '" + itemId +"'";
         try (ResultSet resultSet = statement.executeQuery(sql)) {
             ResultSetMetaData metaData = resultSet.getMetaData();
             while (resultSet.next()) {
@@ -231,11 +233,10 @@ public class ItemDAOImpl extends AbstractDAO implements ItemDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        int setNumber = 0;
         // look up status
-        String sql = "SELECT Id ,name ,ItemType ,Type, Arthur ,ReturnDate FROM Item where Booker = " + id;
+        String sql = "SELECT Id ,name ,ItemType ,Type, Arthur ,ReturnDate FROM Item where Booker = '" + id +"'";
         try (ResultSet resultSet = statement.executeQuery(sql)) {
-
+            System.out.println("找到了元素");
             ResultSetMetaData metaData = resultSet.getMetaData();
             Item item = null;
             while (resultSet.next()) {
@@ -277,7 +278,7 @@ public class ItemDAOImpl extends AbstractDAO implements ItemDAO {
         }
         int setNumber = 0;
         // look up status
-        String sql = "SELECT setNumber FROM Item where Id = " + itemId;
+        String sql = "SELECT setNumber FROM Item where Id = '" + itemId +"'";
         try (ResultSet resultSet = statement.executeQuery(sql)) {
             ResultSetMetaData metaData = resultSet.getMetaData();
             while (resultSet.next()) {

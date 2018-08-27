@@ -61,9 +61,11 @@ public class LoginController implements ControlledStage, Initializable {
            System.out.println("正确");
            //stage.close();
            User user = new Mem();
-           //user.setName(new UserServiceImpl().getName(userName));
-           //user.setId(new UserServiceImpl().getId(userName));
-           System.out.println(" chadaode "+ new UserServiceImpl().getId(userName));
+           user.setName(new UserServiceImpl().getName(userName));
+           user.setId(new UserServiceImpl().getId(userName));
+           System.out.println("user itself name id "+ user.getName() + user.getId());
+           stageManager.setUser(user);
+           System.out.println("this user id" + stageManager.getUser().getId());
           // ((Mem) user).setItemList(new UserServiceImpl().getCheckOutInfo("001"));
            stageManager.setStage(user,"UserPanel","Login");
 

@@ -18,7 +18,7 @@ public abstract class User {
     }
 
     public String getId() {
-        //System.out.println("this id "+ getId());
+        System.out.println("this id "+ Id);
         return Id;
     }
 
@@ -33,7 +33,7 @@ public abstract class User {
     public User(String id) {
 
         this.Id = id;
-        System.out.println(id +" id!!!");
+
 
     }
     public User(String name, boolean b) {

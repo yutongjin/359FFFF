@@ -18,16 +18,17 @@ public class TestService {
     public static void main(String[] args) {
         //checkOut("001");
         //returnItem("Yuin");
-        //returnItem("001");
+       // returnItem("001");
         //SearchService searchService = new SearchByAuthor().search("cooper");
         //new UserServiceImpl().searchByKeyWord("mag");
-        List<Item> list = new UserServiceImpl().getCheckOutInfo("001");
+        //List<Item> list = new UserServiceImpl().getCheckOutInfo("001");
     }
     public static void checkOut(String id){
         User user  =new Mem(id);
         UserService userService = ServiceFactory.getUserServiceInstance();
         for (int i = 1; i < 8; i++) {
             String itemId = "00" + i;
+
             try {
                 if(userService.checkOutItem(user.getId(),itemId)){
                     System.out.println("Check out Success");
@@ -38,11 +39,12 @@ public class TestService {
         }
     }
 
-    public static void returnItem(String name){
-        User user  =new Mem(name);
+    public static void returnItem(String id){
+        User user  =new Mem(id);
         UserService userService = ServiceFactory.getUserServiceInstance();
         for (int i = 1; i < 8; i++) {
             String itemId = "00" + i;
+            System.out.println(user.getId() + "iddddd");
             if(userService.returnItem(user.getId(),itemId)){
                 System.out.println("return Success");
             }

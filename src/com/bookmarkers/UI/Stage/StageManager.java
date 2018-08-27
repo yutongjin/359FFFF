@@ -16,12 +16,16 @@ import java.util.HashMap;
 public class StageManager {
     //建立一个专门存储Stage的Map，全部用于存放Stage对象
     private HashMap<String, Stage> stages = new HashMap<String, Stage>();
+    User user;
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public User getUser() {
         System.out.println(user.getName());return this.user;
     }
 
-    User user;
+
 
     /**
      * 将加载好的Stage放到Map中进行管理
