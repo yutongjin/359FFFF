@@ -1,0 +1,38 @@
+* {
+    -fx-primary : #61bfd7;
+    -fx-secondary : white;
+    -fx-primarytext : white;
+    /*-fx-blue: #1976D2;*/
+    /*-fx-red: #FF0000;*/
+    /*-fx-color-1:#1976D2;*/
+}
+
+.root{
+    -fx-background-color: -fx-primary;
+}
+
+.button{
+    -jfx-button-type: FLAT;
+    -fx-text-fill: -fx-primarytext;
+    -fx-background-color: -fx-primary;
+    -fx-border-color: white;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+    -fx-font-size: 12pt;
+    -fx-pref-width: 150px;
+}
+
+.button:hover, .button:focused{
+    -fx-border-color: white;
+    -fx-background-color: white;
+    -fx-text-fill: -fx-primary;
+}
+
+
+.text-field
+{
+    -fx-text-fill: -fx-primarytext;
+    -fx-font-size : 12pt;
+    -jfx-focus-color: -fx-secondary;
+    -fx-text-fill: derive(-fx-primary, 20%);
+}

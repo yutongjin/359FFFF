@@ -1,6 +1,6 @@
 
 .root {
-    -fx-background-color : #d3d6c5;
+    -fx-background-color : #61bfd7;
     /*-fx-background-image: url("bg.png");*/
 }
 /*
@@ -17,7 +17,7 @@
     -fx-font-weight: BOLD;
     -fx-prompt-text-fill: #808080;
     -fx-alignment: top-left;
-    -jfx-focus-color: #4059A9;
+    -jfx-focus-color: #47b3d7;
     -jfx-unfocus-color: #4d4d4d;
     -fx-max-width: 300;
 }
@@ -26,6 +26,7 @@
     -fx-spacing: 5;
     -fx-cursor: hand;
 }
+
 .jfx-hamburger-icon StackPane{
     -fx-pref-width: 40px;
     -fx-pref-height: 7px;
