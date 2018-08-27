@@ -1,0 +1,91 @@
+package com.bookmarkers.UI.Controller;
+
+import com.bookmarkers.DB.Service.Impl.AdminServiceImpl;
+import com.bookmarkers.DB.Service.Impl.UserServiceImpl;
+import com.bookmarkers.Data.Admin;
+import com.bookmarkers.Data.Mem;
+import com.bookmarkers.Data.User;
+import com.bookmarkers.Main;
+import com.jfoenix.controls.JFXButton;
+import com.sun.javafx.robot.impl.FXRobotHelper;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+import com.bookmarkers.UI.Stage.*;
+import java.io.IOException;
+
+/**
+ * @Author : Yutong Jin
+ * @date : 8/25/18
+ * @Description :
+ */
+public class LoginController   implements ControlledStage{
+
+        StageManager stageManager;
+
+        @FXML
+        private PasswordField password;
+
+        @FXML
+        private TextField username;
+
+        @FXML
+        private JFXButton userlogin;
+
+        @FXML
+        void login(ActionEvent event) {
+            String userName = username.getText();
+            String passWord = password.getText();
+            System.out.println(userName + passWord);
+           boolean result =  new UserServiceImpl().login(userName,passWord);
+           if(result){
+               //
+               System.out.println("正确");
+               //stage.close();
+               User user = new Mem();
+               user.setName(new UserServiceImpl().getName(userName));
+               stageManager.setStage(user,"UserPanel","Login");
+
+
+               //跳转至用户界面
+           }
+           //弹出登陆失败界面
+           else System.out.println("login failed");
+
+        }
+
+    @FXML
+    void loginAsAdmin(ActionEvent event) {
+        String userName = username.getText();
+        String passWord = password.getText();
+        System.out.println(userName + passWord);
+        boolean result =  new AdminServiceImpl().login(userName,passWord);
+        if(result){
+            //
+            System.out.println("管理员登陆成功");
+            //stage.close();
+            User user = new Admin(new AdminServiceImpl().getName(userName,passWord),true);
+            stageManager.setStage(user,"AdminPanel","Login");
+
+
+            //跳转至用户界面
+        }
+        //弹出登陆失败界面
+        else System.out.println("login failed");
+
+    }
+
+    @Override
+    public void setStageController(StageManager stageManager) {
+        this.stageManager = stageManager;
+    }
+
+
+}
+

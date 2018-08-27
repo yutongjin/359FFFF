@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bookmarkers.UI.Controller.CheckOutBookController">
+    <children>
+        <Label layoutX="108.0" layoutY="115.0" text="Item ID:" />
+        <JFXButton fx:id="btnCheckOut" layoutX="176.0" layoutY="235.0" onAction="#onBtnCheckOutClicked" text="Check Out Item" />
+        <JFXButton fx:id="btnBack" layoutX="371.0" layoutY="235.0" onAction="#onBtnBackClicked" text="Back" />
+        <Label layoutX="108.0" layoutY="66.0" text="To check out item, please input item ID" />
+      <JFXTextField fx:id="textfieldItemID" layoutX="176.0" layoutY="110.0" />
+    </children>
+</AnchorPane>

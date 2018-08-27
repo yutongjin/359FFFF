@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bookmarkers.UI.Controller.SearchResultController">
+   <children>
+      <Label layoutX="55.0" layoutY="79.0" text="Search Result for:" />
+      <Label fx:id="labelKeyword" layoutX="175.0" layoutY="79.0" text="Label" />
+      <JFXTreeTableView fx:id="tableResult" layoutX="55.0" layoutY="122.0" prefHeight="205.0" prefWidth="329.0" />
+      <JFXButton fx:id="btnNewSearch" layoutX="466.0" layoutY="96.0" onAction="#onBtnNewSearchClicked" text="New Search" />
+      <JFXButton fx:id="btnBack" layoutX="483.0" layoutY="291.0" onAction="#onBtnBackClicked" text="Back" />
+   </children>
+</AnchorPane>

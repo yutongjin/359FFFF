@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bookmarkers.UI.Controller.UserAccountController">
+   <children>
+      <Label layoutX="45.0" layoutY="48.0" text="Account Summary" />
+      <JFXTreeTableView fx:id="tableCurrentItems" layoutX="45.0" layoutY="93.0" prefHeight="197.0" prefWidth="314.0" />
+      <JFXButton fx:id="btnBack" layoutX="477.0" layoutY="334.0" onAction="#onBtnBackClicked" text="Back" />
+      <Label layoutX="399.0" layoutY="93.0" text="User ID:" />
+      <Label layoutX="399.0" layoutY="130.0" text="Account Status:" />
+      <Label layoutX="394.0" layoutY="164.0" text="Checkout Balance" />
+      <Label layoutX="400.0" layoutY="192.0" text="book:" />
+      <Label layoutX="400.0" layoutY="222.0" text="Video:" />
+      <Label layoutX="400.0" layoutY="251.0" text="Magazine" />
+      <Label fx:id="labelUserID" layoutX="460.0" layoutY="93.0" text="Label" />
+      <Label fx:id="labelAccountStatus" layoutX="509.0" layoutY="130.0" text="Label" />
+      <Label fx:id="labelBookBalance" layoutX="477.0" layoutY="192.0" text="Label" />
+      <Label fx:id="labelVideoBalance" layoutX="477.0" layoutY="222.0" text="Label" />
+      <Label fx:id="labelMagBalance" layoutX="480.0" layoutY="251.0" text="Label" />
+   </children>
+</AnchorPane>

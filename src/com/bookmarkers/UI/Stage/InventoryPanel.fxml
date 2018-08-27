@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bookmarkers.UI.Controller.InventoryPanelController">
+   <children>
+      <JFXButton fx:id="btnBack" layoutX="448.0" layoutY="310.0" onAction="#onBtnBackClicked" text="Back" />
+      <JFXButton fx:id="btnCheckRatio" layoutX="335.0" layoutY="94.0" onAction="#onBtnCheckRatioClicked" text="Check Ratio of checked out items" />
+      <Label layoutX="115.0" layoutY="107.0" text="Total books:" />
+      <Label layoutX="115.0" layoutY="192.0" text="Total magazines:" />
+      <Label layoutX="115.0" layoutY="147.0" text="Total video:" />
+      <JFXButton fx:id="btnSearch" layoutX="428.0" layoutY="142.0" onAction="#onBtnSearchClicked" text="search item" />
+      <Label fx:id="labelNoOfBooks" layoutX="203.0" layoutY="107.0" text="Label" />
+      <Label fx:id="labelNoOfVideo" layoutX="203.0" layoutY="147.0" text="Label" />
+      <Label fx:id="labelNoOfMag" layoutX="237.0" layoutY="192.0" text="Label" />
+   </children>
+</AnchorPane>
