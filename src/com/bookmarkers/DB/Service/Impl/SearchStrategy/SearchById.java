@@ -37,6 +37,7 @@ public class SearchById extends SearchService {
                 //System.out.println("start searching");
                 String columnName = metaData.getColumnLabel(1);
                 id = resultSet.getString(columnName);
+                System.out.println("找到了这个id的信息" + id);
 
                 searchResult.add(DAOFactory.getItemDAOInstance(dbc).getItemByItemId(id));
             }
