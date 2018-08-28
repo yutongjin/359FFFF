@@ -1,5 +1,7 @@
 package com.bookmarkers;
 
+import com.bookmarkers.Data.Mem;
+import com.bookmarkers.Data.User;
 import com.bookmarkers.UI.Stage.StageManager;
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -60,6 +62,9 @@ public class Main extends Application {
         stageManager = new StageManager();
 
         //将主舞台交给控制器处理
+        User user = new Mem();
+        user.logout();
+        stageManager.setUser(user);
 
         stageManager.setPrimaryStage("primaryStage", primaryStage);
 

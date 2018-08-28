@@ -3,6 +3,7 @@ package com.bookmarkers.UI.Controller;
 import com.bookmarkers.DB.Service.Impl.AdminServiceImpl;
 import com.bookmarkers.DB.Service.Impl.UserServiceImpl;
 import com.bookmarkers.Data.Admin;
+import com.bookmarkers.Data.LoggedIn;
 import com.bookmarkers.Data.Mem;
 import com.bookmarkers.Data.User;
 import com.bookmarkers.Main;
@@ -35,7 +36,6 @@ public class LoginController implements ControlledStage, Initializable {
 
     StageManager stageManager;
 
-
     @FXML
     private JFXPasswordField password;
 
@@ -54,7 +54,7 @@ public class LoginController implements ControlledStage, Initializable {
     void login(ActionEvent event) throws SQLException {
         String userName = username.getText();
         String passWord = password.getText();
-        System.out.println(userName + passWord);
+        System.out.println("userInput Member" + userName +" "+ passWord);
        boolean result =  new UserServiceImpl().login(userName,passWord);
        if(result){
            //
@@ -68,8 +68,6 @@ public class LoginController implements ControlledStage, Initializable {
            System.out.println("this user id" + stageManager.getUser().getId());
           // ((Mem) user).setItemList(new UserServiceImpl().getCheckOutInfo("001"));
            stageManager.setStage(user,"UserPanel","Login");
-
-
            //跳转至用户界面
        }
        //弹出登陆失败界面
@@ -77,43 +75,41 @@ public class LoginController implements ControlledStage, Initializable {
            AlertMarker.showErrorMessage("login failed","Please check username or password");
            System.out.println("login failed");
        }
-
     }
 
     @FXML
     void loginAsAdmin(ActionEvent event) {
-        String userName = username.getText();
-        String passWord = password.getText();
-        System.out.println(userName + passWord);
-        boolean result =  new AdminServiceImpl().login(userName,passWord);
-        if(result){
-            //
-            System.out.println("管理员登陆成功");
-            //stage.close();
-            User user = new Admin(new AdminServiceImpl().getName(userName,passWord),true);
-            stageManager.setStage(user,"AdminPanel","Login");
 
-
-            //跳转至用户界面
-        }
-        //弹出登陆失败界面
-        else {
-            System.out.println("login failed");
-            AlertMarker.showErrorMessage("login failed","Please check username or password");
+        if (!stageManager.getUser().isLoggedin()){
+            String userName = username.getText();
+            String passWord = password.getText();
+            System.out.println("userInput Member" + userName +" "+ passWord);
+            boolean result =  new AdminServiceImpl().login(userName,passWord);
+            if(result){
+                //
+                System.out.println("管理员登陆成功");
+                User user = new Admin(new AdminServiceImpl().getName(userName,passWord),true);
+                //stage.close();
+                user.login();
+                stageManager.setStage(user,"AdminPanel","Login");
+                //跳转至用户界面
+            }
+            //弹出登陆失败界面
+            else {
+                System.out.println("login failed");
+                AlertMarker.showErrorMessage("login failed","Please check username or password");
+            }
         }
     }
-
-
 
     @Override
     public void setStageController(StageManager stageManager) {
         this.stageManager = stageManager;
     }
 
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        //this.setTitle("BookMarkers");
+        System.out.println("login stage initialized");
     }
 }
 

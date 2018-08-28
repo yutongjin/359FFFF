@@ -48,6 +48,8 @@ public class AdminPanelController implements ControlledStage{
 
     @FXML
     void onBtnLogoutClicked(ActionEvent event) {
+
+        stageManager.getUser().logout();
         stageManager.setStage(stageManager.getUser(),"Login","AdminPanel");
     }
 
