@@ -1,7 +1,7 @@
 * {
     -fx-primary : #61bfd7;
     -fx-secondary : white;
-    -fx-primarytext : white;
+    -fx-primarytext : black;
     -fx-blue: #0893d2;
     /*-fx-red: #FF0000;*/
     /*-fx-color-1:#1976D2;*/
@@ -19,10 +19,11 @@
     -fx-border-radius: 4px;
     -fx-background-radius: 4px;
     -fx-font-size: 12pt;
-    -fx-pref-width: 150px;
+    -fx-pref-width: 160px;
 }
 
-.button:hover, .button:focused{
+.button:hover{
+/*.button:focused*/
     -fx-border-color: white;
     -fx-background-color: white;
     -fx-text-fill: -fx-primary;
@@ -38,5 +39,5 @@
 }
 
 .label{
-    -fx-text-fill:white;
+    -fx-text-fill:-fx-primarytext;
 }

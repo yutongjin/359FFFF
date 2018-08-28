@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import com.jfoenix.controls.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -7,22 +8,66 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@main.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bookmarkers.UI.Controller.UserAccountController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@blueTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bookmarkers.UI.Controller.UserAccountController">
    <children>
-      <Label layoutX="45.0" layoutY="48.0" text="Account Summary" />
-      <JFXTreeTableView fx:id="tableCurrentItems" layoutX="45.0" layoutY="93.0" prefHeight="197.0" prefWidth="314.0" />
-      <JFXButton fx:id="btnBack" layoutX="419.0" layoutY="339.0" onAction="#onBtnBackClicked" text="Back" />
-      <Label layoutX="399.0" layoutY="93.0" text="User ID:" />
-      <Label layoutX="399.0" layoutY="130.0" text="Account Status:" />
-      <Label layoutX="394.0" layoutY="164.0" text="Checkout Balance" />
-      <Label layoutX="400.0" layoutY="192.0" text="book:" />
-      <Label layoutX="400.0" layoutY="222.0" text="Video:" />
-      <Label layoutX="400.0" layoutY="251.0" text="Magazine" />
-      <Label fx:id="labelUserID" layoutX="460.0" layoutY="93.0" text="Label" />
-      <Label fx:id="labelAccountStatus" layoutX="509.0" layoutY="130.0" text="Label" />
-      <Label fx:id="labelBookBalance" layoutX="477.0" layoutY="192.0" text="Label" />
-      <Label fx:id="labelVideoBalance" layoutX="477.0" layoutY="222.0" text="Label" />
-      <Label fx:id="labelMagBalance" layoutX="480.0" layoutY="251.0" text="Label" />
-      <JFXButton layoutX="102.0" layoutY="319.0" onAction="#Show" text="Button" />
+      <Label layoutX="45.0" layoutY="26.0" text="Account Summary">
+         <font>
+            <Font size="20.0" />
+         </font></Label>
+      <JFXTreeTableView fx:id="tableCurrentItems" layoutX="26.0" layoutY="74.0" prefHeight="136.0" prefWidth="549.0" />
+      <JFXButton fx:id="btnBack" layoutX="425.0" layoutY="339.0" onAction="#onBtnBackClicked" text="Back" />
+      <JFXButton layoutX="106.0" layoutY="339.0" onAction="#Show" prefHeight="34.0" prefWidth="218.0" text="Show Items" />
+      <HBox layoutX="383.0" layoutY="14.0" prefHeight="60.0" prefWidth="203.0">
+         <children>
+            <VBox prefHeight="60.0" prefWidth="120.0" spacing="10.0">
+               <children>
+                  <Label text="User ID:">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label text="Account Status:">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox prefHeight="45.0" prefWidth="75.0" spacing="10.0">
+               <children>
+                  <Label fx:id="labelUserID" text="Label">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelAccountStatus" text="Label">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <VBox layoutX="436.0" layoutY="159.0" prefHeight="124.0" prefWidth="150.0" spacing="10.0" />
+      <Label layoutX="51.0" layoutY="233.0" text="Checkout Balance" />
+      <HBox layoutX="181.0" layoutY="233.0" prefHeight="84.0" prefWidth="203.0">
+         <children>
+            <VBox prefHeight="60.0" prefWidth="95.0" spacing="10.0">
+               <children>
+                  <Label text="book:" />
+                  <Label text="Video:" />
+                  <Label text="Magazine:" />
+               </children>
+            </VBox>
+            <VBox prefHeight="81.0" prefWidth="100.0" spacing="10.0">
+               <children>
+                  <Label fx:id="labelBookBalance" text="Label" />
+                  <Label fx:id="labelVideoBalance" text="Label" />
+                  <Label fx:id="labelMagBalance" text="Label" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
    </children>
 </AnchorPane>

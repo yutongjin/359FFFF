@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import com.jfoenix.controls.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -7,12 +8,18 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@main.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bookmarkers.UI.Controller.CheckOutBookController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@blueTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bookmarkers.UI.Controller.CheckOutBookController">
     <children>
-        <Label layoutX="108.0" layoutY="115.0" text="Item ID:" />
-        <Label layoutX="108.0" layoutY="66.0" text="To check out item, please input item ID" />
-      <JFXTextField fx:id="textfieldItemID" layoutX="176.0" layoutY="110.0" />
-      <HBox layoutX="119.0" layoutY="285.0" prefHeight="27.0" prefWidth="363.0" spacing="60.0">
+        <Label layoutX="108.0" layoutY="161.0" text="Item ID:">
+         <font>
+            <Font size="15.0" />
+         </font></Label>
+        <Label layoutX="108.0" layoutY="66.0" text="To check out item, please input item ID">
+         <font>
+            <Font size="20.0" />
+         </font></Label>
+      <JFXTextField fx:id="textfieldItemID" layoutX="183.0" layoutY="155.0" />
+      <HBox layoutX="108.0" layoutY="284.0" prefHeight="32.0" prefWidth="416.0" spacing="60.0">
          <children>
               <JFXButton fx:id="btnCheckOut" onAction="#onBtnCheckOutClicked" text="Check Out Item" />
               <JFXButton fx:id="btnBack" onAction="#onBtnBackClicked" text="Back" />
