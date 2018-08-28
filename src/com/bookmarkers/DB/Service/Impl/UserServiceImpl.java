@@ -1,13 +1,12 @@
 package com.bookmarkers.DB.Service.Impl;
 
-import com.bookmarkers.DB.DAO.Impl.ItemDAOImpl;
-import com.bookmarkers.DB.DAO.Impl.SearchStrategy.SearchByAuthor;
-import com.bookmarkers.DB.DAO.Impl.SearchStrategy.SearchById;
-import com.bookmarkers.DB.DAO.Impl.SearchStrategy.SearchByKeywords;
+import com.bookmarkers.DB.Service.Impl.SearchStrategy.SearchByAuthor;
+import com.bookmarkers.DB.Service.Impl.SearchStrategy.SearchById;
+import com.bookmarkers.DB.Service.Impl.SearchStrategy.SearchByKeywords;
 import com.bookmarkers.DB.DAO.Impl.UserDAOImpl;
 import com.bookmarkers.DB.DatabaseConnection.DataBaseConnection;
 import com.bookmarkers.DB.Factory.DAOFactory.DAOFactory;
-import com.bookmarkers.DB.DAO.SearchService;
+import com.bookmarkers.DB.Service.SearchService;
 import com.bookmarkers.DB.Service.UserService;
 import com.bookmarkers.Data.Item.Item;
 
@@ -73,19 +72,19 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void searchByAuthor(String author) {
-        searchService = new SearchByAuthor(dbc);
+        searchService = new SearchByAuthor();
         searchService.search(author);
     }
 
     @Override
     public void searchById(String Id) {
-       searchService= new SearchById(dbc);
+       searchService= new SearchById();
        searchService.search(Id);
     }
 
     @Override
     public void searchByKeyWord(String KeyWord) {
-        searchService= new SearchByKeywords(dbc);
+        searchService= new SearchByKeywords();
         searchService.search(KeyWord);
     }
 

@@ -27,6 +27,7 @@ public  class Item extends RecursiveTreeObject<Item> implements Observable {
     private boolean active;
     private Date returnDate;
     private String booker;
+    private String loc;
 
     StringProperty SpId;
     StringProperty SpName;
@@ -37,6 +38,47 @@ public  class Item extends RecursiveTreeObject<Item> implements Observable {
     StringProperty SpActive;
     StringProperty SpBooker;
     StringProperty SpReturnDate;
+    StringProperty SpLoc;
+
+    public void setDateCreated(Date dateCreated) {
+        this.dateCreated = dateCreated;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+
+    public void setBooker(String booker) {
+        this.booker = booker;
+    }
+
+    public void setLoc(String loc) {
+        this.loc = loc;
+    }
+
+    public void setSpId(String spId) {
+        this.SpId.set(spId);
+    }
+
+    public void setSpLoc(String spLoc) {
+        this.SpLoc.set(spLoc);
+    }
+
+    public void setKeyWord(List<String> keyWord) {
+        KeyWord = keyWord;
+    }
+
+    public String getLoc() {
+        return loc;
+    }
+
+    public String getSpLoc() {
+        return SpLoc.get();
+    }
+
+    public StringProperty spLocProperty() {
+        return SpLoc;
+    }
 
     public void setSpReturnDate(String spReturnDate) {
         this.SpReturnDate.set(spReturnDate);

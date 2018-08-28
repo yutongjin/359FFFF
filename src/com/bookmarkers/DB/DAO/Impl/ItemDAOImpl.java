@@ -234,13 +234,13 @@ public class ItemDAOImpl extends AbstractDAO implements ItemDAO {
             e.printStackTrace();
         }
         // look up status
-        String sql = "SELECT Id ,name ,ItemType ,Type, Arthur ,ReturnDate FROM Item where Booker = '" + id +"'";
+        String sql = "SELECT Id ,name ,ItemType ,Type, Arthur ,ReturnDate,Active, Location,Booker FROM Item where Booker = '" + id +"'";
         try (ResultSet resultSet = statement.executeQuery(sql)) {
             System.out.println("找到了元素");
             ResultSetMetaData metaData = resultSet.getMetaData();
             Item item = null;
             while (resultSet.next()) {
-                String[] s = new String[6];
+                String[] s = new String[9];
                 item = new Item();
                 for (int i = 1; i <= metaData.getColumnCount(); i++) {
                     String columnName = metaData.getColumnLabel(i);
@@ -252,11 +252,16 @@ public class ItemDAOImpl extends AbstractDAO implements ItemDAO {
                 item.setType(s[2]);
                 item.setDetailedType(s[3]);
                 item.setAuthor(s[4]);
+
                 try {
                     item.setReturnDate(new SimpleDateFormat("yyyy-MM-dd").parse(s[5]));
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
+
+                item.setActive(s[6].equals("1")?true:false);
+                item.setLoc(s[7]);
+                item.setBooker(s[8]);
                 list.add(item);
                 // 依次打印出查询结果中Name的字符串
                 //  System.out.println(resultSet.getString("username"));
@@ -265,6 +270,55 @@ public class ItemDAOImpl extends AbstractDAO implements ItemDAO {
             e1.printStackTrace();
         }
         return list;
+    }
+
+    @Override
+    public Item getItemByItemId(String id) {
+        java.sql.Connection connection = this.conn;
+        Statement statement = null;
+        try {
+            statement = connection.createStatement();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        // look up status
+        Item item =new Item();
+        String sql = "SELECT Id ,name ,ItemType ,Type, Arthur ,ReturnDate,Active, Location,Booker FROM Item where Id = '" + id +"'";
+        try (ResultSet resultSet = statement.executeQuery(sql)) {
+            System.out.println("找到了元素");
+            ResultSetMetaData metaData = resultSet.getMetaData();
+
+            while (resultSet.next()) {
+                String[] s = new String[9];
+
+                for (int i = 1; i <= metaData.getColumnCount(); i++) {
+                    String columnName = metaData.getColumnLabel(i);
+                    s[i - 1] = resultSet.getString(columnName);
+                    System.out.println(s[i -1]);
+                }
+                item.setId(s[0]);
+                item.setName(s[1]);
+                item.setType(s[2]);
+                item.setDetailedType(s[3]);
+                item.setAuthor(s[4]);
+
+                try {
+                    item.setReturnDate(new SimpleDateFormat("yyyy-MM-dd").parse(s[5]));
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
+                item.setActive(s[6].equals("1")?true:false);
+                item.setLoc(s[7]);
+                item.setBooker(s[8]);
+
+                // 依次打印出查询结果中Name的字符串
+                //  System.out.println(resultSet.getString("username"));
+            }
+        } catch (SQLException e1) {
+            e1.printStackTrace();
+        }
+        return item;
     }
 
 
