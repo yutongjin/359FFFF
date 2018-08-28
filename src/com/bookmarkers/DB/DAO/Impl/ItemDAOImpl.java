@@ -302,11 +302,12 @@ public class ItemDAOImpl extends AbstractDAO implements ItemDAO {
                 item.setDetailedType(s[3]);
                 item.setAuthor(s[4]);
 
-                try {
-                    item.setReturnDate(new SimpleDateFormat("yyyy-MM-dd").parse(s[5]));
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }
+
+                    try {
+                        item.setReturnDate(new SimpleDateFormat("yyyy-MM-dd").parse(s[5]));
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
 
                 item.setActive(s[6].equals("1")?true:false);
                 item.setLoc(s[7]);

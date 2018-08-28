@@ -10,10 +10,10 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@blueTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bookmarkers.UI.Controller.SearchPanelController">
    <children>
-      <JFXTextField fx:id="textfieldInpput" layoutX="56.0" layoutY="27.0" onAction="#onTextfieldInpputClicked" prefHeight="32.0" prefWidth="221.0" />
+      <JFXTreeTableView fx:id="searchResult" layoutX="34.0" layoutY="207.0" prefHeight="171.0" prefWidth="380.0" />
+      <JFXTextField fx:id="textfieldInpput" layoutX="131.0" layoutY="26.0" onAction="#onTextfieldInpputClicked" />
       <JFXButton fx:id="btnBack" layoutX="414.0" layoutY="346.0" onAction="#onBtnBackClicked" text="Back" />
-      <JFXTreeTableView layoutX="38.0" layoutY="137.0" prefHeight="188.0" prefWidth="526.0" />
-      <JFXButton fx:id="btnSearch" layoutX="301.0" layoutY="26.0" onAction="#onBtnSearchClicked" prefHeight="27.0" prefWidth="151.0" text="Search" />
+      <JFXButton fx:id="btnSearch" layoutX="317.0" layoutY="26.0" onAction="#onBtnSearchClicked" text="Search" />
       <HBox layoutX="56.0" layoutY="79.0" prefHeight="55.0" prefWidth="358.0">
          <children>
             <VBox prefHeight="102.0" prefWidth="178.0" spacing="10.0">
