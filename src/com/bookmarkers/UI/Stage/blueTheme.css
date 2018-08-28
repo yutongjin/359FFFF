@@ -1,8 +1,8 @@
 * {
     -fx-primary : #61bfd7;
     -fx-secondary : white;
-    -fx-primarytext : white;
-    /*-fx-blue: #1976D2;*/
+    -fx-primarytext : black;
+    -fx-blue: #0893d2;
     /*-fx-red: #FF0000;*/
     /*-fx-color-1:#1976D2;*/
 }
@@ -19,10 +19,11 @@
     -fx-border-radius: 4px;
     -fx-background-radius: 4px;
     -fx-font-size: 12pt;
-    -fx-pref-width: 150px;
+    -fx-pref-width: 160px;
 }
 
-.button:hover, .button:focused{
+.button:hover{
+/*.button:focused*/
     -fx-border-color: white;
     -fx-background-color: white;
     -fx-text-fill: -fx-primary;
@@ -34,5 +35,9 @@
     -fx-text-fill: -fx-primarytext;
     -fx-font-size : 12pt;
     -jfx-focus-color: -fx-secondary;
-    -fx-text-fill: derive(-fx-primary, 20%);
+    -fx-text-fill: derive(-fx-blue, 5%);
+}
+
+.label{
+    -fx-text-fill:-fx-primarytext;
 }

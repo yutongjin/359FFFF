@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import com.jfoenix.controls.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -7,12 +8,18 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@main.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bookmarkers.UI.Controller.ReturnBookController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@blueTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bookmarkers.UI.Controller.ReturnBookController">
    <children>
-      <Label layoutX="108.0" layoutY="115.0" text="Item ID:" />
-      <Label layoutX="108.0" layoutY="66.0" text="To return item, please input item ID" />
-      <JFXTextField fx:id="textFieldItemID" layoutX="176.0" layoutY="110.0" />
-      <HBox layoutX="123.0" layoutY="244.0" prefHeight="42.0" prefWidth="355.0" spacing="60.0">
+      <Label layoutX="108.0" layoutY="143.0" text="Item ID:">
+         <font>
+            <Font size="15.0" />
+         </font></Label>
+      <Label layoutX="108.0" layoutY="66.0" text="To return item, please input item ID">
+         <font>
+            <Font size="20.0" />
+         </font></Label>
+      <JFXTextField fx:id="textFieldItemID" layoutX="173.0" layoutY="136.0" />
+      <HBox layoutX="108.0" layoutY="283.0" prefHeight="42.0" prefWidth="385.0" spacing="60.0">
          <children>
             <JFXButton fx:id="btnReturnItem" onAction="#onBtnReturnItemClicked" text="Return Item" />
             <JFXButton fx:id="btnBack" onAction="#onBtnBackClicked" text="Back" />

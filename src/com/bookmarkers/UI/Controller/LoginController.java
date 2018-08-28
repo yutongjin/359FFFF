@@ -73,7 +73,10 @@ public class LoginController implements ControlledStage, Initializable {
            //跳转至用户界面
        }
        //弹出登陆失败界面
-       else System.out.println("login failed");
+       else {
+           AlertMarker.showErrorMessage("login failed","Please check username or password");
+           System.out.println("login failed");
+       }
 
     }
 

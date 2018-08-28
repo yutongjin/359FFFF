@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import java.net.*?>
 <?import com.jfoenix.controls.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -7,17 +9,34 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@main.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bookmarkers.UI.Controller.UserPanelController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@blueTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bookmarkers.UI.Controller.UserPanelController">
     <children>
-        <Label fx:id="labelWelcome" layoutX="161.0" layoutY="68.0" prefHeight="16.0" prefWidth="226.0" text="Welcome to Bookmarks Libaray" />
-        <Label fx:id="labelUsername" layoutX="98.0" layoutY="68.0" text="Label" />
-        <JFXButton fx:id="btnLogout" layoutX="412.0" layoutY="296.0" onAction="#onBtnLogoutClicked" text="logout" />
-      <VBox layoutX="97.0" layoutY="131.0" prefHeight="178.0" prefWidth="147.0" spacing="20.0">
+        <HBox layoutX="71.0" layoutY="42.0" prefHeight="57.0" prefWidth="495.0" spacing="10.0">
+            <children>
+                <Label fx:id="labelWelcome1" prefHeight="31.0" prefWidth="26.0" text="Hi">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <Label fx:id="labelUsername" prefHeight="31.0" prefWidth="84.0" text="Label">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <Label fx:id="labelWelcome" prefHeight="31.0" prefWidth="340.0" text="Welcome to Bookmarks Library">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+            </children>
+        </HBox>
+        <JFXButton fx:id="btnLogout" layoutX="412.0" layoutY="296.0" onAction="#onBtnLogoutClicked" text="Logout" />
+      <VBox layoutX="97.0" layoutY="131.0" prefHeight="196.0" prefWidth="182.0" spacing="20.0">
          <children>
-              <JFXButton fx:id="btnCheckMyAccount" onAction="#onBtnCheckMyAccountClicked" text="check my account" />
-              <JFXButton fx:id="btnSearch" onAction="#onBtnSearchClicked" text="search for books" />
-              <JFXButton fx:id="btnCheckOutBooks" onAction="#onBtnCheckOutBooksClicked" text="check out books" />
-              <JFXButton fx:id="btnReturnBooks" onAction="#onBtnReturnBooksClicked" text="return books" />
+              <JFXButton fx:id="btnCheckMyAccount" onAction="#onBtnCheckMyAccountClicked" text="My Account" />
+              <JFXButton fx:id="btnSearch" onAction="#onBtnSearchClicked" text="Search Item" />
+              <JFXButton fx:id="btnCheckOutBooks" onAction="#onBtnCheckOutBooksClicked" text="Check Out Item" />
+              <JFXButton fx:id="btnReturnBooks" onAction="#onBtnReturnBooksClicked" text="Return Item" />
          </children>
       </VBox>
     </children>
