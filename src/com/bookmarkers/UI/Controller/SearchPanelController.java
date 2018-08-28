@@ -170,12 +170,7 @@ public class SearchPanelController implements ControlledStage,Initializable {
             public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<Item, String> param) {
                 return param.getValue().getValue().spActiveProperty();            }
         });
-        Loc.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<Item, String>, ObservableValue<String>>() {
-            @Override
-            public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<Item, String> param) {
-                return param.getValue().getValue().spLocProperty();  ;
-            }
-        });
+
         //到这里 loc
 
         ObservableList<Item> items = FXCollections.observableArrayList();
