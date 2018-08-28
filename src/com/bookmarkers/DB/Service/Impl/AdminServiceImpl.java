@@ -1,13 +1,9 @@
 package com.bookmarkers.DB.Service.Impl;
 
-import com.bookmarkers.DB.DAO.Impl.SearchStrategy.SearchByAuthor;
-import com.bookmarkers.DB.DAO.Impl.SearchStrategy.SearchById;
-import com.bookmarkers.DB.DAO.Impl.SearchStrategy.SearchByKeywords;
-import com.bookmarkers.DB.DAO.SearchService;
+import com.bookmarkers.DB.Service.SearchService;
 import com.bookmarkers.DB.DatabaseConnection.DataBaseConnection;
 import com.bookmarkers.DB.Factory.DAOFactory.DAOFactory;
 import com.bookmarkers.DB.Service.AdminService;
-import com.bookmarkers.DB.Service.UserService;
 
 import java.sql.Connection;
 import java.sql.SQLException;

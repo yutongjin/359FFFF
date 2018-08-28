@@ -1,6 +1,7 @@
 package com.bookmarkers.DB.Service;
 
 import com.bookmarkers.DB.Factory.DAOFactory.ServiceFactory;
+import com.bookmarkers.DB.Service.Impl.SearchStrategy.SearchByKeywords;
 import com.bookmarkers.DB.Service.Impl.UserServiceImpl;
 import com.bookmarkers.Data.Item.Item;
 import com.bookmarkers.Data.Mem;
@@ -22,6 +23,12 @@ public class TestService {
         //SearchService searchService = new SearchByAuthor().search("cooper");
         //new UserServiceImpl().searchByKeyWord("mag");
         //List<Item> list = new UserServiceImpl().getCheckOutInfo("001");
+        SearchService searchService = new SearchByKeywords();
+        List<Item> list = searchService.search("magic");
+        for (Item item :list
+             ) {
+            System.out.println(item.getId() + "???");
+        }
     }
     public static void checkOut(String id){
         User user  =new Mem(id);

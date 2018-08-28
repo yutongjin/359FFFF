@@ -1,25 +1,28 @@
-package com.bookmarkers.DB.DAO.Impl.SearchStrategy;
+package com.bookmarkers.DB.Service.Impl.SearchStrategy;
 
-import com.bookmarkers.DB.DAO.SearchService;
+import com.bookmarkers.DB.Factory.DAOFactory.DAOFactory;
+import com.bookmarkers.DB.Service.SearchService;
 import com.bookmarkers.Data.Item.Item;
 
-import java.sql.*;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * @Author : Yutong Jin
- * @date : 8/24/18
+ * @date : 8/27/18
  * @Description :
  */
-public class SearchByKeywords extends SearchService  {
-    public SearchByKeywords(Connection conn) {
-        super(conn);
-    }
+public class SearchByName  extends SearchService {
 
     @Override
     public List<Item> search(String info) {
-        java.sql.Connection connection = super.conn;
+        java.sql.Connection connection = super.dbc;
         Statement statement = null;
+        searchResult = new ArrayList<>();
         try {
             statement = connection.createStatement();
         } catch (SQLException e) {
@@ -27,7 +30,7 @@ public class SearchByKeywords extends SearchService  {
         }
         String id = "";
         // look up status
-        String sql = "SELECT Id FROM Item where KeyWords like '%" + info +"%'";
+        String sql = "SELECT Id FROM Item where Name like '%" + info +"%'";
         System.out.println("start searching");
 
         try (ResultSet resultSet = statement.executeQuery(sql)) {
@@ -36,13 +39,13 @@ public class SearchByKeywords extends SearchService  {
                 //System.out.println("start searching");
                 String columnName = metaData.getColumnLabel(1);
                 id = resultSet.getString(columnName);
-                System.out.println(id);
+
+                searchResult.add(DAOFactory.getItemDAOInstance(dbc).getItemByItemId(id));
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return null;
+
+        return searchResult;
     }
-
 }
-

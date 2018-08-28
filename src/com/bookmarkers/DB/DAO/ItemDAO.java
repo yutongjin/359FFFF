@@ -17,4 +17,5 @@ public interface ItemDAO {
     public String getType(String itemId);
     public void searchByInfo(String info);
     public List<Item> getItemListById(String id );
+    public Item getItemByItemId(String id);
 }
