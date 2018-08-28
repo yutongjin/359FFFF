@@ -2,7 +2,7 @@
     -fx-primary : #61bfd7;
     -fx-secondary : white;
     -fx-primarytext : white;
-    /*-fx-blue: #1976D2;*/
+    -fx-blue: #0893d2;
     /*-fx-red: #FF0000;*/
     /*-fx-color-1:#1976D2;*/
 }
@@ -34,5 +34,9 @@
     -fx-text-fill: -fx-primarytext;
     -fx-font-size : 12pt;
     -jfx-focus-color: -fx-secondary;
-    -fx-text-fill: derive(-fx-primary, 20%);
+    -fx-text-fill: derive(-fx-blue, 5%);
+}
+
+.label{
+    -fx-text-fill:white;
 }

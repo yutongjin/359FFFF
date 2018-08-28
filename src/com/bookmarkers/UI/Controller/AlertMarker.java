@@ -41,7 +41,6 @@ public class AlertMarker {
         alert.setTitle("Error");
         alert.setHeaderText(title);
         alert.setContentText(content);
-
         alert.showAndWait();
     }
 
