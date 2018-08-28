@@ -117,6 +117,7 @@ public class SearchPanelController implements ControlledStage,Initializable {
         JFXTreeTableColumn<Item,String> ReturnDate = new JFXTreeTableColumn<>("ReturnDate");
         JFXTreeTableColumn<Item,String> Status = new JFXTreeTableColumn<>("Status");
         //JFXTreeTableColumn<Item,String> Booker = new JFXTreeTableColumn<>("Name");
+        JFXTreeTableColumn<Item,String> Loc = new JFXTreeTableColumn<>("Location");
 
         Id.setPrefWidth(40);
         Name.setPrefWidth(100);
@@ -125,6 +126,7 @@ public class SearchPanelController implements ControlledStage,Initializable {
         DetailedType.setPrefWidth(70);
         ReturnDate.setPrefWidth(70);
         Status.setPrefWidth(40);
+        Loc.setPrefWidth(40);
 
         Id.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<Item, String>, ObservableValue<String>>() {
             @Override
@@ -168,6 +170,8 @@ public class SearchPanelController implements ControlledStage,Initializable {
             public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<Item, String> param) {
                 return param.getValue().getValue().spActiveProperty();            }
         });
+
+        //到这里 loc
 
         ObservableList<Item> items = FXCollections.observableArrayList();
 
