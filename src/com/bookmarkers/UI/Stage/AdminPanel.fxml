@@ -9,7 +9,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #61bfd7;" stylesheets="@blueTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bookmarkers.UI.Controller.AdminPanelController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@blueTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bookmarkers.UI.Controller.AdminPanelController">
     <children>
         <JFXButton fx:id="btnLogout" layoutX="412.0" layoutY="304.0" onAction="#onBtnLogoutClicked" text="Logout" />
       <VBox layoutX="132.0" layoutY="142.0" prefHeight="141.0" prefWidth="208.0" spacing="20.0">
