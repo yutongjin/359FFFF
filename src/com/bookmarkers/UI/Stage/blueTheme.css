@@ -1,8 +1,9 @@
 * {
-    -fx-primary : #61bfd7;
+    -fx-primary : derive(#61bfd7, 20%);
     -fx-secondary : white;
     -fx-primarytext : black;
     -fx-blue: #0893d2;
+    -fx-tree-table-color: derive(#9ed1d7, 10%);
     /*-fx-red: #FF0000;*/
     /*-fx-color-1:#1976D2;*/
 }
@@ -40,4 +41,22 @@
 
 .label{
     -fx-text-fill:-fx-primarytext;
+}
+
+.tree-table-view {
+    -fx-tree-table-color: rgba(5, 7, 210, 0.2);
+    -fx-tree-table-rippler-color: rgba(10, 39, 255, 0.4);
+}
+
+.tree-table-view .jfx-text-field{
+    -fx-background-color: transparent;
+}
+
+.tree-table-view .menu-item:focused {
+    -fx-background-color: -fx-tree-table-color;
+
+}
+
+.tree-table-view .menu-item .label {
+    -fx-padding: 5 0 5 0;
 }

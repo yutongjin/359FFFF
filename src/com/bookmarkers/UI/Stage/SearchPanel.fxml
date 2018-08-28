@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.geometry.*?>
 <?import com.jfoenix.controls.*?>
 <?import java.lang.*?>
@@ -11,7 +12,7 @@
 <AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@blueTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bookmarkers.UI.Controller.SearchPanelController">
    <children>
       <JFXTreeTableView fx:id="searchResult" layoutX="31.0" layoutY="140.0" prefHeight="184.0" prefWidth="539.0" />
-      <JFXTextField fx:id="textfieldInpput" layoutX="31.0" layoutY="27.0" onAction="#onTextfieldInpputClicked" prefHeight="32.0" prefWidth="340.0" />
+      <JFXTextField fx:id="textfieldInpput" layoutX="63.0" layoutY="27.0" onAction="#onTextfieldInpputClicked" prefHeight="32.0" prefWidth="308.0" />
       <JFXButton fx:id="btnBack" layoutX="414.0" layoutY="346.0" onAction="#onBtnBackClicked" text="Back" />
       <JFXButton fx:id="btnSearch" layoutX="410.0" layoutY="26.0" onAction="#onBtnSearchClicked" text="Search" />
       <HBox layoutX="31.0" layoutY="78.0" prefHeight="55.0" prefWidth="358.0">
@@ -30,5 +31,10 @@
             </VBox>
          </children>
       </HBox>
+      <ImageView fitHeight="26.0" fitWidth="29.0" layoutX="31.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@icons8-search-50.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

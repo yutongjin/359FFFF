@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.shape.*?>
 <?import com.jfoenix.svg.*?>
@@ -18,27 +19,29 @@
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bookmarkers.UI.Controller.LoginController">
    <children>
       <Line endX="600.0" fill="#f8f8f8" layoutX="101.0" layoutY="100.0" stroke="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-      <Label layoutX="52.0" layoutY="35.0" prefHeight="31.0" prefWidth="405.0" text="Welcome To Bookmarks Library" textFill="WHITE">
+      <Label layoutX="105.0" layoutY="37.0" prefHeight="31.0" prefWidth="405.0" text="Welcome To Bookmarks Library" textFill="WHITE">
          <font>
             <Font size="26.0" />
          </font>
       </Label>
-      <HBox layoutX="120.0" layoutY="137.0" prefHeight="100.0" prefWidth="449.0">
+      <HBox layoutX="112.0" layoutY="128.0" prefHeight="102.0" prefWidth="357.0">
          <children>
-            <VBox prefHeight="100.0" prefWidth="171.0" spacing="34.0">
-               <children>
-                  <Label prefHeight="27.0" prefWidth="115.0" text="Username" textFill="#793a3a">
-                     <font>
-                        <Font size="18.0" />
-                     </font></Label>
-                  <Label text="Password" textFill="WHITE">
-                     <font>
-                        <Font size="18.0" />
-                     </font></Label>
-               </children>
+            <VBox prefHeight="102.0" prefWidth="77.0" spacing="30.0">
                <padding>
-                  <Insets left="40.0" top="4.0" />
+                  <Insets left="40.0" />
                </padding>
+               <children>
+                  <ImageView fitHeight="32.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons8-contacts-50.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="32.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons8-key-64.png" />
+                     </image>
+                  </ImageView>
+               </children>
             </VBox>
             <VBox prefHeight="100.0" prefWidth="229.0" spacing="30.0">
                <children>
@@ -66,6 +69,11 @@
                </cursor></JFXButton>
          </children>
       </HBox>
+      <ImageView fitHeight="39.0" fitWidth="40.0" layoutX="56.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@icons8-study-48.png" />
+         </image>
+      </ImageView>
    </children>
    <stylesheets>
       <URL value="@main.css" />

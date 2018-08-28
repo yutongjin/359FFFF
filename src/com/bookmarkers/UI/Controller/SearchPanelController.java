@@ -20,6 +20,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
+import javafx.scene.paint.Color;
 import javafx.util.Callback;
 
 import java.net.URL;
@@ -211,7 +212,6 @@ public class SearchPanelController implements ControlledStage,Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        //TODO: see if below code works
         group = new ToggleGroup();
         rbtnID.setToggleGroup(group);
         rbtnAuthor.setToggleGroup(group);
@@ -221,6 +221,11 @@ public class SearchPanelController implements ControlledStage,Initializable {
         rbtnID.setUserData("Id");
         rbtnKeyword.setUserData("KeyWord");
         rbtnName.setUserData("Name");
+        rbtnName.setSelectedColor(Color.BLACK);
+        rbtnKeyword.setSelectedColor(Color.BLACK);
+        rbtnID.setSelectedColor(Color.BLACK);
+        rbtnAuthor.setSelectedColor(Color.BLACK);
+        rbtnName.setSelected(true);
         System.out.println();
     }
 }

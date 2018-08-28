@@ -11,7 +11,7 @@ import com.bookmarkers.UI.Stage.*;
  * @Description :
  */
 
-public class ControllerTest implements ControlledStage {
+public class   ControllerTest implements ControlledStage {
 
     StageManager stageManager;
     private static final String ASS_WE_CAN = "Ass we can";
