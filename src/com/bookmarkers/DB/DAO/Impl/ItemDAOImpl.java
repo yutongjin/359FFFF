@@ -234,7 +234,7 @@ public class ItemDAOImpl extends AbstractDAO implements ItemDAO {
             e.printStackTrace();
         }
         // look up status
-        String sql = "SELECT Id ,name ,ItemType ,Type, Arthur ,ReturnDate,Active, Location,Booker FROM Item where Booker = '" + id +"'";
+        String sql = "SELECT Id ,name ,ItemType ,Type, Author ,ReturnDate,Active, Location,Booker FROM Item where Booker = '" + id +"'";
         try (ResultSet resultSet = statement.executeQuery(sql)) {
             System.out.println("找到了元素");
             ResultSetMetaData metaData = resultSet.getMetaData();
@@ -242,11 +242,14 @@ public class ItemDAOImpl extends AbstractDAO implements ItemDAO {
             while (resultSet.next()) {
                 String[] s = new String[9];
                 item = new Item();
+                System.out.println("数据流有"+metaData.getColumnCount()+"hang");
                 for (int i = 1; i <= metaData.getColumnCount(); i++) {
                     String columnName = metaData.getColumnLabel(i);
                     s[i - 1] = resultSet.getString(columnName);
-                    System.out.println(s[i -1]);
+                    if(i == 6)
+                    System.out.println("日期是"+s[i -1]);
                 }
+
                 item.setId(s[0]);
                 item.setName(s[1]);
                 item.setType(s[2]);
@@ -254,7 +257,11 @@ public class ItemDAOImpl extends AbstractDAO implements ItemDAO {
                 item.setAuthor(s[4]);
 
                 try {
-                    item.setReturnDate(new SimpleDateFormat("yyyy-MM-dd").parse(s[5]));
+                    if(!s[5].equals("")){
+                        System.out.println("不等于 砸了");
+                    item.setReturnDate(new SimpleDateFormat("yyyy-MM-dd").parse(s[5]));}
+                    else {
+                        System.out.println("等于了");item.setReturnDate((new SimpleDateFormat("yyyy-MM-dd").parse("2099-01-01")));};
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
@@ -283,7 +290,7 @@ public class ItemDAOImpl extends AbstractDAO implements ItemDAO {
         }
         // look up status
         Item item =new Item();
-        String sql = "SELECT Id ,name ,ItemType ,Type, Arthur ,ReturnDate,Active, Location,Booker FROM Item where Id = '" + id +"'";
+        String sql = "SELECT Id ,name ,ItemType, Type, Author, ReturnDate, Active, Location,Booker FROM Item where Id = '" + id +"'";
         try (ResultSet resultSet = statement.executeQuery(sql)) {
             System.out.println("找到了元素");
             ResultSetMetaData metaData = resultSet.getMetaData();
@@ -304,7 +311,12 @@ public class ItemDAOImpl extends AbstractDAO implements ItemDAO {
 
 
                     try {
-                        item.setReturnDate(new SimpleDateFormat("yyyy-MM-dd").parse(s[5]));
+                        if(s[5] != null&& !s[5].equals("")){
+                            System.out.println("不等于 砸了");
+                            item.setReturnDate(new SimpleDateFormat("yyyy-MM-dd").parse(s[5]));}
+                        else {
+                            System.out.println("等于了");
+                            item.setReturnDate((new SimpleDateFormat("yyyy-MM-dd").parse("0000-00-00")));};
                     } catch (ParseException e) {
                         e.printStackTrace();
                     }

@@ -5,8 +5,6 @@ import com.bookmarkers.DB.Service.SearchService;
 import com.bookmarkers.Data.Item.Item;
 
 import java.sql.*;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,7 +27,7 @@ public class SearchByAuthor extends SearchService {
         }
         String id = "";
         // look up status
-        String sql = "SELECT Id FROM Item where Arthur like '%" + info +"%'";
+        String sql = "SELECT Id FROM Item where Author like '%" + info +"%'";
         System.out.println("start searching");
 
         try (ResultSet resultSet = statement.executeQuery(sql)) {
@@ -38,6 +36,7 @@ public class SearchByAuthor extends SearchService {
                 //System.out.println("start searching");
                 String columnName = metaData.getColumnLabel(1);
                 id = resultSet.getString(columnName);
+                System.out.println("找到了这个作者的信息" + id);
 
                 searchResult.add(DAOFactory.getItemDAOInstance(dbc).getItemByItemId(id));
             }

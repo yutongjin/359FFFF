@@ -93,23 +93,24 @@ public class SearchPanelController implements ControlledStage,Initializable {
 
     @FXML
     void onBtnSearchClicked(ActionEvent event) {
-        if(group.getSelectedToggle() != null) {
-            System.out.println(group.getSelectedToggle().getUserData());
-        }
         String way = (String)group.getSelectedToggle().getUserData();
 
-        System.out.println("chishi shuru shi"+textfieldInpput.getText());
+        System.out.println(way.equals("Author") + way);
 
            if(way.equals("KeyWord")) {
                list = new SearchByKeywords().search(textfieldInpput.getText());
            }// list = new SearchByKeywords().search(textfieldInpput.getText());
            else
-               if(way.equals("Id"))
+               if(way.equals("Id")){
                    list = new SearchById().search(textfieldInpput.getText());
+           }
             else
-                if(way.equals("Author"))
+                if(way.equals("Author")){
                list = new SearchByAuthor().search(textfieldInpput.getText());
-            else  list = new SearchByName().search(textfieldInpput.getText());
+            }
+            else  {
+               list = new SearchByName().search(textfieldInpput.getText());
+           }
         JFXTreeTableColumn<Item,String> Id = new JFXTreeTableColumn<>("Id");
         JFXTreeTableColumn<Item,String> Name = new JFXTreeTableColumn<>("Name");
         JFXTreeTableColumn<Item,String> Author = new JFXTreeTableColumn<>("Author");
@@ -217,15 +218,18 @@ public class SearchPanelController implements ControlledStage,Initializable {
         rbtnAuthor.setToggleGroup(group);
         rbtnName.setToggleGroup(group);
         rbtnKeyword.setToggleGroup(group);
+
         rbtnAuthor.setUserData("Author");
         rbtnID.setUserData("Id");
         rbtnKeyword.setUserData("KeyWord");
         rbtnName.setUserData("Name");
+
         rbtnName.setSelectedColor(Color.BLACK);
         rbtnKeyword.setSelectedColor(Color.BLACK);
         rbtnID.setSelectedColor(Color.BLACK);
         rbtnAuthor.setSelectedColor(Color.BLACK);
         rbtnName.setSelected(true);
         System.out.println();
+
     }
 }

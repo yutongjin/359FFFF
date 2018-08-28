@@ -28,8 +28,6 @@ public class AdminServiceImpl implements AdminService {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-
         return false;
     }
 
