@@ -60,6 +60,7 @@ public class Main extends Application {
         stageManager = new StageManager();
 
         //将主舞台交给控制器处理
+
         stageManager.setPrimaryStage("primaryStage", primaryStage);
 
         //加载两个舞台，每个界面一个舞台

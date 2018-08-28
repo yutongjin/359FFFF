@@ -89,8 +89,9 @@ public class StageManager {
             for (StageStyle style : styles) {
                 tempStage.initStyle(style);
             }
-
+            tempStage.setTitle("BookMarkers");
             //将设置好的Stage放到HashMap中
+
             this.addStage(name, tempStage);
 
             return true;
