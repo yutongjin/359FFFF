@@ -71,18 +71,27 @@ public class UserAccountController implements Initializable  , ControlledStage {
         JFXTreeTableColumn<Item,String> Name = new JFXTreeTableColumn<>("Name");
         JFXTreeTableColumn<Item,String> Author = new JFXTreeTableColumn<>("Author");
         JFXTreeTableColumn<Item,String> Type = new JFXTreeTableColumn<>("Type");
-        JFXTreeTableColumn<Item,String>  DetailedType= new JFXTreeTableColumn<>("SpecificType");
-        JFXTreeTableColumn<Item,String> ReturnDate = new JFXTreeTableColumn<>("ReturnDate");
+        JFXTreeTableColumn<Item,String>  DetailedType= new JFXTreeTableColumn<>("Specific");
+        JFXTreeTableColumn<Item,String> ReturnDate = new JFXTreeTableColumn<>("Return Date");
         JFXTreeTableColumn<Item,String> Status = new JFXTreeTableColumn<>("Status");
         //JFXTreeTableColumn<Item,String> Booker = new JFXTreeTableColumn<>("Name");
 
-        Id.setPrefWidth(40);
-        Name.setPrefWidth(100);
-        Author.setPrefWidth(70);
-        Type.setPrefWidth(40);
-        DetailedType.setPrefWidth(70);
-        ReturnDate.setPrefWidth(70);
-        Status.setPrefWidth(40);
+//        Id.setPrefWidth(40);
+//        Name.setPrefWidth(100);
+//        Author.setPrefWidth(70);
+//        Type.setPrefWidth(40);
+//        DetailedType.setPrefWidth(70);
+//        ReturnDate.setPrefWidth(70);
+//        Status.setPrefWidth(40);
+
+        Id.setPrefWidth(80);
+        Name.setPrefWidth(140);
+        Author.setPrefWidth(110);
+        Type.setPrefWidth(80);
+        DetailedType.setPrefWidth(80);
+        ReturnDate.setPrefWidth(80);
+        Status.setPrefWidth(80);
+
 
         Id.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<Item, String>, ObservableValue<String>>() {
             @Override
