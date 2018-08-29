@@ -2,11 +2,15 @@ package com.bookmarkers.UI.Controller;
 
 
 
+import com.bookmarkers.DB.Factory.DAOFactory.ServiceFactory;
 import com.bookmarkers.UI.Stage.StageManager;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+
+import java.sql.SQLException;
+
 //11 借书界面
 public class CheckOutBookController  implements ControlledStage{
     StageManager stageManager;
@@ -24,8 +28,12 @@ public class CheckOutBookController  implements ControlledStage{
     private JFXTextField textfieldItemID;
 
     @FXML
-    void onBtnCheckOutClicked(ActionEvent event) {
-
+    void onBtnCheckOutClicked(ActionEvent event) throws SQLException {
+        System.out.println("这里！！！！"+textfieldItemID.getText());
+        boolean result = ServiceFactory.getUserServiceInstance().checkOutItem(stageManager.getUser().getId(),textfieldItemID.getText());
+        if(result){
+            System.out.println("Check out successfully!");
+        }
     }
 
     @FXML
