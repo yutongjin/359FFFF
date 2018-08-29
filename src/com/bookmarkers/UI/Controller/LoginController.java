@@ -7,6 +7,7 @@ import com.bookmarkers.Data.LoggedIn;
 import com.bookmarkers.Data.Mem;
 import com.bookmarkers.Data.User;
 import com.bookmarkers.Main;
+import com.bookmarkers.UI.Model.UserModel;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
@@ -35,8 +36,14 @@ import java.util.ResourceBundle;
 public class LoginController implements ControlledStage, Initializable {
 
     StageManager stageManager;
+    UserModel userModel ;
+
+//    public LoginController(UserModel userModel) {
+//        this.userModel = userModel;
+//    }
 
     @FXML
+
     private JFXPasswordField password;
 
 
@@ -64,7 +71,10 @@ public class LoginController implements ControlledStage, Initializable {
                User user = new Mem();
                user.setName(new UserServiceImpl().getName(userName));
                user.setId(new UserServiceImpl().getId(userName));
-               System.out.println("user itself name id "+ user.getName() + user.getId());
+
+               userModel = new UserModel(user.getId(),user.getName(),user.getEmail(),user.getPhone(),user.isAdmin());
+
+                System.out.println("user itself name id "+ user.getName() + user.getId());
                stageManager.setUser(user);
                System.out.println("this user id" + stageManager.getUser().getId());
               // ((Mem) user).setItemList(new UserServiceImpl().getCheckOutInfo("001"));
@@ -91,6 +101,8 @@ public class LoginController implements ControlledStage, Initializable {
                 //
                 System.out.println("管理员登陆成功");
                 User user = new Admin(new AdminServiceImpl().getName(userName,passWord),true);
+                userModel = new UserModel(user.getId(),user.getName(),user.getEmail(),user.getPhone(),user.isAdmin());
+
                 //stage.close();
                 user.login();
                 stageManager.setStage(user,"AdminPanel","Login");

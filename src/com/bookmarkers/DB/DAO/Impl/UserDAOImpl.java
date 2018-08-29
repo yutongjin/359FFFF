@@ -169,4 +169,70 @@ public class UserDAOImpl extends AbstractDAO implements UserDAO {
 
         return id;
     }
+
+    @Override
+    public String getBookBalance(String userName) throws SQLException {
+        String sql = "SELECT balanceBook FROM user where username ='" + userName+"'";
+        System.out.println("准备找");
+        java.sql.Connection connection = this.conn;
+        Statement statement = connection.createStatement();
+        String id = "";
+        try (ResultSet resultSet = statement.executeQuery(sql)) {
+            ResultSetMetaData metaData = resultSet.getMetaData();
+            while (resultSet.next()) {
+                System.out.println("找到了");
+                String columnName = metaData.getColumnLabel(1);
+                id = resultSet.getString(columnName);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        //end : look up status
+
+        return id;
+    }
+
+    @Override
+    public String getMagazineBalance(String userName) throws SQLException {
+        String sql = "SELECT balanceMagazine FROM user where username ='" + userName+"'";
+        System.out.println("准备找");
+        java.sql.Connection connection = this.conn;
+        Statement statement = connection.createStatement();
+        String id = "";
+        try (ResultSet resultSet = statement.executeQuery(sql)) {
+            ResultSetMetaData metaData = resultSet.getMetaData();
+            while (resultSet.next()) {
+                System.out.println("找到了");
+                String columnName = metaData.getColumnLabel(1);
+                id = resultSet.getString(columnName);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        //end : look up status
+
+        return id;
+    }
+
+    @Override
+    public String getVideoBalance(String userName) throws SQLException {
+        String sql = "SELECT balanceVideo FROM user where username ='" + userName+"'";
+        System.out.println("准备找");
+        java.sql.Connection connection = this.conn;
+        Statement statement = connection.createStatement();
+        String id = "";
+        try (ResultSet resultSet = statement.executeQuery(sql)) {
+            ResultSetMetaData metaData = resultSet.getMetaData();
+            while (resultSet.next()) {
+                System.out.println("找到了");
+                String columnName = metaData.getColumnLabel(1);
+                id = resultSet.getString(columnName);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        //end : look up status
+
+        return id;
+    }
 }

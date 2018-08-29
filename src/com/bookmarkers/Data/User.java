@@ -21,7 +21,16 @@ public abstract class User {
 
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
     public User(String id) {
+
 
         this.Id = id;
 

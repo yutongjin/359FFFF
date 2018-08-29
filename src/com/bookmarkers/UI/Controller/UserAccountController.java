@@ -1,8 +1,11 @@
 package com.bookmarkers.UI.Controller;
 
+import com.bookmarkers.DB.Factory.DAOFactory.ServiceFactory;
 import com.bookmarkers.DB.Service.Impl.UserServiceImpl;
 import com.bookmarkers.DB.Service.UserService;
 import com.bookmarkers.Data.Item.Item;
+import com.bookmarkers.Data.Mem;
+import com.bookmarkers.UI.Model.ItemModel;
 import com.bookmarkers.UI.Stage.StageManager;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTreeTableColumn;
@@ -45,7 +48,7 @@ public class UserAccountController implements Initializable  , ControlledStage {
     private Label labelVideoBalance;
 
     @FXML
-    private JFXTreeTableView<Item> tableCurrentItems;
+    private JFXTreeTableView<ItemModel> tableCurrentItems;
 
 
     @FXML
@@ -67,23 +70,19 @@ public class UserAccountController implements Initializable  , ControlledStage {
     @FXML
     void Show(){
 
-        JFXTreeTableColumn<Item,String> Id = new JFXTreeTableColumn<>("Id");
-        JFXTreeTableColumn<Item,String> Name = new JFXTreeTableColumn<>("Name");
-        JFXTreeTableColumn<Item,String> Author = new JFXTreeTableColumn<>("Author");
-        JFXTreeTableColumn<Item,String> Type = new JFXTreeTableColumn<>("Type");
-        JFXTreeTableColumn<Item,String>  DetailedType= new JFXTreeTableColumn<>("Specific");
-        JFXTreeTableColumn<Item,String> ReturnDate = new JFXTreeTableColumn<>("Return Date");
-        JFXTreeTableColumn<Item,String> Status = new JFXTreeTableColumn<>("Status");
+
+        //labelUserID.setId(stageManager.getUser().getId());
+        //labelBookBalance.setId((Mem)stageManager.getUser().);
+        JFXTreeTableColumn<ItemModel,String> Id = new JFXTreeTableColumn<>("Id");
+        JFXTreeTableColumn<ItemModel,String> Name = new JFXTreeTableColumn<>("Name");
+        JFXTreeTableColumn<ItemModel,String> Author = new JFXTreeTableColumn<>("Author");
+        JFXTreeTableColumn<ItemModel,String> Type = new JFXTreeTableColumn<>("Type");
+        JFXTreeTableColumn<ItemModel,String>  DetailedType= new JFXTreeTableColumn<>("Specific");
+        JFXTreeTableColumn<ItemModel,String> ReturnDate = new JFXTreeTableColumn<>("Return Date");
+        JFXTreeTableColumn<ItemModel,String> Status = new JFXTreeTableColumn<>("Status");
         //JFXTreeTableColumn<Item,String> Booker = new JFXTreeTableColumn<>("Name");
-
-//        Id.setPrefWidth(40);
-//        Name.setPrefWidth(100);
-//        Author.setPrefWidth(70);
-//        Type.setPrefWidth(40);
-//        DetailedType.setPrefWidth(70);
-//        ReturnDate.setPrefWidth(70);
-//        Status.setPrefWidth(40);
-
+        JFXTreeTableColumn<ItemModel,String> Loc = new JFXTreeTableColumn<>("Location");
+        JFXTreeTableColumn<ItemModel,String> Booker = new JFXTreeTableColumn<>("Booker");
         Id.setPrefWidth(80);
         Name.setPrefWidth(140);
         Author.setPrefWidth(110);
@@ -91,61 +90,72 @@ public class UserAccountController implements Initializable  , ControlledStage {
         DetailedType.setPrefWidth(80);
         ReturnDate.setPrefWidth(80);
         Status.setPrefWidth(80);
+        Loc.setPrefWidth(80);
+        Booker.setPrefWidth(80);
 
-
-        Id.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<Item, String>, ObservableValue<String>>() {
+        Id.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<ItemModel, String>, ObservableValue<String>>() {
             @Override
-            public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<Item, String> param) {
+            public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<ItemModel, String> param) {
                 return param.getValue().getValue().spIdProperty();
             }
         });
 
-        Name.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<Item, String>, ObservableValue<String>>() {
+        Name.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<ItemModel, String>, ObservableValue<String>>() {
             @Override
-            public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<Item, String> param) {
+            public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<ItemModel, String> param) {
                 return param.getValue().getValue().spNameProperty();            }
         });
 
-        Author.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<Item, String>, ObservableValue<String>>() {
+        Author.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<ItemModel, String>, ObservableValue<String>>() {
             @Override
-            public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<Item, String> param) {
+            public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<ItemModel, String> param) {
                 return param.getValue().getValue().spAuthorProperty();            }
         });
 
-        Type.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<Item, String>, ObservableValue<String>>() {
+        Type.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<ItemModel, String>, ObservableValue<String>>() {
             @Override
-            public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<Item, String> param) {
+            public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<ItemModel, String> param) {
                 return param.getValue().getValue().spTypeProperty();            }
         });
 
-        DetailedType.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<Item, String>, ObservableValue<String>>() {
+        DetailedType.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<ItemModel, String>, ObservableValue<String>>() {
             @Override
-            public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<Item, String> param) {
+            public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<ItemModel, String> param) {
                 return param.getValue().getValue().spDetailedTypeProperty();            }
         });
 
-        ReturnDate.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<Item, String>, ObservableValue<String>>() {
+        ReturnDate.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<ItemModel, String>, ObservableValue<String>>() {
             @Override
-            public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<Item, String> param) {
+            public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<ItemModel, String> param) {
                 return param.getValue().getValue().spReturnDateProperty();  }
         });
 
-        Status.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<Item, String>, ObservableValue<String>>() {
+        Status.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<ItemModel, String>, ObservableValue<String>>() {
             @Override
-            public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<Item, String> param) {
+            public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<ItemModel, String> param) {
                 return param.getValue().getValue().spActiveProperty();            }
         });
+        Loc.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<ItemModel, String>, ObservableValue<String>>() {
+            @Override
+            public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<ItemModel, String> param) {
+                return param.getValue().getValue().spLocProperty();            }
+        });
+        Booker.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<ItemModel, String>, ObservableValue<String>>() {
+            @Override
+            public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<ItemModel, String> param) {
+                return param.getValue().getValue().spBookerProperty();            }
+        });
 
-        ObservableList<Item> items = FXCollections.observableArrayList();
+        ObservableList<ItemModel> items = FXCollections.observableArrayList();
 
         String id  = stageManager.getUser().getId();
         System.out.println(stageManager.getUser().getName() + "name");
-        List<Item> list = new UserServiceImpl().getCheckOutInfo(id);
+        List<Item> list = ServiceFactory.getUserServiceInstance().getCheckOutInfo(id);
         for(Item item : list) {
-            items.add(new Item(item.getId(),item.getName(),item.getAuthor(),item.getType(),item.getDetailedType(),item.getReturnDate()));
+            items.add(new ItemModel(item.getId(),item.getName(),item.getAuthor(),item.getType(),item.getDetailedType(),item.getReturnDate(),item.isActive(),item.getLoc(),item.getBooker()));
             System.out.println(item.getId());
         }
-        final TreeItem<Item> root = new RecursiveTreeItem<Item>(items,RecursiveTreeObject::getChildren);
+        final TreeItem<ItemModel> root = new RecursiveTreeItem<ItemModel>(items,RecursiveTreeObject::getChildren);
         tableCurrentItems.getColumns().setAll(Id,Name,Author,Type,DetailedType,ReturnDate);
         tableCurrentItems.setRoot(root);
         tableCurrentItems.setShowRoot(false);

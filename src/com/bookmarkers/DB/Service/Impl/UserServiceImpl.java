@@ -115,7 +115,22 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public String getId(String username) throws SQLException {
-        return new UserDAOImpl(dbc).getId(username);
+        return DAOFactory.getUserDAOInstance(dbc).getId(username);
+    }
+
+    @Override
+    public String getBookBalance(String username) throws SQLException {
+        return DAOFactory.getUserDAOInstance(dbc).getBookBalance(username);
+    }
+
+    @Override
+    public String getMagazineBalance(String username) throws SQLException {
+        return DAOFactory.getUserDAOInstance(dbc).getMagazineBalance(username);
+    }
+
+    @Override
+    public String getVideoBalance(String username) throws SQLException {
+        return DAOFactory.getUserDAOInstance(dbc).getVideoBalance(username);
     }
 
     @Override

@@ -15,6 +15,8 @@ public interface UserService {
     public abstract boolean login(String username,String password);
     public abstract String getName(String username) throws SQLException;
     public abstract String getId(String username) throws SQLException;
-
+    public abstract String getBookBalance(String username) throws SQLException;
+    public abstract String getMagazineBalance(String username) throws SQLException;
+    public abstract String getVideoBalance(String username) throws SQLException;
     public List<Item> getCheckOutInfo(String userId);
 }
