@@ -6,8 +6,4 @@ public class LoggedIn implements UserState{
         return true;
     }
 
-    @Override
-    public boolean isLoggedOut() {
-        return false;
-    }
 }

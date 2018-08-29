@@ -99,8 +99,6 @@ public class UserServiceImpl implements UserService {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-
         return false;
     }
 

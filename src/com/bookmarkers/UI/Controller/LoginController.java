@@ -52,29 +52,31 @@ public class LoginController implements ControlledStage, Initializable {
 
     @FXML
     void login(ActionEvent event) throws SQLException {
-        String userName = username.getText();
-        String passWord = password.getText();
-        System.out.println("userInput Member" + userName +" "+ passWord);
-       boolean result =  new UserServiceImpl().login(userName,passWord);
-       if(result){
-           //
-           System.out.println("正确");
-           //stage.close();
-           User user = new Mem();
-           user.setName(new UserServiceImpl().getName(userName));
-           user.setId(new UserServiceImpl().getId(userName));
-           System.out.println("user itself name id "+ user.getName() + user.getId());
-           stageManager.setUser(user);
-           System.out.println("this user id" + stageManager.getUser().getId());
-          // ((Mem) user).setItemList(new UserServiceImpl().getCheckOutInfo("001"));
-           stageManager.setStage(user,"UserPanel","Login");
-           //跳转至用户界面
-       }
-       //弹出登陆失败界面
-       else {
-           AlertMarker.showErrorMessage("login failed","Please check username or password");
-           System.out.println("login failed");
-       }
+        if (!stageManager.getUser().isLoggedin()){
+            String userName = username.getText();
+            String passWord = password.getText();
+            System.out.println("userInput Member" + userName +" "+ passWord);
+            boolean result =  new UserServiceImpl().login(userName,passWord);
+            if(result){
+               //
+               System.out.println("正确");
+               //stage.close();
+               User user = new Mem();
+               user.setName(new UserServiceImpl().getName(userName));
+               user.setId(new UserServiceImpl().getId(userName));
+               System.out.println("user itself name id "+ user.getName() + user.getId());
+               stageManager.setUser(user);
+               System.out.println("this user id" + stageManager.getUser().getId());
+              // ((Mem) user).setItemList(new UserServiceImpl().getCheckOutInfo("001"));
+               stageManager.setStage(user,"UserPanel","Login");
+               //跳转至用户界面
+            }
+           //弹出登陆失败界面
+            else {
+               AlertMarker.showErrorMessage("login failed","Please check username or password");
+               System.out.println("login failed");
+            }
+        }
     }
 
     @FXML
