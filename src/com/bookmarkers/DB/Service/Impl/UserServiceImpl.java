@@ -90,7 +90,9 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public boolean login(String username, String password) {
-
+        if (username.isEmpty() || password.isEmpty()){
+            return false;
+        }
         try {
             boolean result = DAOFactory.getUserDAOInstance(dbc).login(username,password);
             return result;

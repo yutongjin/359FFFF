@@ -22,6 +22,9 @@ public class AdminServiceImpl implements AdminService {
     @Override
     public boolean login(String username, String password) {
 
+        if (username.isEmpty() || password.isEmpty()){
+            return false;
+        }
         try {
             boolean result = DAOFactory.getAdminDAOInstance(dbc).login(username,password);
             return result;

@@ -83,7 +83,7 @@ public class LoginController implements ControlledStage, Initializable {
         if (!stageManager.getUser().isLoggedin()){
             String userName = username.getText();
             String passWord = password.getText();
-            System.out.println("userInput Member" + userName +" "+ passWord);
+            System.out.println("userInput Admin" + userName +" "+ passWord);
             boolean result =  new AdminServiceImpl().login(userName,passWord);
             if(result){
                 //
