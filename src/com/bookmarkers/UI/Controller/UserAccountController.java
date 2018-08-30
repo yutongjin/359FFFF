@@ -91,7 +91,7 @@ public class UserAccountController implements Initializable  , StageController {
         //JFXTreeTableColumn<Item,String> Booker = new JFXTreeTableColumn<>("Name");
         JFXTreeTableColumn<ItemModel,String> Loc = new JFXTreeTableColumn<>("Location");
         JFXTreeTableColumn<ItemModel,String> Booker = new JFXTreeTableColumn<>("Booker");
-        Id.setPrefWidth(100);
+        Id.setPrefWidth(95);
         Name.setPrefWidth(220);
         Author.setPrefWidth(160);
         Type.setPrefWidth(120);
