@@ -1,7 +1,6 @@
 package com.bookmarkers.UI.Stage;
 
 import com.bookmarkers.Data.User;
-import com.bookmarkers.UI.Model.MemberModel;
 import com.bookmarkers.UI.Model.NullUserModel;
 import com.bookmarkers.UI.Model.UserModel;
 import javafx.fxml.FXMLLoader;
@@ -10,7 +9,10 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import com.bookmarkers.UI.Controller.*;
+
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * @Author : Yutong Jin
@@ -21,8 +23,11 @@ public class StageManager implements Manager{
 
     private static final StageManager instance = new StageManager();
 
+
     //建立一个专门存储Stage的Map，全部用于存放Stage对象
     private HashMap<String, Stage> stages = new HashMap<String, Stage>();
+
+    public static List<StageController> controllers = new ArrayList<StageController>();
 
     User user;
 
@@ -103,11 +108,13 @@ public class StageManager implements Manager{
             Pane tempPane =  (Pane) loader.load(); //在此时call controller里的 initialize method的
 
             //通过Loader获取FXML对应的ViewCtr，并将本StageController注入到ViewCtr中
-            ControlledStage controlledStage = (ControlledStage) loader.getController();
+            StageController stageController = (StageController)loader.getController();
 
-            controlledStage.setStageController(this);
+            controllers.add(stageController);
 
-            controlledStage.initUI();
+            stageController.setStageController(this);
+
+            stageController.initUI();
 
             //构造对应的Stage
             Scene tempScene = new Scene(tempPane);
@@ -139,6 +146,7 @@ public class StageManager implements Manager{
     public boolean setStage(String name) {
 
         this.getStage(name).show();
+        //在这里show的
         return true;
     }
 
@@ -171,6 +179,12 @@ public class StageManager implements Manager{
         } else {
             System.out.println("窗口移除成功");
             return true;
+        }
+    }
+
+    public void refreshUI(){
+        for (StageController controller : controllers){
+            controller.initUI();
         }
     }
 

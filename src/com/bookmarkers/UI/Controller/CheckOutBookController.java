@@ -12,7 +12,7 @@ import javafx.fxml.FXML;
 import java.sql.SQLException;
 
 //11 借书界面
-public class CheckOutBookController  implements ControlledStage{
+public class CheckOutBookController  implements StageController {
     StageManager stageManager;
     @Override
     public void setStageController(StageManager stageManager) {

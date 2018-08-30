@@ -7,7 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 //10 搜索结果 设计改为用户和管理员共用同一个搜索页面
-public class SearchResultController implements ControlledStage{
+public class SearchResultController implements StageController {
     StageManager stageManager;
     @Override
     public void setStageController(StageManager stageManager) {

@@ -6,12 +6,11 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
 
 import java.sql.SQLException;
 
 //9 用户 还书界面
-public class ReturnBookController  implements ControlledStage{
+public class ReturnBookController  implements StageController {
     StageManager stageManager;
     @Override
     public void setStageController(StageManager stageManager) {

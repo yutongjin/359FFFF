@@ -30,7 +30,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 //5 搜索入口界面
-public class SearchPanelController implements ControlledStage,Initializable {
+public class SearchPanelController implements StageController,Initializable {
 
     StageManager stageManager;
     ToggleGroup group;

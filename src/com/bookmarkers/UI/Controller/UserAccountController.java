@@ -1,10 +1,7 @@
 package com.bookmarkers.UI.Controller;
 
 import com.bookmarkers.DB.Factory.DAOFactory.ServiceFactory;
-import com.bookmarkers.DB.Service.Impl.UserServiceImpl;
-import com.bookmarkers.DB.Service.UserService;
 import com.bookmarkers.Data.Item.Item;
-import com.bookmarkers.Data.Mem;
 import com.bookmarkers.UI.Model.ItemModel;
 import com.bookmarkers.UI.Stage.StageManager;
 import com.jfoenix.controls.JFXButton;
@@ -28,11 +25,10 @@ import javafx.util.Callback;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.List;
-import java.util.Observable;
 import java.util.ResourceBundle;
 
 //4 用户账号详情页面
-public class UserAccountController implements Initializable  , ControlledStage {
+public class UserAccountController implements Initializable  , StageController {
     StageManager stageManager;
     @Override
     public void setStageController(StageManager stageManager) {

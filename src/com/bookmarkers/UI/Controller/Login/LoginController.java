@@ -6,7 +6,7 @@ import com.bookmarkers.Data.Admin;
 import com.bookmarkers.Data.Mem;
 import com.bookmarkers.Data.User;
 import com.bookmarkers.UI.Controller.AlertMarker;
-import com.bookmarkers.UI.Controller.ControlledStage;
+import com.bookmarkers.UI.Controller.StageController;
 import com.bookmarkers.UI.Model.AdminModel;
 import com.bookmarkers.UI.Model.MemberModel;
 import com.bookmarkers.UI.Model.UserModel;
@@ -27,7 +27,7 @@ import java.util.ResourceBundle;
  * @date : 8/25/18
  * @Description :
  */
-public class LoginController implements ControlledStage, Initializable {
+public class LoginController implements StageController, Initializable {
 
     StageManager stageManager;
 
@@ -70,7 +70,8 @@ public class LoginController implements ControlledStage, Initializable {
 
                stageManager.setUserModel(memberModel);
 
-               //TODO:在这里让stageManager重新调用一下所有controller的initUI方法
+               //在这里让stageManager重新调用一下所有controller的initUI方法
+                 stageManager.refreshUI();
 
                stageManager.setStage(user,"UserPanel","Login");
 //               MemberModel userModel = new MemberModel(user.getId(),user.getName(),user.getEmail(),user.getPhone(),user.isAdmin());
@@ -111,7 +112,8 @@ public class LoginController implements ControlledStage, Initializable {
                 //stage.close();
                 user.login();
 
-                //TODO:在这里让stageManager重新调用一下所有controller的initUI方法
+                //在这里让stageManager重新调用一下所有controller的initUI方法
+                stageManager.refreshUI();
 
                 stageManager.setStage(user,"AdminPanel","Login");
                 //跳转至用户界面

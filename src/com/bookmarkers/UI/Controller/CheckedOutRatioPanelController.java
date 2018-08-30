@@ -7,7 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 //7 管理员查看借书比
-public class CheckedOutRatioPanelController implements ControlledStage{
+public class CheckedOutRatioPanelController implements StageController {
     StageManager stageManager;
     @Override
     public void setStageController(StageManager stageManager) {

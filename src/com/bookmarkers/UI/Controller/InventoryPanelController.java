@@ -6,7 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 //6 管理员查看库存总数
-public class InventoryPanelController implements ControlledStage{
+public class InventoryPanelController implements StageController {
     StageManager stageManager;
     @Override
     public void setStageController(StageManager stageManager) {

@@ -5,7 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 //2 用户登录成功页面
-public class UserPanelController implements ControlledStage{
+public class UserPanelController implements StageController {
     StageManager stageManager;
     @FXML
     private JFXButton btnCheckMyAccount;
