@@ -10,6 +10,7 @@
 
 .text-field {
     -fx-max-width: 300;
+    -fx-text-fill:black;
 }
 
 .jfx-text-field, .jfx-password-field {
