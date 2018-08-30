@@ -76,6 +76,7 @@ public class UserAccountController implements Initializable  , ControlledStage {
                 }
             });
     }
+
     @FXML
     void Show() throws SQLException {
 
@@ -174,6 +175,11 @@ public class UserAccountController implements Initializable  , ControlledStage {
         labelMagBalance.setText(ServiceFactory.getUserServiceInstance().getMagazineBalance(stageManager.getUser().getId()));
         labelBookBalance.setText(ServiceFactory.getUserServiceInstance().getBookBalance(stageManager.getUser().getId()));
         labelVideoBalance.setText(ServiceFactory.getUserServiceInstance().getVideoBalance(stageManager.getUser().getId()));
+    }
+
+    @Override
+    public void initUI() {
+
     }
 }
 

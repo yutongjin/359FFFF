@@ -2,7 +2,6 @@ package com.bookmarkers.UI.Stage;
 
 import com.bookmarkers.Data.User;
 import com.bookmarkers.UI.Model.UserModel;
-import com.sun.tools.internal.xjc.reader.xmlschema.bindinfo.BIConversion;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
@@ -23,23 +22,28 @@ public class StageManager implements Observer ,Manager{
     private HashMap<String, Stage> stages = new HashMap<String, Stage>();
     User user;
 
-    public UserModel getUserModel() {
-        return userModel;
-    }
-
     UserModel userModel;
-    public void setUser(User user) {
-        this.user = user;
+
+    public StageManager() {
+        this.userModel = new UserModel("000","ini-test","3@2","112",false);
     }
 
     public void setUserModel(UserModel userModel) {
         this.userModel = userModel;
     }
 
+    public UserModel getUserModel() {
+        return userModel;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+
     public User getUser() {
         System.out.println(user.getName());return this.user;
     }
-
 
 
     /**
@@ -86,14 +90,17 @@ public class StageManager implements Observer ,Manager{
     public boolean loadStage(String name, String resources, StageStyle... styles) {
         try {
             //加载FXML资源文件
+
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/bookmarkers/UI/Stage/"+resources));
 
+            Pane tempPane =  (Pane) loader.load(); //在此时call controller里的 initialize method的
 
-            Pane tempPane =  (Pane) loader.load();
-            System.out.println("到这里");
             //通过Loader获取FXML对应的ViewCtr，并将本StageController注入到ViewCtr中
             ControlledStage controlledStage = (ControlledStage) loader.getController();
+
             controlledStage.setStageController(this);
+
+            controlledStage.initUI();
 
             //构造对应的Stage
             Scene tempScene = new Scene(tempPane);

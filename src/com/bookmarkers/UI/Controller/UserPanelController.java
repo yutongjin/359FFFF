@@ -51,12 +51,19 @@ public class UserPanelController implements ControlledStage{
 
     @FXML
     void onBtnLogoutClicked(ActionEvent event) {
+
+        stageManager.getUser().logout();
         stageManager.setStage(stageManager.getUser(),"Login","UserPanel");
     }
 
     @Override
     public void setStageController(StageManager stageManager) {
         this.stageManager = stageManager;
+    }
+
+    @Override
+    public void initUI() {
+        labelUsername.textProperty().bind(stageManager.getUserModel().SpName);
     }
 }
 

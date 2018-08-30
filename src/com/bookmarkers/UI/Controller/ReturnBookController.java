@@ -46,4 +46,9 @@ public class ReturnBookController  implements ControlledStage{
 
     }
 
+    @Override
+    public void initUI() {
+
+    }
+
 }

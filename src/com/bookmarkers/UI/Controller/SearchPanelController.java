@@ -101,7 +101,9 @@ public class SearchPanelController implements ControlledStage,Initializable {
     @FXML
     void onBtnSearchClicked(ActionEvent event) {
         show();
+
        // stageManager.setStage(stageManager.getUser(),"SearchResult","SearchPanel");
+
     }
 
     @FXML
@@ -132,12 +134,20 @@ public class SearchPanelController implements ControlledStage,Initializable {
         rbtnAuthor.setSelectedColor(Color.BLACK);
         rbtnName.setSelected(true);
 
+        System.out.println();
+
         textfieldInpput.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                 show();
             }
         });
+
+    }
+
+    @Override
+    public void initUI() {
+
     }
     public  void show(){
         String way = (String)group.getSelectedToggle().getUserData();

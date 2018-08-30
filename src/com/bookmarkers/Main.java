@@ -2,6 +2,7 @@ package com.bookmarkers;
 
 import com.bookmarkers.Data.Mem;
 import com.bookmarkers.Data.User;
+import com.bookmarkers.UI.Model.UserModel;
 import com.bookmarkers.UI.Stage.StageManager;
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -59,14 +60,17 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
+        System.out.println("start called");
         stageManager = new StageManager();
 
         //将主舞台交给控制器处理
+
+
+        stageManager.setPrimaryStage("primaryStage", primaryStage);
+
         User user = new Mem();
         user.logout();
         stageManager.setUser(user);
-
-        stageManager.setPrimaryStage("primaryStage", primaryStage);
 
         //加载两个舞台，每个界面一个舞台
 

@@ -13,6 +13,12 @@ public class CheckedOutRatioPanelController implements ControlledStage{
     public void setStageController(StageManager stageManager) {
         this.stageManager = stageManager;
     }
+
+    @Override
+    public void initUI() {
+
+    }
+
     @FXML
     private JFXButton btnBack;
 
@@ -28,7 +34,6 @@ public class CheckedOutRatioPanelController implements ControlledStage{
     @FXML
     void onBtnBackClicked(ActionEvent event) {
         stageManager.setStage(stageManager.getUser(),"AdminPanel","CheckedOutRatioPanel");
-
     }
 
 }

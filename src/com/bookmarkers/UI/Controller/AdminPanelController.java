@@ -2,13 +2,26 @@ package com.bookmarkers.UI.Controller;
 
 import com.bookmarkers.UI.Stage.StageManager;
 import com.jfoenix.controls.JFXButton;
+import javafx.beans.property.*;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.beans.binding.Bindings;
+
+
+import java.net.URL;
+import java.util.Observable;
+import java.util.Observer;
+import java.util.ResourceBundle;
 
 // 3 管理员登录成功页面
-public class AdminPanelController implements ControlledStage{
+public class AdminPanelController implements ControlledStage, Observer, Initializable {
     StageManager stageManager;
+
+
     @Override
     public void setStageController(StageManager stageManager) {
         this.stageManager = stageManager;
@@ -30,6 +43,18 @@ public class AdminPanelController implements ControlledStage{
 
     @FXML
     private JFXButton btnCheckInventory;
+
+
+
+
+    public AdminPanelController() {
+
+    }
+
+    @Override
+    public void initUI() {
+        labelUsername.textProperty().bind(stageManager.getUserModel().SpName);
+    }
 
     @FXML
     void onBtnCheckInventoryClicked(ActionEvent event) {
@@ -53,5 +78,14 @@ public class AdminPanelController implements ControlledStage{
         stageManager.setStage(stageManager.getUser(),"Login","AdminPanel");
     }
 
+    @Override
+    public void update(Observable o, Object arg) {
+        
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        System.out.println("adminPanel stage initialized");
+    }
 }
 

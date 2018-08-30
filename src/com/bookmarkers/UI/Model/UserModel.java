@@ -18,10 +18,11 @@ import java.util.Date;
 public class UserModel extends RecursiveTreeObject<UserModel> implements Observable {
 
     StringProperty SpId;
-    StringProperty SpName;
+    public StringProperty SpName;
     StringProperty SpEmail;
     StringProperty SpPhone;
     boolean SpIsAdmin;
+
 
     public UserModel(String spId, String spName, String spEmail, String spPhone, boolean spIsAdmin) {
         this.SpId = new SimpleStringProperty(spId);
@@ -29,6 +30,12 @@ public class UserModel extends RecursiveTreeObject<UserModel> implements Observa
         this.SpEmail = new SimpleStringProperty(spEmail);
         this.SpPhone = new SimpleStringProperty(spPhone);
         this.SpIsAdmin = spIsAdmin;
+    }
+
+    public void setSpName(String spName) {
+        this.SpName.set(spName);
+//        setChanged();
+//        notifyObservers(new String(spName));
     }
 
     public String getSpId() {
@@ -69,7 +76,7 @@ public class UserModel extends RecursiveTreeObject<UserModel> implements Observa
 
     @Override
     public void addListener(InvalidationListener listener) {
-
+//        SpName.addListener(listener);
     }
 
     @Override

@@ -35,5 +35,10 @@ public class SearchResultController implements ControlledStage{
 
     }
 
+    @Override
+    public void initUI() {
+
+    }
+
 }
 
