@@ -71,7 +71,6 @@ public class StageManager {
      * @param primaryStage     主舞台对象，在Start()方法中由JavaFx的API建立
      */
     public void setPrimaryStage(String primaryStageName, Stage primaryStage) {
-        System.out.println("到这里 before set primaryStage");
         this.addStage(primaryStageName, primaryStage);
     }
 
@@ -87,15 +86,17 @@ public class StageManager {
     public boolean loadStage(String name, String resources, StageStyle... styles) {
         try {
             //加载FXML资源文件
+
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/bookmarkers/UI/Stage/"+resources));
 
+            Pane tempPane =  (Pane) loader.load(); //在此时call controller里的 initialize method的
 
-            Pane tempPane =  (Pane) loader.load();
-            System.out.println("到这里 inside loadStage");
             //通过Loader获取FXML对应的ViewCtr，并将本StageController注入到ViewCtr中
             ControlledStage controlledStage = (ControlledStage) loader.getController();
-            System.out.println("到这里 inside loadStage after create controlledStage");
+
             controlledStage.setStageController(this);
+
+//            controlledStage.initUI();
 
             //构造对应的Stage
             Scene tempScene = new Scene(tempPane);

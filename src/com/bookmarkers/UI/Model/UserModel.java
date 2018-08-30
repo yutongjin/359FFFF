@@ -23,6 +23,7 @@ public class UserModel extends RecursiveTreeObject<UserModel> implements Observa
     StringProperty SpPhone;
     boolean SpIsAdmin;
 
+
     public UserModel(String spId, String spName, String spEmail, String spPhone, boolean spIsAdmin) {
         this.SpId = new SimpleStringProperty(spId);
         this.SpName = new SimpleStringProperty(spName);
