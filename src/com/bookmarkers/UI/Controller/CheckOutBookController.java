@@ -36,7 +36,7 @@ public class CheckOutBookController  implements StageController {
 
             StageManager.showInfoMessage("Check out  Successfully","Congratulations!");
     }
-        else             AlertMarker.showErrorMessage("Check out failed","Please check username or password");
+        else             AlertMarker.showErrorMessage("Check out failed","Please check !");
 
 
         stageManager.setUserModel(  new UserModel(stageManager.getUser().getId(),stageManager.getUser().getName(),stageManager.getUser().getEmail(),stageManager.getUser().getPhone(),stageManager.getUser().isAdmin(),

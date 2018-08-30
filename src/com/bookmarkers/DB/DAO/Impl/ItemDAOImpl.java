@@ -356,7 +356,7 @@ public class ItemDAOImpl extends AbstractDAO implements ItemDAO {
         }
         int  number = 0 ;
         // look up status
-        String sql = "SELECT  count(*) FROM Item group by ItemType = '" + "Magazine" +"'";
+        String sql = "SELECT  count(*) FROM Item group by ItemType = '" + "Magzine" +"'";
         try (ResultSet resultSet = statement.executeQuery(sql)) {
             ResultSetMetaData metaData = resultSet.getMetaData();
             while (resultSet.next()) {
