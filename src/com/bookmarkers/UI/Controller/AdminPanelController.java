@@ -51,9 +51,10 @@ public class AdminPanelController implements ControlledStage, Observer, Initiali
 
     }
 
-//    void initUI(){
-//        labelUsername.textProperty().bind(stageManager.getUserModel().SpName);
-//    }
+    @Override
+    public void initUI() {
+        labelUsername.textProperty().bind(stageManager.getUserModel().SpName);
+    }
 
     @FXML
     void onBtnCheckInventoryClicked(ActionEvent event) {
@@ -84,27 +85,7 @@ public class AdminPanelController implements ControlledStage, Observer, Initiali
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
-//        this.stageManager = new StageManager();
-//
         System.out.println("adminPanel stage initialized");
-//        System.out.println("Admin Panel, admin name is "+ stageManager.getUserModel().SpName.toString());
-//        labelUsername.textProperty().bind(stageManager.getUserModel().SpName);
-
-//        System.out.println("Admin Panel, admin name is "+ stageManager.getUserModel().SpName.toString());
-//        labelUsername.textProperty().bind(stageManager.getUserModel().SpName);
-//        stageManager.getUserModel().SpName.addListener(new ChangeListener(){
-//            @Override public void changed(ObservableValue o, Object oldValue, Object newValue){
-////                labelUsername.setText(newValue);
-//            }
-//        });
-
-//        stageManager.getUserModel().SpName.addListener(new ChangeListener<String>(){
-//            @Override public void changed(ObservableValue o,Object oldVal,
-//                                          Object newVal){
-//                System.out.println("name has changed!");
-//            }
-//        });
     }
 }
 

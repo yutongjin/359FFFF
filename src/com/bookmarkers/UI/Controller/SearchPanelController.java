@@ -247,6 +247,10 @@ public class SearchPanelController implements ControlledStage,Initializable {
         rbtnAuthor.setSelectedColor(Color.BLACK);
         rbtnName.setSelected(true);
         System.out.println();
+    }
+
+    @Override
+    public void initUI() {
 
     }
 }

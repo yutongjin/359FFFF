@@ -161,5 +161,10 @@ public class UserAccountController implements Initializable  , ControlledStage {
         tableCurrentItems.setRoot(root);
         tableCurrentItems.setShowRoot(false);
     }
+
+    @Override
+    public void initUI() {
+
+    }
 }
 

@@ -125,13 +125,12 @@ public class LoginController implements ControlledStage, Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-//        this.stageManager = new StageManager();
-//        User user = new Mem();
-//        user.logout();
-//        stageManager.setUser(user);
-//        UserModel userModel = new UserModel("000","ini-test","3@2","112",false);
-//        stageManager.setUserModel(userModel);
         System.out.println("login stage initialized");
+    }
+
+    @Override
+    public void initUI() {
+
     }
 }
 

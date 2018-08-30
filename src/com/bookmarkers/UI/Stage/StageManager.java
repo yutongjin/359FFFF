@@ -96,7 +96,7 @@ public class StageManager {
 
             controlledStage.setStageController(this);
 
-//            controlledStage.initUI();
+            controlledStage.initUI();
 
             //构造对应的Stage
             Scene tempScene = new Scene(tempPane);

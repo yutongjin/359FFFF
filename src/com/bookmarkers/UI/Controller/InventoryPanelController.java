@@ -46,5 +46,9 @@ public class InventoryPanelController implements ControlledStage{
 
     }
 
+    @Override
+    public void initUI() {
+
+    }
 }
 

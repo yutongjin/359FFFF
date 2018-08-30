@@ -41,5 +41,10 @@ public class CheckOutBookController  implements ControlledStage{
         stageManager.setStage(stageManager.getUser(),"UserPanel","CheckOutBook");
     }
 
+    @Override
+    public void initUI() {
+
+    }
+
 }
 
