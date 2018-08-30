@@ -1,5 +1,6 @@
 package com.bookmarkers.UI.Controller;
 
+import com.bookmarkers.DB.Factory.DAOFactory.DAOFactory;
 import com.bookmarkers.DB.Factory.DAOFactory.ServiceFactory;
 import com.bookmarkers.Data.Item.Item;
 import com.bookmarkers.UI.Model.ItemModel;
@@ -166,6 +167,11 @@ public class UserAccountController implements Initializable  , StageController {
         tableCurrentItems.getColumns().setAll(Id,Name,Author,Type,DetailedType,ReturnDate);
         tableCurrentItems.setRoot(root);
         tableCurrentItems.setShowRoot(false);
+       // labelBookBalance.setText(ServiceFactory.getUserServiceInstance().getBookBalance(stageManager.getUser().getId()));
+        //labelMagBalance.textProperty().bind(stageManager.getUserModel().magazineBalanceProperty());
+        //labelVideoBalance.textProperty().bind(stageManager.getUserModel().videoBalanceProperty());
+
+
        }
 
     @Override
