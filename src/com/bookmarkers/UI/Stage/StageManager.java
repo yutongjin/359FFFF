@@ -1,6 +1,7 @@
 package com.bookmarkers.UI.Stage;
 
 import com.bookmarkers.Data.User;
+import com.bookmarkers.UI.Model.UserModel;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
@@ -17,6 +18,16 @@ public class StageManager {
     //建立一个专门存储Stage的Map，全部用于存放Stage对象
     private HashMap<String, Stage> stages = new HashMap<String, Stage>();
     User user;
+    UserModel userModel;
+
+    public void setUserModel(UserModel userModel) {
+        this.userModel = userModel;
+    }
+
+    public UserModel getUserModel() {
+        return userModel;
+    }
+
     public void setUser(User user) {
         this.user = user;
     }

@@ -36,7 +36,6 @@ import java.util.ResourceBundle;
 public class LoginController implements ControlledStage, Initializable {
 
     StageManager stageManager;
-    UserModel userModel ;
 
 //    public LoginController(UserModel userModel) {
 //        this.userModel = userModel;
@@ -72,7 +71,8 @@ public class LoginController implements ControlledStage, Initializable {
                user.setName(new UserServiceImpl().getName(userName));
                user.setId(new UserServiceImpl().getId(userName));
 
-               userModel = new UserModel(user.getId(),user.getName(),user.getEmail(),user.getPhone(),user.isAdmin());
+               UserModel userModel = new UserModel(user.getId(),user.getName(),user.getEmail(),user.getPhone(),user.isAdmin());
+                stageManager.setUserModel(userModel);
 
                 System.out.println("user itself name id "+ user.getName() + user.getId());
                stageManager.setUser(user);
@@ -101,7 +101,9 @@ public class LoginController implements ControlledStage, Initializable {
                 //
                 System.out.println("管理员登陆成功");
                 User user = new Admin(new AdminServiceImpl().getName(userName,passWord),true);
-                userModel = new UserModel(user.getId(),user.getName(),user.getEmail(),user.getPhone(),user.isAdmin());
+
+                UserModel userModel = new UserModel(user.getId(),user.getName(),user.getEmail(),user.getPhone(),user.isAdmin());
+                stageManager.setUserModel(userModel);
 
                 //stage.close();
                 user.login();

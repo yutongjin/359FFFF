@@ -31,6 +31,12 @@ public class UserModel extends RecursiveTreeObject<UserModel> implements Observa
         this.SpIsAdmin = spIsAdmin;
     }
 
+    public void setSpName(String spName) {
+        this.SpName.set(spName);
+//        setChanged();
+//        notifyObservers(new String(spName));
+    }
+
     public String getSpId() {
         return SpId.get();
     }
@@ -71,7 +77,7 @@ public class UserModel extends RecursiveTreeObject<UserModel> implements Observa
 
     @Override
     public void addListener(InvalidationListener listener) {
-
+//        SpName.addListener(listener);
     }
 
     @Override

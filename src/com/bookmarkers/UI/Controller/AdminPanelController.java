@@ -6,8 +6,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
+import java.util.Observable;
+import java.util.Observer;
+
 // 3 管理员登录成功页面
-public class AdminPanelController implements ControlledStage{
+public class AdminPanelController implements ControlledStage, Observer {
     StageManager stageManager;
     @Override
     public void setStageController(StageManager stageManager) {
@@ -53,5 +56,14 @@ public class AdminPanelController implements ControlledStage{
         stageManager.setStage(stageManager.getUser(),"Login","AdminPanel");
     }
 
+    @FXML
+    void Show() {
+
+    }
+
+    @Override
+    public void update(Observable o, Object arg) {
+        
+    }
 }
 
