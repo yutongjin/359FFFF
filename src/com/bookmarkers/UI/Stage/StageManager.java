@@ -2,6 +2,8 @@ package com.bookmarkers.UI.Stage;
 
 import com.bookmarkers.Data.User;
 import com.bookmarkers.UI.Model.MemberModel;
+import com.bookmarkers.UI.Model.NullUserModel;
+import com.bookmarkers.UI.Model.UserModel;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
@@ -24,7 +26,7 @@ public class StageManager implements Manager{
 
     User user;
 
-    MemberModel memberModel;
+    UserModel userModel;
 
     public static StageManager getInstance(){
         return instance;
@@ -32,15 +34,15 @@ public class StageManager implements Manager{
 
     public StageManager() {
 
-        this.memberModel = new MemberModel("000","ini-test","3@2","112",false);
+        this.userModel = new NullUserModel();
     }
 
-    public void setMemberModel(MemberModel memberModel) {
-        this.memberModel = memberModel;
+    public UserModel getUserModel() {
+        return userModel;
     }
 
-    public MemberModel getMemberModel() {
-        return memberModel;
+    public void setUserModel(UserModel userModel) {
+        this.userModel = userModel;
     }
 
     public void setUser(User user) {

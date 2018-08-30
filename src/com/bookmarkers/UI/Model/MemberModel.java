@@ -11,59 +11,55 @@ import javafx.beans.property.StringProperty;
  */
 public class MemberModel extends UserModel {
 
-    StringProperty SpId;
-    public StringProperty SpName;
-    StringProperty SpEmail;
-    StringProperty SpPhone;
-    boolean SpIsAdmin;
+//    StringProperty SpId;
+//    public StringProperty SpName;
+//    StringProperty SpEmail;
+//    StringProperty SpPhone;
+//    boolean SpIsAdmin;
 
-    public MemberModel(String spId, String spName, String spEmail, String spPhone, boolean spIsAdmin) {
-        this.SpId = new SimpleStringProperty(spId);
-        this.SpName = new SimpleStringProperty(spName);
-        this.SpEmail = new SimpleStringProperty(spEmail);
-        this.SpPhone = new SimpleStringProperty(spPhone);
-        this.SpIsAdmin = spIsAdmin;
+    public MemberModel(String spId, String spName, String spEmail, String spPhone, boolean spIsAdmin, StringProperty spId1, StringProperty spName1, StringProperty spEmail1, StringProperty spPhone1, boolean spIsAdmin1) {
+        super(spId, spName, spEmail, spPhone, spIsAdmin);
     }
 
-    public void setSpName(String spName) {
-        this.SpName.set(spName);
-    }
-
-    public String getSpId() {
-        return SpId.get();
-    }
-
-    public StringProperty spIdProperty() {
-        return SpId;
-    }
-
-    public String getSpName() {
-        return SpName.get();
-    }
-
-    public StringProperty spNameProperty() {
-        return SpName;
-    }
-
-    public String getSpEmail() {
-        return SpEmail.get();
-    }
-
-    public StringProperty spEmailProperty() {
-        return SpEmail;
-    }
-
-    public String getSpPhone() {
-        return SpPhone.get();
-    }
-
-    public StringProperty spPhoneProperty() {
-        return SpPhone;
-    }
-
-    public boolean isSpIsAdmin() {
-        return SpIsAdmin;
-    }
+//    public void setSpName(String spName) {
+//        this.SpName.set(spName);
+//    }
+//
+//    public String getSpId() {
+//        return SpId.get();
+//    }
+//
+//    public StringProperty spIdProperty() {
+//        return SpId;
+//    }
+//
+//    public String getSpName() {
+//        return SpName.get();
+//    }
+//
+//    public StringProperty spNameProperty() {
+//        return SpName;
+//    }
+//
+//    public String getSpEmail() {
+//        return SpEmail.get();
+//    }
+//
+//    public StringProperty spEmailProperty() {
+//        return SpEmail;
+//    }
+//
+//    public String getSpPhone() {
+//        return SpPhone.get();
+//    }
+//
+//    public StringProperty spPhoneProperty() {
+//        return SpPhone;
+//    }
+//
+//    public boolean isSpIsAdmin() {
+//        return SpIsAdmin;
+//    }
 
 
 }

@@ -62,7 +62,7 @@ public class UserPanelController implements ControlledStage{
 
     @Override
     public void initUI() {
-        labelUsername.textProperty().bind(stageManager.getMemberModel().SpName);
+        labelUsername.textProperty().bind(stageManager.getUserModel().SpName);
     }
 }
 

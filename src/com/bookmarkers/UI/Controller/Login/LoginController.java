@@ -65,7 +65,7 @@ public class LoginController implements ControlledStage, Initializable {
                user.setId(new UserServiceImpl().getId(userName));
                stageManager.setUser(user);
 
-               stageManager.getMemberModel().setSpName(user.getName());
+               stageManager.getUserModel().setSpName(user.getName());
 
                stageManager.setStage(user,"UserPanel","Login");
 //               MemberModel userModel = new MemberModel(user.getId(),user.getName(),user.getEmail(),user.getPhone(),user.isAdmin());
@@ -98,7 +98,7 @@ public class LoginController implements ControlledStage, Initializable {
                 User user = new Admin(new AdminServiceImpl().getName(userName,passWord),true);
                 stageManager.setUser(user);
                 //MemberModel userModel = new MemberModel(user.getId(),user.getName(),user.getEmail(),user.getPhone(),user.isAdmin());
-                stageManager.getMemberModel().setSpName(user.getName());
+                stageManager.getUserModel().setSpName(user.getName());
 
                 //stage.close();
                 user.login();

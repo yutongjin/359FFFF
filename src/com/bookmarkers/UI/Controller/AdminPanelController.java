@@ -49,7 +49,7 @@ public class AdminPanelController implements ControlledStage, Observer, Initiali
 
     @Override
     public void initUI() {
-        labelUsername.textProperty().bind(stageManager.getMemberModel().SpName);
+        labelUsername.textProperty().bind(stageManager.getUserModel().SpName);
     }
 
     @FXML

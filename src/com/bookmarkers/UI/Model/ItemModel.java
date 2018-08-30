@@ -19,6 +19,26 @@ public class ItemModel extends RecursiveTreeObject<ItemModel> implements Observa
 
     StringProperty SpId;
     StringProperty SpName;
+    StringProperty SpAuthor;
+    StringProperty SpType;
+    StringProperty SpDetailedType;
+    StringProperty SpDateCreated;
+    StringProperty SpActive;
+    StringProperty SpBooker;
+    StringProperty SpReturnDate;
+    StringProperty SpLoc;
+
+    public ItemModel(String Id, String name , String Author, String Type, String DetailedType, Date ReturnDate, boolean active, String loc, String booker){
+        this.SpId =new SimpleStringProperty(Id);
+        this.SpName = new SimpleStringProperty(name);
+        this.SpAuthor = new SimpleStringProperty(Author);
+        this.SpType = new SimpleStringProperty(Type);
+        this.SpDetailedType = new SimpleStringProperty(DetailedType);
+        this.SpReturnDate = new SimpleStringProperty(new SimpleDateFormat("yyyy/MM/dd").format(ReturnDate));
+        this.SpActive = new SimpleStringProperty(active?"yes" : "No");
+        this.SpLoc = new SimpleStringProperty(loc);
+        this.SpBooker = new SimpleStringProperty(booker);
+    }
 
     public String getSpId() {
         return SpId.get();
@@ -100,25 +120,6 @@ public class ItemModel extends RecursiveTreeObject<ItemModel> implements Observa
         return SpLoc;
     }
 
-    StringProperty SpAuthor;
-    StringProperty SpType;
-    StringProperty SpDetailedType;
-    StringProperty SpDateCreated;
-    StringProperty SpActive;
-    StringProperty SpBooker;
-    StringProperty SpReturnDate;
-    StringProperty SpLoc;
-    public ItemModel(String Id, String name , String Author, String Type, String DetailedType, Date ReturnDate, boolean active, String loc, String booker){
-        this.SpId =new SimpleStringProperty(Id);
-        this.SpName = new SimpleStringProperty(name);
-        this.SpAuthor = new SimpleStringProperty(Author);
-        this.SpType = new SimpleStringProperty(Type);
-        this.SpDetailedType = new SimpleStringProperty(DetailedType);
-        this.SpReturnDate = new SimpleStringProperty(new SimpleDateFormat("yyyy/MM/dd").format(ReturnDate));
-        this.SpActive = new SimpleStringProperty(active?"yes" : "No");
-        this.SpLoc = new SimpleStringProperty(loc);
-        this.SpBooker = new SimpleStringProperty(booker);
-    }
     public void setSpId(String spId) {
         this.SpId.set(spId);
     }

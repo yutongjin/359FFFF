@@ -1,5 +1,6 @@
 package com.bookmarkers.UI.Model;
 
+import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public abstract class UserModel {
@@ -12,6 +13,17 @@ public abstract class UserModel {
 
     public void setSpName(String spName) {
         this.SpName.set(spName);
+    }
+
+    public UserModel() {
+    }
+
+    public UserModel(String spId, String spName, String spEmail, String spPhone, boolean spIsAdmin) {
+        this.SpId = new SimpleStringProperty(spId);
+        this.SpName = new SimpleStringProperty(spName);
+        this.SpEmail = new SimpleStringProperty(spEmail);
+        this.SpPhone = new SimpleStringProperty(spPhone);
+        this.SpIsAdmin = spIsAdmin;
     }
 
     public String getSpId() {
