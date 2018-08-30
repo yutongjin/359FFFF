@@ -1,0 +1,20 @@
+用属性更新label:
+比如UserModel有个name属性要上label, 要满足以下几点: 
+1. name属性在UserModel内必须是public的
+2. name属性必须要有如下3种setter和getter
+public void setSpName(String spName) {
+        this.SpName.set(spName);
+    }
+public String getSpName() {
+        return SpName.get();
+    }
+
+    public StringProperty spNameProperty() {
+        return SpName;
+    }
+3. 在有label的页面的controller里这样写
+    @Override
+    public void initUI() {
+        labelUsername.textProperty().bind(stageManager.getUserModel().SpName);
+    }
+4. 如果在某处更换了stageManager的userModel, 调用一下stageManager.refreshUI();
