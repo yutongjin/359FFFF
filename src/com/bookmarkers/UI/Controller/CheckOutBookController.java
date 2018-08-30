@@ -32,8 +32,10 @@ public class CheckOutBookController  implements ControlledStage{
         System.out.println("这里！！！！"+textfieldItemID.getText());
         boolean result = ServiceFactory.getUserServiceInstance().checkOutItem(stageManager.getUser().getId(),textfieldItemID.getText());
         if(result){
-            System.out.println("Check out successfully!");
+            AlertMarker.showErrorMessage("Check out  Successfully","Please check username or password");
         }
+        else             AlertMarker.showErrorMessage("Check out failed","Please check username or password");
+
     }
 
     @FXML

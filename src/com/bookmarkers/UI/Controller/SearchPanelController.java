@@ -101,6 +101,9 @@ public class SearchPanelController implements ControlledStage,Initializable {
     @FXML
     void onBtnSearchClicked(ActionEvent event) {
         show();
+
+       // stageManager.setStage(stageManager.getUser(),"SearchResult","SearchPanel");
+
     }
 
     @FXML
