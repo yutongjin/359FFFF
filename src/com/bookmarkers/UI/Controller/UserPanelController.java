@@ -3,7 +3,6 @@ import com.bookmarkers.UI.Stage.StageManager;
 import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 //2 用户登录成功页面
 public class UserPanelController implements ControlledStage{
@@ -63,7 +62,7 @@ public class UserPanelController implements ControlledStage{
 
     @Override
     public void initUI() {
-        labelUsername.textProperty().bind(stageManager.getUserModel().SpName);
+        labelUsername.textProperty().bind(stageManager.getMemberModel().SpName);
     }
 }
 

@@ -1,15 +1,8 @@
 package com.bookmarkers.UI.Model;
 
-import javafx.beans.property.StringProperty;
+public class NullUserModel extends UserModel {
 
-public class NullUserModel {
+    public NullUserModel() {
 
-    StringProperty SpId;
-    public StringProperty SpName;
-    StringProperty SpEmail;
-    StringProperty SpPhone;
-    boolean SpIsAdmin;
-
-
-
+    }
 }

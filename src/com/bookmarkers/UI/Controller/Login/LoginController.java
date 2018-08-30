@@ -29,7 +29,7 @@ public class LoginController implements ControlledStage, Initializable {
     StageManager stageManager;
 
     LoginValidator loginValidator;
-//    public LoginController(UserModel userModel) {
+//    public LoginController(MemberModel userModel) {
 //        this.userModel = userModel;
 //    }
 
@@ -49,12 +49,12 @@ public class LoginController implements ControlledStage, Initializable {
     private JFXButton adminlogin;
 
     @FXML
-    void login(ActionEvent event) throws SQLException {
+    void userLogin(ActionEvent event) throws SQLException {
         if (!stageManager.getUser().isLoggedin()){
             String userName = username.getText();
             String passWord = password.getText();
 //            System.out.println("userInput Member" + userName +" "+ passWord);
-            loginValidator = new AdminLoginValidator();
+            loginValidator = new UserLoginValidator();
             boolean result = loginValidator.validateLogin(userName, passWord);
             if(result){
                //
@@ -65,11 +65,11 @@ public class LoginController implements ControlledStage, Initializable {
                user.setId(new UserServiceImpl().getId(userName));
                stageManager.setUser(user);
 
-               stageManager.getUserModel().setSpName(user.getName());
+               stageManager.getMemberModel().setSpName(user.getName());
 
                stageManager.setStage(user,"UserPanel","Login");
-//               UserModel userModel = new UserModel(user.getId(),user.getName(),user.getEmail(),user.getPhone(),user.isAdmin());
-//                stageManager.setUserModel(userModel);
+//               MemberModel userModel = new MemberModel(user.getId(),user.getName(),user.getEmail(),user.getPhone(),user.isAdmin());
+//                stageManager.setMemberModel(userModel);
 
                 System.out.println("user itself name id "+ user.getName() + user.getId());
                 System.out.println("this user id" + stageManager.getUser().getId());
@@ -97,8 +97,8 @@ public class LoginController implements ControlledStage, Initializable {
                 //System.out.println("管理员登陆成功");
                 User user = new Admin(new AdminServiceImpl().getName(userName,passWord),true);
                 stageManager.setUser(user);
-                //UserModel userModel = new UserModel(user.getId(),user.getName(),user.getEmail(),user.getPhone(),user.isAdmin());
-                stageManager.getUserModel().setSpName(user.getName());
+                //MemberModel userModel = new MemberModel(user.getId(),user.getName(),user.getEmail(),user.getPhone(),user.isAdmin());
+                stageManager.getMemberModel().setSpName(user.getName());
 
                 //stage.close();
                 user.login();

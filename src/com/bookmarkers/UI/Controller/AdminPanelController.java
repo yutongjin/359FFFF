@@ -2,14 +2,10 @@ package com.bookmarkers.UI.Controller;
 
 import com.bookmarkers.UI.Stage.StageManager;
 import com.jfoenix.controls.JFXButton;
-import javafx.beans.property.*;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
-import javafx.beans.binding.Bindings;
 
 
 import java.net.URL;
@@ -53,7 +49,7 @@ public class AdminPanelController implements ControlledStage, Observer, Initiali
 
     @Override
     public void initUI() {
-        labelUsername.textProperty().bind(stageManager.getUserModel().SpName);
+        labelUsername.textProperty().bind(stageManager.getMemberModel().SpName);
     }
 
     @FXML

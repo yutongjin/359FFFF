@@ -2,7 +2,6 @@ package com.bookmarkers;
 
 import com.bookmarkers.Data.Mem;
 import com.bookmarkers.Data.User;
-import com.bookmarkers.UI.Model.UserModel;
 import com.bookmarkers.UI.Stage.StageManager;
 import javafx.application.Application;
 import javafx.stage.Stage;

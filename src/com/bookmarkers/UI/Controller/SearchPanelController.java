@@ -4,11 +4,10 @@ import com.bookmarkers.DB.Service.Impl.SearchStrategy.SearchByAuthor;
 import com.bookmarkers.DB.Service.Impl.SearchStrategy.SearchById;
 import com.bookmarkers.DB.Service.Impl.SearchStrategy.SearchByKeywords;
 import com.bookmarkers.DB.Service.Impl.SearchStrategy.SearchByName;
-import com.bookmarkers.DB.Service.Impl.UserServiceImpl;
 import com.bookmarkers.DB.Service.SearchService;
 import com.bookmarkers.Data.Item.Item;
 import com.bookmarkers.UI.Model.ItemModel;
-import com.bookmarkers.UI.Model.UserModel;
+import com.bookmarkers.UI.Model.MemberModel;
 import com.bookmarkers.UI.Stage.StageManager;
 import com.jfoenix.controls.*;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
@@ -27,7 +26,6 @@ import javafx.scene.paint.Color;
 import javafx.util.Callback;
 
 import java.net.URL;
-import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -38,7 +36,7 @@ public class SearchPanelController implements ControlledStage,Initializable {
     ToggleGroup group;
     SearchService searchService;
     List<Item> list ;
-    UserModel userModel;
+    MemberModel memberModel;
 
 
     @Override

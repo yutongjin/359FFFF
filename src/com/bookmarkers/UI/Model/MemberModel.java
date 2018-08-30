@@ -1,14 +1,29 @@
 package com.bookmarkers.UI.Model;
 
+import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
-public abstract class UserModel {
+
+/**
+ * @Author : Yutong Jin
+ * @date : 8/29/18
+ * @Description :
+ */
+public class MemberModel extends UserModel {
 
     StringProperty SpId;
     public StringProperty SpName;
     StringProperty SpEmail;
     StringProperty SpPhone;
     boolean SpIsAdmin;
+
+    public MemberModel(String spId, String spName, String spEmail, String spPhone, boolean spIsAdmin) {
+        this.SpId = new SimpleStringProperty(spId);
+        this.SpName = new SimpleStringProperty(spName);
+        this.SpEmail = new SimpleStringProperty(spEmail);
+        this.SpPhone = new SimpleStringProperty(spPhone);
+        this.SpIsAdmin = spIsAdmin;
+    }
 
     public void setSpName(String spName) {
         this.SpName.set(spName);
@@ -49,5 +64,6 @@ public abstract class UserModel {
     public boolean isSpIsAdmin() {
         return SpIsAdmin;
     }
+
 
 }
