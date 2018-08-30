@@ -33,10 +33,10 @@ public class ReturnBookController  implements ControlledStage{
 
         boolean result = ServiceFactory.getUserServiceInstance().returnItem(stageManager.getUser().getId(),textFieldReturnItemID.getText());
         if(result){
-            System.out.println("Return successfully!");
+            AlertMarker.showErrorMessage("Return Successfully","Please check username or password");
         }
         else {
-            System.out.println("Return failed");
+            AlertMarker.showErrorMessage("Return failed","Please check !");
         }
     }
 
