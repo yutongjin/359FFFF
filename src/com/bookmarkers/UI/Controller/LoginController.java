@@ -37,6 +37,7 @@ public class LoginController implements ControlledStage, Initializable {
 
     StageManager stageManager;
 
+    LoginValidator loginValidator;
 //    public LoginController(UserModel userModel) {
 //        this.userModel = userModel;
 //    }
@@ -61,8 +62,9 @@ public class LoginController implements ControlledStage, Initializable {
         if (!stageManager.getUser().isLoggedin()){
             String userName = username.getText();
             String passWord = password.getText();
-            System.out.println("userInput Member" + userName +" "+ passWord);
-            boolean result =  new UserServiceImpl().login(userName,passWord);
+//            System.out.println("userInput Member" + userName +" "+ passWord);
+            loginValidator = new AdminLoginValidator();
+            boolean result = loginValidator.validateLogin(userName, passWord);
             if(result){
                //
                System.out.println("正确");
@@ -85,8 +87,7 @@ public class LoginController implements ControlledStage, Initializable {
             }
            //弹出登陆失败界面
             else {
-               AlertMarker.showErrorMessage("login failed","Please check username or password");
-               System.out.println("login failed");
+                showErrorAlert();
             }
         }
     }
@@ -97,11 +98,12 @@ public class LoginController implements ControlledStage, Initializable {
         if (!stageManager.getUser().isLoggedin()){
             String userName = username.getText();
             String passWord = password.getText();
-            System.out.println("userInput Admin" + userName +" "+ passWord);
-            boolean result =  new AdminServiceImpl().login(userName,passWord);
+//            System.out.println("userInput Admin" + userName +" "+ passWord);
+            loginValidator = new AdminLoginValidator();
+            boolean result = loginValidator.validateLogin(userName, passWord);
             if(result){
-                //
-                System.out.println("管理员登陆成功");
+
+                //System.out.println("管理员登陆成功");
                 User user = new Admin(new AdminServiceImpl().getName(userName,passWord),true);
                 stageManager.setUser(user);
                 //UserModel userModel = new UserModel(user.getId(),user.getName(),user.getEmail(),user.getPhone(),user.isAdmin());
@@ -114,10 +116,14 @@ public class LoginController implements ControlledStage, Initializable {
             }
             //弹出登陆失败界面
             else {
-                System.out.println("login failed");
-                AlertMarker.showErrorMessage("login failed","Please check username or password");
+                showErrorAlert();
             }
         }
+    }
+
+    private void showErrorAlert(){
+        System.out.println("login failed");
+        AlertMarker.showErrorMessage("login failed","Please check username or password");
     }
 
     @Override
