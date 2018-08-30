@@ -46,7 +46,7 @@ public class ItemDAOImpl extends AbstractDAO implements ItemDAO {
 
         Calendar rightNow = Calendar.getInstance();
         rightNow.setTime(dt);
-        rightNow.add(Calendar.MONTH, 1);
+        rightNow.add(Calendar.DAY_OF_WEEK, 15);
         Date dt1 = rightNow.getTime();
         String reStr = sdf.format(dt1);
 

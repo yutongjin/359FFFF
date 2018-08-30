@@ -3,6 +3,7 @@ package com.bookmarkers.UI.Controller;
 
 
 import com.bookmarkers.DB.Factory.DAOFactory.ServiceFactory;
+import com.bookmarkers.UI.Model.UserModel;
 import com.bookmarkers.UI.Stage.StageManager;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
@@ -32,10 +33,21 @@ public class CheckOutBookController  implements StageController {
         System.out.println("这里！！！！"+textfieldItemID.getText());
         boolean result = ServiceFactory.getUserServiceInstance().checkOutItem(stageManager.getUser().getId(),textfieldItemID.getText());
         if(result){
-            AlertMarker.showErrorMessage("Check out  Successfully","Please check username or password");
-        }
+
+            StageManager.showInfoMessage("Check out  Successfully","Congratulations!");
+    }
         else             AlertMarker.showErrorMessage("Check out failed","Please check username or password");
 
+
+        stageManager.setUserModel(  new UserModel(stageManager.getUser().getId(),stageManager.getUser().getName(),stageManager.getUser().getEmail(),stageManager.getUser().getPhone(),stageManager.getUser().isAdmin(),
+                ServiceFactory.getUserServiceInstance().getBookBalance(stageManager.getUser().getId()),
+                ServiceFactory.getUserServiceInstance().getMagazineBalance(stageManager.getUser().getId()),
+                ServiceFactory.getUserServiceInstance().getVideoBalance(stageManager.getUser().getId()),
+                0,"000","000","000","000","000"));
+
+
+        //在这里让stageManager重新调用一下所有controller的initUI方法
+        stageManager.refreshUI();
     }
 
     @FXML

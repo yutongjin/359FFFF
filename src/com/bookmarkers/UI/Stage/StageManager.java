@@ -5,6 +5,7 @@ import com.bookmarkers.UI.Model.NullUserModel;
 import com.bookmarkers.UI.Model.UserModel;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -186,6 +187,13 @@ public class StageManager implements Manager{
         for (StageController controller : controllers){
             controller.initUI();
         }
+    }
+    public static void showInfoMessage(String title, String content) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Message");
+        alert.setHeaderText(title);
+        alert.setContentText(content);
+        alert.showAndWait();
     }
 
 }

@@ -1,6 +1,7 @@
 package com.bookmarkers.UI.Controller;
 
 import com.bookmarkers.DB.Factory.DAOFactory.ServiceFactory;
+import com.bookmarkers.UI.Model.UserModel;
 import com.bookmarkers.UI.Stage.StageManager;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
@@ -32,11 +33,22 @@ public class ReturnBookController  implements StageController {
 
         boolean result = ServiceFactory.getUserServiceInstance().returnItem(stageManager.getUser().getId(),textFieldReturnItemID.getText());
         if(result){
-            AlertMarker.showErrorMessage("Return Successfully","Please check username or password");
+           StageManager.showInfoMessage("Return Successfully","Congratulations");
         }
         else {
             AlertMarker.showErrorMessage("Return failed","Please check !");
         }
+
+        stageManager.setUserModel(  new UserModel(stageManager.getUser().getId(),stageManager.getUser().getName(),stageManager.getUser().getEmail(),stageManager.getUser().getPhone(),stageManager.getUser().isAdmin(),
+                ServiceFactory.getUserServiceInstance().getBookBalance(stageManager.getUser().getId()),
+                ServiceFactory.getUserServiceInstance().getMagazineBalance(stageManager.getUser().getId()),
+                ServiceFactory.getUserServiceInstance().getVideoBalance(stageManager.getUser().getId()),
+                0,"000","000","000","000","000"));
+
+
+        //在这里让stageManager重新调用一下所有controller的initUI方法
+        stageManager.refreshUI();
+
     }
 
     @FXML
