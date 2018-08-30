@@ -7,6 +7,9 @@ import com.bookmarkers.Data.Mem;
 import com.bookmarkers.Data.User;
 import com.bookmarkers.UI.Controller.AlertMarker;
 import com.bookmarkers.UI.Controller.ControlledStage;
+import com.bookmarkers.UI.Model.AdminModel;
+import com.bookmarkers.UI.Model.MemberModel;
+import com.bookmarkers.UI.Model.UserModel;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
@@ -29,9 +32,6 @@ public class LoginController implements ControlledStage, Initializable {
     StageManager stageManager;
 
     LoginValidator loginValidator;
-//    public LoginController(MemberModel userModel) {
-//        this.userModel = userModel;
-//    }
 
     @FXML
 
@@ -64,8 +64,13 @@ public class LoginController implements ControlledStage, Initializable {
                user.setName(new UserServiceImpl().getName(userName));
                user.setId(new UserServiceImpl().getId(userName));
                stageManager.setUser(user);
+               user.login();
 
-               stageManager.getUserModel().setSpName(user.getName());
+               UserModel memberModel = new MemberModel(user.getId(),user.getName(),user.getEmail(),user.getPhone(),user.isAdmin());
+
+               stageManager.setUserModel(memberModel);
+
+               //TODO:在这里让stageManager重新调用一下所有controller的initUI方法
 
                stageManager.setStage(user,"UserPanel","Login");
 //               MemberModel userModel = new MemberModel(user.getId(),user.getName(),user.getEmail(),user.getPhone(),user.isAdmin());
@@ -97,11 +102,17 @@ public class LoginController implements ControlledStage, Initializable {
                 //System.out.println("管理员登陆成功");
                 User user = new Admin(new AdminServiceImpl().getName(userName,passWord),true);
                 stageManager.setUser(user);
-                //MemberModel userModel = new MemberModel(user.getId(),user.getName(),user.getEmail(),user.getPhone(),user.isAdmin());
-                stageManager.getUserModel().setSpName(user.getName());
+
+                UserModel adminModel = new AdminModel(user.getId(),user.getName(),user.getEmail(),user.getPhone(),user.isAdmin());
+
+                stageManager.setUserModel(adminModel);
+//                stageManager.getUserModel().setSpName(user.getName());
 
                 //stage.close();
                 user.login();
+
+                //TODO:在这里让stageManager重新调用一下所有controller的initUI方法
+
                 stageManager.setStage(user,"AdminPanel","Login");
                 //跳转至用户界面
             }

@@ -33,7 +33,6 @@ public class StageManager implements Manager{
     }
 
     public StageManager() {
-
         this.userModel = new NullUserModel();
     }
 

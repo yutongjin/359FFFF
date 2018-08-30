@@ -17,7 +17,7 @@ public class MemberModel extends UserModel {
 //    StringProperty SpPhone;
 //    boolean SpIsAdmin;
 
-    public MemberModel(String spId, String spName, String spEmail, String spPhone, boolean spIsAdmin, StringProperty spId1, StringProperty spName1, StringProperty spEmail1, StringProperty spPhone1, boolean spIsAdmin1) {
+    public MemberModel(String spId, String spName, String spEmail, String spPhone, boolean spIsAdmin) {
         super(spId, spName, spEmail, spPhone, spIsAdmin);
     }
 
