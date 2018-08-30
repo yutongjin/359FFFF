@@ -18,7 +18,7 @@ import java.util.Date;
 public class UserModel extends RecursiveTreeObject<UserModel> implements Observable {
 
     StringProperty SpId;
-    StringProperty SpName;
+    public StringProperty SpName;
     StringProperty SpEmail;
     StringProperty SpPhone;
     boolean SpIsAdmin;

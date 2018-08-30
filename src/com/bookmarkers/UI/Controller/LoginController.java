@@ -102,8 +102,8 @@ public class LoginController implements ControlledStage, Initializable {
                 System.out.println("管理员登陆成功");
                 User user = new Admin(new AdminServiceImpl().getName(userName,passWord),true);
 
-                UserModel userModel = new UserModel(user.getId(),user.getName(),user.getEmail(),user.getPhone(),user.isAdmin());
-                stageManager.setUserModel(userModel);
+                //UserModel userModel = new UserModel(user.getId(),user.getName(),user.getEmail(),user.getPhone(),user.isAdmin());
+                stageManager.getUserModel().setSpName(user.getName());
 
                 //stage.close();
                 user.login();
@@ -125,6 +125,12 @@ public class LoginController implements ControlledStage, Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+//        this.stageManager = new StageManager();
+//        User user = new Mem();
+//        user.logout();
+//        stageManager.setUser(user);
+//        UserModel userModel = new UserModel("000","ini-test","3@2","112",false);
+//        stageManager.setUserModel(userModel);
         System.out.println("login stage initialized");
     }
 }

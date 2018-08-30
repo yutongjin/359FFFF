@@ -67,6 +67,7 @@ public class UserAccountController implements Initializable  , ControlledStage {
     public void initialize(URL location, ResourceBundle resources) {
 
     }
+
     @FXML
     void Show(){
 
