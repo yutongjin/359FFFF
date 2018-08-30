@@ -2,8 +2,6 @@ package com.bookmarkers.UI.Model;
 
 import com.bookmarkers.Data.User;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
-import javafx.beans.InvalidationListener;
-import javafx.beans.Observable;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
@@ -15,7 +13,7 @@ import java.util.Date;
  * @date : 8/29/18
  * @Description :
  */
-public class UserModel extends RecursiveTreeObject<UserModel> implements Observable {
+public class UserModel extends RecursiveTreeObject<UserModel>{
 
     StringProperty SpId;
     public StringProperty SpName;
@@ -73,13 +71,5 @@ public class UserModel extends RecursiveTreeObject<UserModel> implements Observa
         return SpIsAdmin;
     }
 
-    @Override
-    public void addListener(InvalidationListener listener) {
-//        SpName.addListener(listener);
-    }
 
-    @Override
-    public void removeListener(InvalidationListener listener) {
-
-    }
 }

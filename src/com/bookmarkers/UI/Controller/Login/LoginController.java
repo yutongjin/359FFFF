@@ -1,29 +1,20 @@
-package com.bookmarkers.UI.Controller;
+package com.bookmarkers.UI.Controller.Login;
 
 import com.bookmarkers.DB.Service.Impl.AdminServiceImpl;
 import com.bookmarkers.DB.Service.Impl.UserServiceImpl;
 import com.bookmarkers.Data.Admin;
-import com.bookmarkers.Data.LoggedIn;
 import com.bookmarkers.Data.Mem;
 import com.bookmarkers.Data.User;
-import com.bookmarkers.Main;
-import com.bookmarkers.UI.Model.UserModel;
+import com.bookmarkers.UI.Controller.AlertMarker;
+import com.bookmarkers.UI.Controller.ControlledStage;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
-import com.sun.javafx.robot.impl.FXRobotHelper;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 import com.bookmarkers.UI.Stage.*;
-import java.io.IOException;
+
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;

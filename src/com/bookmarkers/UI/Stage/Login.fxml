@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.*?>
 <?import com.jfoenix.controls.JFXButton?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bookmarkers.UI.Controller.LoginController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bookmarkers.UI.Controller.Login.LoginController">
    <children>
       <Line endX="600.0" fill="#f8f8f8" layoutX="101.0" layoutY="100.0" stroke="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
       <Label layoutX="105.0" layoutY="37.0" prefHeight="31.0" prefWidth="405.0" text="Welcome To Bookmarks Library" textFill="WHITE">

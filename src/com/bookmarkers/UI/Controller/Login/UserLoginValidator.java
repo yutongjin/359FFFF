@@ -1,4 +1,4 @@
-package com.bookmarkers.UI.Controller;
+package com.bookmarkers.UI.Controller.Login;
 
 import com.bookmarkers.DB.Service.Impl.UserServiceImpl;
 
