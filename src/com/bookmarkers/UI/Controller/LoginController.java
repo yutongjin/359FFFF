@@ -70,15 +70,17 @@ public class LoginController implements ControlledStage, Initializable {
                User user = new Mem();
                user.setName(new UserServiceImpl().getName(userName));
                user.setId(new UserServiceImpl().getId(userName));
+               stageManager.setUser(user);
 
-               UserModel userModel = new UserModel(user.getId(),user.getName(),user.getEmail(),user.getPhone(),user.isAdmin());
-                stageManager.setUserModel(userModel);
+               stageManager.getUserModel().setSpName(user.getName());
+
+               stageManager.setStage(user,"UserPanel","Login");
+//               UserModel userModel = new UserModel(user.getId(),user.getName(),user.getEmail(),user.getPhone(),user.isAdmin());
+//                stageManager.setUserModel(userModel);
 
                 System.out.println("user itself name id "+ user.getName() + user.getId());
-               stageManager.setUser(user);
-               System.out.println("this user id" + stageManager.getUser().getId());
-              // ((Mem) user).setItemList(new UserServiceImpl().getCheckOutInfo("001"));
-               stageManager.setStage(user,"UserPanel","Login");
+                System.out.println("this user id" + stageManager.getUser().getId());
+                // ((Mem) user).setItemList(new UserServiceImpl().getCheckOutInfo("001"));
                //跳转至用户界面
             }
            //弹出登陆失败界面
@@ -101,7 +103,7 @@ public class LoginController implements ControlledStage, Initializable {
                 //
                 System.out.println("管理员登陆成功");
                 User user = new Admin(new AdminServiceImpl().getName(userName,passWord),true);
-
+                stageManager.setUser(user);
                 //UserModel userModel = new UserModel(user.getId(),user.getName(),user.getEmail(),user.getPhone(),user.isAdmin());
                 stageManager.getUserModel().setSpName(user.getName());
 
