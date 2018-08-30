@@ -10,50 +10,50 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@blueTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bookmarkers.UI.Controller.CheckedOutRatioPanelController">
+<AnchorPane prefHeight="640.0" prefWidth="900.0" stylesheets="@blueTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bookmarkers.UI.Controller.CheckedOutRatioPanelController">
 
     <children>
-        <JFXButton fx:id="btnBack" layoutX="401.0" layoutY="311.0" onAction="#onBtnBackClicked" text="Back" />
-      <Label layoutX="82.0" layoutY="44.0" prefHeight="29.0" prefWidth="305.0" text="Item Circulation Ratio">
+        <JFXButton fx:id="btnBack" layoutX="678.0" layoutY="543.0" onAction="#onBtnBackClicked" text="Back" />
+      <Label layoutX="82.0" layoutY="44.0" prefHeight="73.0" prefWidth="318.0" text="Item Circulation Ratio">
          <font>
-            <Font size="24.0" />
+            <Font size="30.0" />
          </font></Label>
-      <HBox layoutX="102.0" layoutY="133.0" prefHeight="131.0" prefWidth="349.0">
+      <HBox layoutX="276.0" layoutY="234.0" prefHeight="131.0" prefWidth="372.0">
          <children>
-            <VBox prefHeight="200.0" prefWidth="100.0" spacing="20.0">
+            <VBox prefHeight="131.0" prefWidth="125.0" spacing="20.0">
                <children>
                     <Label text="books:">
                      <font>
-                        <Font size="14.0" />
+                        <Font size="20.0" />
                      </font>
                   </Label>
                     <Label text="video:">
                      <font>
-                        <Font size="14.0" />
+                        <Font size="20.0" />
                      </font>
                   </Label>
                     <Label text="magazines:">
                      <font>
-                        <Font size="14.0" />
+                        <Font size="20.0" />
                      </font>
                   </Label>
                </children>
             </VBox>
-            <VBox prefHeight="131.0" prefWidth="39.0" spacing="20.0">
+            <VBox prefHeight="131.0" prefWidth="81.0" spacing="20.0">
                <children>
                     <Label fx:id="labelNoOfBooks" alignment="CENTER_RIGHT" text="Label">
                      <font>
-                        <Font size="14.0" />
+                        <Font size="20.0" />
                      </font>
                   </Label>
                     <Label fx:id="labelNoOfVideo" alignment="CENTER_RIGHT" text="Label">
                      <font>
-                        <Font size="14.0" />
+                        <Font size="20.0" />
                      </font>
                   </Label>
                     <Label fx:id="labelNoOfMag" alignment="CENTER_RIGHT" text="Label">
                      <font>
-                        <Font size="14.0" />
+                        <Font size="20.0" />
                      </font>
                   </Label>
                </children>
@@ -61,21 +61,21 @@
                   <Insets />
                </HBox.margin>
             </VBox>
-            <VBox prefHeight="66.0" prefWidth="112.0" spacing="20.0">
+            <VBox prefHeight="131.0" prefWidth="175.0" spacing="20.0">
                <children>
                   <Label text="\% Checked out">
                      <font>
-                        <Font size="14.0" />
+                        <Font size="20.0" />
                      </font>
                   </Label>
                   <Label text="\% Checked out">
                      <font>
-                        <Font size="14.0" />
+                        <Font size="20.0" />
                      </font>
                   </Label>
                   <Label text="\% Checked out">
                      <font>
-                        <Font size="14.0" />
+                        <Font size="20.0" />
                      </font>
                   </Label>
                </children>

@@ -8,32 +8,26 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@blueTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bookmarkers.UI.Controller.InventoryPanelController">
+<AnchorPane prefHeight="640.0" prefWidth="900.0" stylesheets="@blueTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bookmarkers.UI.Controller.InventoryPanelController">
    <children>
-      <JFXButton fx:id="btnBack" layoutX="384.0" layoutY="315.0" onAction="#onBtnBackClicked" text="Back" />
-      <VBox layoutX="384.0" layoutY="92.0" prefHeight="102.0" prefWidth="176.0" spacing="30.0">
+      <JFXButton fx:id="btnBack" layoutX="617.0" layoutY="539.0" onAction="#onBtnBackClicked" prefHeight="34.0" prefWidth="186.0" text="Back" />
+      <HBox layoutX="253.0" layoutY="222.0" prefHeight="162.0" prefWidth="422.0">
          <children>
-            <JFXButton fx:id="btnCheckRatio" onAction="#onBtnCheckRatioClicked" prefHeight="27.0" prefWidth="166.0" text="Check Circulation" />
-            <JFXButton fx:id="btnSearch" onAction="#onBtnSearchClicked" text="Search Item" />
-         </children>
-      </VBox>
-      <HBox layoutX="36.0" layoutY="105.0" prefHeight="102.0" prefWidth="325.0">
-         <children>
-            <VBox prefHeight="102.0" prefWidth="241.0" spacing="20.0">
+            <VBox prefHeight="162.0" prefWidth="274.0" spacing="20.0">
                <children>
                   <Label text="Total number of books:">
                      <font>
-                        <Font size="16.0" />
+                        <Font size="20.0" />
                      </font>
                   </Label>
                   <Label text="Total number of video:">
                      <font>
-                        <Font size="16.0" />
+                        <Font size="20.0" />
                      </font>
                   </Label>
                   <Label text="Total number of magazines:">
                      <font>
-                        <Font size="16.0" />
+                        <Font size="20.0" />
                      </font>
                   </Label>
                </children>
@@ -42,22 +36,27 @@
                <children>
                   <Label fx:id="labelNoOfBooks" text="Label">
                      <font>
-                        <Font size="16.0" />
+                        <Font size="20.0" />
                      </font>
                   </Label>
                   <Label fx:id="labelNoOfVideo" text="Label">
                      <font>
-                        <Font size="16.0" />
+                        <Font size="20.0" />
                      </font>
                   </Label>
                   <Label fx:id="labelNoOfMag" text="Label">
                      <font>
-                        <Font size="16.0" />
+                        <Font size="20.0" />
                      </font>
                   </Label>
                </children>
             </VBox>
          </children>
       </HBox>
+      <Label layoutX="89.0" layoutY="70.0" prefHeight="75.0" prefWidth="375.0" text="Bookmarks Library Inventory">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

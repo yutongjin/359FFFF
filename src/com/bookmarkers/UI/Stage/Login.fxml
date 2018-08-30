@@ -16,15 +16,15 @@
 <?import javafx.scene.layout.*?>
 <?import com.jfoenix.controls.JFXButton?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bookmarkers.UI.Controller.Login.LoginController">
+<AnchorPane prefHeight="640.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bookmarkers.UI.Controller.Login.LoginController">
    <children>
-      <Line endX="600.0" fill="#f8f8f8" layoutX="101.0" layoutY="100.0" stroke="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-      <Label layoutX="105.0" layoutY="37.0" prefHeight="31.0" prefWidth="405.0" text="Welcome To Bookmarks Library" textFill="WHITE">
+      <Line endX="900.0" fill="#f8f8f8" layoutX="5.0" layoutY="172.0" stroke="#0a0808" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <Label layoutX="151.0" layoutY="78.0" prefHeight="51.0" prefWidth="509.0" text="Welcome To Bookmarks Library" textFill="WHITE" AnchorPane.rightAnchor="171.0">
          <font>
-            <Font size="26.0" />
+            <Font size="30.0" />
          </font>
       </Label>
-      <HBox layoutX="112.0" layoutY="128.0" prefHeight="102.0" prefWidth="357.0">
+      <HBox layoutX="271.0" layoutY="255.0" prefHeight="102.0" prefWidth="357.0">
          <children>
             <VBox prefHeight="102.0" prefWidth="77.0" spacing="30.0">
                <padding>
@@ -54,7 +54,7 @@
             </VBox>
          </children>
       </HBox>
-      <HBox layoutX="149.0" layoutY="279.0" prefHeight="39.0" prefWidth="378.0" spacing="60.0">
+      <HBox layoutX="260.0" layoutY="462.0" prefHeight="39.0" prefWidth="379.0" spacing="60.0">
          <children>
             <JFXButton fx:id="userlogin" onAction="#userLogin" text="Reader Login" textAlignment="CENTER">
                <cursor>
@@ -69,7 +69,7 @@
                </cursor></JFXButton>
          </children>
       </HBox>
-      <ImageView fitHeight="39.0" fitWidth="40.0" layoutX="56.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="51.0" fitWidth="62.0" layoutX="130.0" layoutY="78.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@icons8-study-48.png" />
          </image>

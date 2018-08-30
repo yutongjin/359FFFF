@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import java.net.*?>
 <?import com.jfoenix.controls.*?>
@@ -10,10 +11,10 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@blueTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bookmarkers.UI.Controller.AdminPanelController">
+<AnchorPane prefHeight="640.0" prefWidth="900.0" stylesheets="@blueTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bookmarkers.UI.Controller.AdminPanelController">
     <children>
-        <JFXButton fx:id="btnLogout" layoutX="412.0" layoutY="304.0" onAction="#onBtnLogoutClicked" text="Logout" />
-      <VBox layoutX="132.0" layoutY="142.0" prefHeight="141.0" prefWidth="208.0" spacing="20.0">
+        <JFXButton fx:id="btnLogout" layoutX="664.0" layoutY="545.0" onAction="#onBtnLogoutClicked" text="Logout" />
+      <VBox layoutX="350.0" layoutY="204.0" prefHeight="198.0" prefWidth="280.0" spacing="20.0">
          <children>
               <JFXButton fx:id="btnCheckInventory" onAction="#onBtnCheckInventoryClicked" text="Check Inventory" />
               <JFXButton fx:id="btnCheckRatio" onAction="#onBtnCheckRatioClicked" text="Check Circulation" />
@@ -22,19 +23,14 @@
       </VBox>
       <HBox layoutX="71.0" layoutY="42.0" prefHeight="57.0" prefWidth="495.0" spacing="10.0">
          <children>
-            <Label fx:id="labelWelcome1" prefHeight="31.0" prefWidth="26.0" text="Hi">
+            <ImageView fitHeight="52.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icons8-contacts-50.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="labelUsername" prefHeight="46.0" prefWidth="263.0" text="name">
                <font>
-                  <Font size="20.0" />
-               </font>
-            </Label>
-            <Label fx:id="labelUsername" prefHeight="31.0" prefWidth="84.0" text="name">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Label>
-              <Label fx:id="labelWelcome" prefHeight="31.0" prefWidth="340.0" text="Welcome to Bookmarks Library">
-               <font>
-                  <Font size="20.0" />
+                  <Font size="30.0" />
                </font>
             </Label>
          </children>

@@ -8,27 +8,27 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@blueTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bookmarkers.UI.Controller.UserAccountController">
+<AnchorPane prefHeight="640.0" prefWidth="900.0" stylesheets="@blueTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bookmarkers.UI.Controller.UserAccountController">
    <children>
-      <Label layoutX="45.0" layoutY="26.0" text="Account Summary">
+      <Label layoutX="46.0" layoutY="46.0" text="Account Summary">
          <font>
-            <Font size="20.0" />
+            <Font size="25.0" />
          </font></Label>
-      <JFXTreeTableView fx:id="tableCurrentItems" layoutX="26.0" layoutY="74.0" prefHeight="136.0" prefWidth="549.0" />
-      <JFXButton fx:id="btnBack" layoutX="425.0" layoutY="339.0" onAction="#onBtnBackClicked" text="Back" />
-      <JFXButton layoutX="106.0" layoutY="339.0" onAction="#Show" prefHeight="34.0" prefWidth="218.0" text="Show Items" />
-      <HBox layoutX="383.0" layoutY="14.0" prefHeight="60.0" prefWidth="203.0">
+      <JFXTreeTableView fx:id="tableCurrentItems" layoutX="30.0" layoutY="120.0" prefHeight="306.0" prefWidth="841.0" />
+      <JFXButton fx:id="btnBack" layoutX="550.0" layoutY="569.0" onAction="#onBtnBackClicked" text="Back" />
+      <JFXButton layoutX="231.0" layoutY="569.0" onAction="#Show" prefHeight="34.0" prefWidth="218.0" text="Show Items" />
+      <HBox layoutX="586.0" layoutY="30.0" prefHeight="62.0" prefWidth="288.0">
          <children>
             <VBox prefHeight="60.0" prefWidth="120.0" spacing="10.0">
                <children>
                   <Label text="User ID:">
                      <font>
-                        <Font size="15.0" />
+                        <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label text="UserName">
+                  <Label text="User Name:">
                      <font>
-                        <Font size="15.0" />
+                        <Font size="20.0" />
                      </font>
                   </Label>
                </children>
@@ -37,12 +37,12 @@
                <children>
                   <Label fx:id="labelUserID" text="Label">
                      <font>
-                        <Font size="15.0" />
+                        <Font size="20.0" />
                      </font>
                   </Label>
                   <Label fx:id="labelAccountStatus" text="Label">
                      <font>
-                        <Font size="15.0" />
+                        <Font size="20.0" />
                      </font>
                   </Label>
                </children>
@@ -50,21 +50,42 @@
          </children>
       </HBox>
       <VBox layoutX="436.0" layoutY="159.0" prefHeight="124.0" prefWidth="150.0" spacing="10.0" />
-      <Label layoutX="51.0" layoutY="233.0" text="Checkout Balance" />
-      <HBox layoutX="181.0" layoutY="233.0" prefHeight="84.0" prefWidth="203.0">
+      <Label layoutX="46.0" layoutY="446.0" text="Checkout Balance">
+         <font>
+            <Font size="20.0" />
+         </font></Label>
+      <HBox layoutX="248.0" layoutY="446.0" prefHeight="84.0" prefWidth="203.0">
          <children>
-            <VBox prefHeight="60.0" prefWidth="95.0" spacing="10.0">
+            <VBox prefHeight="98.0" prefWidth="115.0" spacing="10.0">
                <children>
-                  <Label text="book:" />
-                  <Label text="Video:" />
-                  <Label text="Magazine:" />
+                  <Label text="book:">
+                     <font>
+                        <Font size="20.0" />
+                     </font></Label>
+                  <Label text="Video:">
+                     <font>
+                        <Font size="20.0" />
+                     </font></Label>
+                  <Label text="Magazine:">
+                     <font>
+                        <Font size="20.0" />
+                     </font></Label>
                </children>
             </VBox>
             <VBox prefHeight="81.0" prefWidth="100.0" spacing="10.0">
                <children>
-                  <Label fx:id="labelBookBalance" text="Label" />
-                  <Label fx:id="labelVideoBalance" text="Label" />
-                  <Label fx:id="labelMagBalance" text="Label" />
+                  <Label fx:id="labelBookBalance" text="Label">
+                     <font>
+                        <Font size="20.0" />
+                     </font></Label>
+                  <Label fx:id="labelVideoBalance" text="Label">
+                     <font>
+                        <Font size="20.0" />
+                     </font></Label>
+                  <Label fx:id="labelMagBalance" text="Label">
+                     <font>
+                        <Font size="20.0" />
+                     </font></Label>
                </children>
             </VBox>
          </children>

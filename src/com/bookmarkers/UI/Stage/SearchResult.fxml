@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import com.jfoenix.controls.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -7,12 +8,18 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@blueTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bookmarkers.UI.Controller.SearchResultController">
+<AnchorPane prefHeight="640.0" prefWidth="900.0" stylesheets="@blueTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bookmarkers.UI.Controller.SearchResultController">
    <children>
-      <Label layoutX="26.0" layoutY="35.0" text="Search Result for:" />
-      <Label fx:id="labelKeyword" layoutX="146.0" layoutY="35.0" text="Label" />
-      <JFXTreeTableView fx:id="tableResult" layoutX="20.0" layoutY="63.0" prefHeight="264.0" prefWidth="565.0" />
-      <JFXButton fx:id="btnNewSearch" layoutX="225.0" layoutY="351.0" onAction="#onBtnNewSearchClicked" text="New Search" />
-      <JFXButton fx:id="btnBack" layoutX="417.0" layoutY="351.0" onAction="#onBtnBackClicked" text="Back" />
+      <Label layoutX="26.0" layoutY="35.0" text="Search Result for:">
+         <font>
+            <Font size="25.0" />
+         </font></Label>
+      <Label fx:id="labelKeyword" layoutX="250.0" layoutY="35.0" prefHeight="30.0" prefWidth="334.0" text="Label">
+         <font>
+            <Font size="25.0" />
+         </font></Label>
+      <JFXTreeTableView fx:id="tableResult" layoutX="37.0" layoutY="78.0" prefHeight="448.0" prefWidth="826.0" />
+      <JFXButton fx:id="btnNewSearch" layoutX="703.0" layoutY="27.0" onAction="#onBtnNewSearchClicked" text="New Search" />
+      <JFXButton fx:id="btnBack" layoutX="703.0" layoutY="558.0" onAction="#onBtnBackClicked" text="Back" />
    </children>
 </AnchorPane>
