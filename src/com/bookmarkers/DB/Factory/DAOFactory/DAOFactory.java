@@ -14,7 +14,7 @@ import java.sql.Connection;
  * @date : 8/20/18
  * @Description :
  */
-public class DAOFactory {
+public class DAOFactory implements Factory{
     //public static AdminDAO getAdminDAOInstance(Connection conn){
     //    return new AdminDAOImpl(conn);
     //}

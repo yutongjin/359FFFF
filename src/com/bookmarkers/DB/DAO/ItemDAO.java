@@ -18,4 +18,12 @@ public interface ItemDAO {
     public void searchByInfo(String info);
     public List<Item> getItemListById(String id );
     public Item getItemByItemId(String id);
+
+    public  int getBookNumber() throws SQLException;
+    public  int getMagNumber();
+    public  int getVideoNumber();
+    public  int getBookedBookNumber() throws SQLException;
+    public  int getBookedMagNumber();
+    public  int getBookedVideoNumber();
+
 }

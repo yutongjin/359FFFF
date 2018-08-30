@@ -5,7 +5,7 @@ import com.bookmarkers.Data.Item.Item;
 import java.sql.SQLException;
 import java.util.List;
 
-public interface UserService {
+public interface UserService extends Service{
 
     public abstract boolean checkOutItem(String userId,String itemId) throws SQLException;
     public abstract boolean returnItem(String userId,String itemId);

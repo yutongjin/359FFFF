@@ -8,10 +8,12 @@ import com.bookmarkers.DB.Service.Impl.UserServiceImpl;
 import com.bookmarkers.DB.Service.SearchService;
 import com.bookmarkers.Data.Item.Item;
 import com.bookmarkers.UI.Model.ItemModel;
+import com.bookmarkers.UI.Model.UserModel;
 import com.bookmarkers.UI.Stage.StageManager;
 import com.jfoenix.controls.*;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 
+import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -36,6 +38,9 @@ public class SearchPanelController implements ControlledStage,Initializable {
     ToggleGroup group;
     SearchService searchService;
     List<Item> list ;
+    UserModel userModel;
+
+
     @Override
     public void setStageController(StageManager stageManager) {
         this.stageManager = stageManager;
@@ -95,24 +100,71 @@ public class SearchPanelController implements ControlledStage,Initializable {
 
     @FXML
     void onBtnSearchClicked(ActionEvent event) {
+        show();
+    }
+
+    @FXML
+    void onBtnBackClicked(ActionEvent event) {
+        if(stageManager.getUser().isAdmin())
+            stageManager.setStage(stageManager.getUser(),"AdminPanel","SearchPanel");
+        else {
+            stageManager.setStage(stageManager.getUser(),"UserPanel","SearchPanel");
+        }
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        group = new ToggleGroup();
+        rbtnID.setToggleGroup(group);
+        rbtnAuthor.setToggleGroup(group);
+        rbtnName.setToggleGroup(group);
+        rbtnKeyword.setToggleGroup(group);
+
+        rbtnAuthor.setUserData("Author");
+        rbtnID.setUserData("Id");
+        rbtnKeyword.setUserData("KeyWord");
+        rbtnName.setUserData("Name");
+
+        rbtnName.setSelectedColor(Color.BLACK);
+        rbtnKeyword.setSelectedColor(Color.BLACK);
+        rbtnID.setSelectedColor(Color.BLACK);
+        rbtnAuthor.setSelectedColor(Color.BLACK);
+        rbtnName.setSelected(true);
+
+        System.out.println();
+
+        textfieldInpput.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                show();
+            }
+        });
+
+    }
+
+    @Override
+    public void initUI() {
+
+    }
+    public  void show(){
         String way = (String)group.getSelectedToggle().getUserData();
 
         System.out.println(way.equals("Author") + way);
 
-           if(way.equals("KeyWord")) {
-               list = new SearchByKeywords().search(textfieldInpput.getText());
-           }// list = new SearchByKeywords().search(textfieldInpput.getText());
-           else
-               if(way.equals("Id")){
-                   list = new SearchById().search(textfieldInpput.getText());
-           }
-            else
-                if(way.equals("Author")){
-               list = new SearchByAuthor().search(textfieldInpput.getText());
-            }
-            else  {
-               list = new SearchByName().search(textfieldInpput.getText());
-           }
+        if(way.equals("KeyWord")) {
+            list = new SearchByKeywords().search(textfieldInpput.getText());
+        }// list = new SearchByKeywords().search(textfieldInpput.getText());
+        else
+        if(way.equals("Id")){
+            list = new SearchById().search(textfieldInpput.getText());
+        }
+        else
+        if(way.equals("Author")){
+            list = new SearchByAuthor().search(textfieldInpput.getText());
+        }
+        else  {
+            list = new SearchByName().search(textfieldInpput.getText());
+        }
         JFXTreeTableColumn<ItemModel,String> Id = new JFXTreeTableColumn<>("Id");
         JFXTreeTableColumn<ItemModel,String> Name = new JFXTreeTableColumn<>("Name");
         JFXTreeTableColumn<ItemModel,String> Author = new JFXTreeTableColumn<>("Author");
@@ -199,9 +251,9 @@ public class SearchPanelController implements ControlledStage,Initializable {
             System.out.println(item.getName() );
             System.out.println(item.getAuthor() );System.out.println(item.getType() );
             System.out.println(item.getDetailedType() );
-           // System.out.println(new SimpleDateFormat("yyyy-MM-dd").parse());
+            // System.out.println(new SimpleDateFormat("yyyy-MM-dd").parse());
         }
-         TreeItem<ItemModel> root = new RecursiveTreeItem<ItemModel>(items,RecursiveTreeObject::getChildren);
+        TreeItem<ItemModel> root = new RecursiveTreeItem<ItemModel>(items,RecursiveTreeObject::getChildren);
         if(!stageManager.getUser().isAdmin()) {
             searchResult.getColumns().setAll(Id, Name, Author, Type, DetailedType, ReturnDate, Status,Loc);
         }
@@ -213,44 +265,6 @@ public class SearchPanelController implements ControlledStage,Initializable {
         searchResult.setShowRoot(false);
 
 
-
-
-
-       // stageManager.setStage(stageManager.getUser(),"SearchResult","SearchPanel");
-    }
-
-    @FXML
-    void onBtnBackClicked(ActionEvent event) {
-        if(stageManager.getUser().isAdmin())
-            stageManager.setStage(stageManager.getUser(),"AdminPanel","SearchPanel");
-        else {
-            stageManager.setStage(stageManager.getUser(),"UserPanel","SearchPanel");
-        }
-    }
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        group = new ToggleGroup();
-        rbtnID.setToggleGroup(group);
-        rbtnAuthor.setToggleGroup(group);
-        rbtnName.setToggleGroup(group);
-        rbtnKeyword.setToggleGroup(group);
-
-        rbtnAuthor.setUserData("Author");
-        rbtnID.setUserData("Id");
-        rbtnKeyword.setUserData("KeyWord");
-        rbtnName.setUserData("Name");
-
-        rbtnName.setSelectedColor(Color.BLACK);
-        rbtnKeyword.setSelectedColor(Color.BLACK);
-        rbtnID.setSelectedColor(Color.BLACK);
-        rbtnAuthor.setSelectedColor(Color.BLACK);
-        rbtnName.setSelected(true);
-        System.out.println();
-    }
-
-    @Override
-    public void initUI() {
 
     }
 }

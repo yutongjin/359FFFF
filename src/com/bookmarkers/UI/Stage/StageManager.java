@@ -9,15 +9,19 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import com.bookmarkers.UI.Controller.*;
 import java.util.HashMap;
+import java.util.Observable;
+import java.util.Observer;
+
 /**
  * @Author : Yutong Jin
  * @date : 8/25/18
  * @Description :
  */
-public class StageManager {
+public class StageManager implements Observer ,Manager{
     //建立一个专门存储Stage的Map，全部用于存放Stage对象
     private HashMap<String, Stage> stages = new HashMap<String, Stage>();
     User user;
+
     UserModel userModel;
 
     public StageManager() {
@@ -36,10 +40,10 @@ public class StageManager {
         this.user = user;
     }
 
+
     public User getUser() {
         System.out.println(user.getName());return this.user;
     }
-
 
 
     /**
@@ -161,5 +165,10 @@ public class StageManager {
             System.out.println("窗口移除成功");
             return true;
         }
+    }
+
+    @Override
+    public void update(Observable o, Object arg) {
+
     }
 }

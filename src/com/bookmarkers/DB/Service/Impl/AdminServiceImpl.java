@@ -46,5 +46,40 @@ public class AdminServiceImpl implements AdminService {
         return "error";
     }
 
+    @Override
+    public int getBookNumber() throws SQLException {
+        return DAOFactory.getItemDAOInstance(dbc).getBookNumber();
+    }
+
+    @Override
+    public int getMagNumber() {
+        return DAOFactory.getItemDAOInstance(dbc).getMagNumber();
+    }
+
+    @Override
+    public int getVideoNumber() {
+        return DAOFactory.getItemDAOInstance(dbc).getVideoNumber();
+    }
+
+    @Override
+    public int getBookedBookNumber() {
+        try {
+            return DAOFactory.getItemDAOInstance(dbc).getBookedBookNumber();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    @Override
+    public int getBookedMagNumber() {
+       return DAOFactory.getItemDAOInstance(dbc).getBookedMagNumber();
+    }
+
+    @Override
+    public int getBookedVideoNumber() {
+        return DAOFactory.getItemDAOInstance(dbc).getBookedVideoNumber();
+    }
+
 
 }

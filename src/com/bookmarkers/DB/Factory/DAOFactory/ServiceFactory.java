@@ -9,7 +9,7 @@ import com.bookmarkers.DB.Service.SearchService;
  * @date : 8/20/18
  * @Description :
  */
-public class ServiceFactory {
+public class ServiceFactory implements Factory{
     public static ItemServiceImpl getItemServiceInstance(){return new ItemServiceImpl(); }
     public static UserServiceImpl getUserServiceInstance(){return new UserServiceImpl(); }
 

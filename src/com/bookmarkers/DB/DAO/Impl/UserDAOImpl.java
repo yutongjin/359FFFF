@@ -171,8 +171,8 @@ public class UserDAOImpl extends AbstractDAO implements UserDAO {
     }
 
     @Override
-    public String getBookBalance(String userName) throws SQLException {
-        String sql = "SELECT balanceBook FROM user where username ='" + userName+"'";
+    public String getBookBalance(String Id) throws SQLException {
+        String sql = "SELECT balanceBook FROM user where uId ='" + Id+"'";
         System.out.println("准备找");
         java.sql.Connection connection = this.conn;
         Statement statement = connection.createStatement();
@@ -193,8 +193,8 @@ public class UserDAOImpl extends AbstractDAO implements UserDAO {
     }
 
     @Override
-    public String getMagazineBalance(String userName) throws SQLException {
-        String sql = "SELECT balanceMagazine FROM user where username ='" + userName+"'";
+    public String getMagazineBalance(String Id) throws SQLException {
+        String sql = "SELECT balanceMagazine FROM user where uId ='" + Id+"'";
         System.out.println("准备找");
         java.sql.Connection connection = this.conn;
         Statement statement = connection.createStatement();
@@ -215,8 +215,8 @@ public class UserDAOImpl extends AbstractDAO implements UserDAO {
     }
 
     @Override
-    public String getVideoBalance(String userName) throws SQLException {
-        String sql = "SELECT balanceVideo FROM user where username ='" + userName+"'";
+    public String getVideoBalance(String Id) throws SQLException {
+        String sql = "SELECT balanceVideo FROM user where uId ='" + Id+"'";
         System.out.println("准备找");
         java.sql.Connection connection = this.conn;
         Statement statement = connection.createStatement();
