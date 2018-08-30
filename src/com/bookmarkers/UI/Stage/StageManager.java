@@ -1,6 +1,8 @@
 package com.bookmarkers.UI.Stage;
 
 import com.bookmarkers.Data.User;
+import com.bookmarkers.UI.Model.UserModel;
+import com.sun.tools.internal.xjc.reader.xmlschema.bindinfo.BIConversion;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
@@ -8,17 +10,30 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import com.bookmarkers.UI.Controller.*;
 import java.util.HashMap;
+import java.util.Observable;
+import java.util.Observer;
+
 /**
  * @Author : Yutong Jin
  * @date : 8/25/18
  * @Description :
  */
-public class StageManager {
+public class StageManager implements Observer ,Manager{
     //建立一个专门存储Stage的Map，全部用于存放Stage对象
     private HashMap<String, Stage> stages = new HashMap<String, Stage>();
     User user;
+
+    public UserModel getUserModel() {
+        return userModel;
+    }
+
+    UserModel userModel;
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public void setUserModel(UserModel userModel) {
+        this.userModel = userModel;
     }
 
     public User getUser() {
@@ -143,5 +158,10 @@ public class StageManager {
             System.out.println("窗口移除成功");
             return true;
         }
+    }
+
+    @Override
+    public void update(Observable o, Object arg) {
+
     }
 }

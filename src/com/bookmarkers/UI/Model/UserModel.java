@@ -67,8 +67,6 @@ public class UserModel extends RecursiveTreeObject<UserModel> implements Observa
         return SpIsAdmin;
     }
 
-
-
     @Override
     public void addListener(InvalidationListener listener) {
 

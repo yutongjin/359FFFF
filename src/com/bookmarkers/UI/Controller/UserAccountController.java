@@ -12,11 +12,13 @@ import com.jfoenix.controls.JFXTreeTableColumn;
 import com.jfoenix.controls.JFXTreeTableView;
 import com.jfoenix.controls.RecursiveTreeItem;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
+import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TreeItem;
@@ -24,6 +26,7 @@ import javafx.scene.control.TreeTableColumn;
 import javafx.util.Callback;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Observable;
 import java.util.ResourceBundle;
@@ -66,9 +69,15 @@ public class UserAccountController implements Initializable  , ControlledStage {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+            labelMagBalance.labelForProperty().addListener(new ChangeListener<Node>() {
+                @Override
+                public void changed(ObservableValue<? extends Node> observable, Node oldValue, Node newValue) {
+                    labelMagBalance.setText(newValue.toString());
+                }
+            });
     }
     @FXML
-    void Show(){
+    void Show() throws SQLException {
 
 
         //labelUserID.setId(stageManager.getUser().getId());
@@ -159,6 +168,12 @@ public class UserAccountController implements Initializable  , ControlledStage {
         tableCurrentItems.getColumns().setAll(Id,Name,Author,Type,DetailedType,ReturnDate);
         tableCurrentItems.setRoot(root);
         tableCurrentItems.setShowRoot(false);
+
+        labelUserID.setText(stageManager.getUser().getId());
+
+        labelMagBalance.setText(ServiceFactory.getUserServiceInstance().getMagazineBalance(stageManager.getUser().getId()));
+        labelBookBalance.setText(ServiceFactory.getUserServiceInstance().getBookBalance(stageManager.getUser().getId()));
+        labelVideoBalance.setText(ServiceFactory.getUserServiceInstance().getVideoBalance(stageManager.getUser().getId()));
     }
 }
 

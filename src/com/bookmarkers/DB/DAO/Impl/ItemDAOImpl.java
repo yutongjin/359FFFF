@@ -1,6 +1,8 @@
 package com.bookmarkers.DB.DAO.Impl;
 
 import com.bookmarkers.DB.DAO.AbstractDAO;
+import com.bookmarkers.DB.DAO.Impl.Builder.Builder;
+import com.bookmarkers.DB.DAO.Impl.Builder.ConcreteBuilder;
 import com.bookmarkers.DB.DAO.ItemDAO;
 import com.bookmarkers.DB.DatabaseConnection.DataBaseConnection;
 import com.bookmarkers.Data.Item.Item;
@@ -27,7 +29,7 @@ public class ItemDAOImpl extends AbstractDAO implements ItemDAO {
     public ItemDAOImpl(Connection conn) {
         super(conn);
     }
-
+    Builder itemBuilder;
     @Override
     public boolean checkOutItem(String userId,String itemId) {
         System.out.println("checking out");
@@ -250,25 +252,17 @@ public class ItemDAOImpl extends AbstractDAO implements ItemDAO {
                     System.out.println("日期是"+s[i -1]);
                 }
 
-                item.setId(s[0]);
-                item.setName(s[1]);
-                item.setType(s[2]);
-                item.setDetailedType(s[3]);
-                item.setAuthor(s[4]);
-
-                try {
-                    if(!s[5].equals("")){
-                        System.out.println("不等于 砸了");
-                    item.setReturnDate(new SimpleDateFormat("yyyy-MM-dd").parse(s[5]));}
-                    else {
-                        System.out.println("等于了");item.setReturnDate((new SimpleDateFormat("yyyy-MM-dd").parse("2099-01-01")));};
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }
-
-                item.setActive(s[6].equals("1")?true:false);
-                item.setLoc(s[7]);
-                item.setBooker(s[8]);
+                itemBuilder = new ConcreteBuilder(s);
+                itemBuilder.buildId();
+                itemBuilder.buildName();
+                itemBuilder.buildActive();
+                itemBuilder.buildAuthor();
+                itemBuilder.buildBooker();
+                itemBuilder.buildDetailedType();
+                itemBuilder.buildLoc();
+                itemBuilder.buildType();
+                itemBuilder.buildReturnDate();
+                item = itemBuilder.getItem();
                 list.add(item);
                 // 依次打印出查询结果中Name的字符串
                 //  System.out.println(resultSet.getString("username"));
@@ -281,6 +275,7 @@ public class ItemDAOImpl extends AbstractDAO implements ItemDAO {
 
     @Override
     public Item getItemByItemId(String id) {
+
         java.sql.Connection connection = this.conn;
         Statement statement = null;
         try {
@@ -289,7 +284,7 @@ public class ItemDAOImpl extends AbstractDAO implements ItemDAO {
             e.printStackTrace();
         }
         // look up status
-        Item item =new Item();
+        Item item = null;
         String sql = "SELECT Id ,name ,ItemType, Type, Author, ReturnDate, Active, Location,Booker FROM Item where Id = '" + id +"'";
         try (ResultSet resultSet = statement.executeQuery(sql)) {
             System.out.println("找到了元素");
@@ -303,28 +298,19 @@ public class ItemDAOImpl extends AbstractDAO implements ItemDAO {
                     s[i - 1] = resultSet.getString(columnName);
                     System.out.println(s[i -1]);
                 }
-                item.setId(s[0]);
-                item.setName(s[1]);
-                item.setType(s[2]);
-                item.setDetailedType(s[3]);
-                item.setAuthor(s[4]);
 
+                itemBuilder = new ConcreteBuilder(s);
+                itemBuilder.buildId();
+                itemBuilder.buildName();
+                itemBuilder.buildActive();
+                itemBuilder.buildAuthor();
+                itemBuilder.buildBooker();
+                itemBuilder.buildDetailedType();
+                itemBuilder.buildLoc();
+                itemBuilder.buildType();
+                itemBuilder.buildReturnDate();
 
-                    try {
-                        if(s[5] != null&& !s[5].equals("")){
-                            System.out.println("不等于 砸了");
-                            item.setReturnDate(new SimpleDateFormat("yyyy-MM-dd").parse(s[5]));}
-                        else {
-                            System.out.println("等于了");
-                            item.setReturnDate((new SimpleDateFormat("yyyy-MM-dd").parse("0000-00-00")));};
-                    } catch (ParseException e) {
-                        e.printStackTrace();
-                    }
-
-                item.setActive(s[6].equals("1")?true:false);
-                item.setLoc(s[7]);
-                item.setBooker(s[8]);
-
+                item = itemBuilder.getItem();
                 // 依次打印出查询结果中Name的字符串
                 //  System.out.println(resultSet.getString("username"));
             }
@@ -334,6 +320,174 @@ public class ItemDAOImpl extends AbstractDAO implements ItemDAO {
         return item;
     }
 
+    @Override
+    public int getBookNumber() throws SQLException {
+        java.sql.Connection connection = this.conn;
+        Statement statement = connection.createStatement();
+        int  number = 0 ;
+        // look up status
+        String sql = "SELECT  count(*) FROM Item group by ItemType = '" + "Book" +"'";
+        try (ResultSet resultSet = statement.executeQuery(sql)) {
+            ResultSetMetaData metaData = resultSet.getMetaData();
+            while (resultSet.next()) {
+
+                String columnName = metaData.getColumnLabel(1);
+                number = resultSet.getInt(columnName);
+                System.out.println("found" + number);
+            }
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        //end : look up status
+
+        return number;
+    }
+
+    @Override
+    public int getMagNumber() {
+        java.sql.Connection connection = this.conn;
+        Statement statement = null;
+        try {
+            statement = connection.createStatement();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        int  number = 0 ;
+        // look up status
+        String sql = "SELECT  count(*) FROM Item group by ItemType = '" + "Magazine" +"'";
+        try (ResultSet resultSet = statement.executeQuery(sql)) {
+            ResultSetMetaData metaData = resultSet.getMetaData();
+            while (resultSet.next()) {
+
+                String columnName = metaData.getColumnLabel(1);
+                number = resultSet.getInt(columnName);
+                System.out.println("found" + number);
+            }
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        //end : look up status
+
+        return number;
+    }
+
+    @Override
+    public int getVideoNumber() {
+        java.sql.Connection connection = this.conn;
+        Statement statement = null;
+        try {
+            statement = connection.createStatement();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        int  number = 0 ;
+        // look up status
+        String sql = "SELECT  count(*) FROM Item group by ItemType = '" + "Video" +"'";
+        try (ResultSet resultSet = statement.executeQuery(sql)) {
+            ResultSetMetaData metaData = resultSet.getMetaData();
+            while (resultSet.next()) {
+
+                String columnName = metaData.getColumnLabel(1);
+                number = resultSet.getInt(columnName);
+                System.out.println("found" + number);
+            }
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        //end : look up status
+
+        return number;
+    }
+
+    @Override
+    public int getBookedBookNumber() throws SQLException {
+        java.sql.Connection connection = this.conn;
+        Statement statement = connection.createStatement();
+        int  number = 0 ;
+        // look up status
+        String sql = "SELECT  count(*) FROM Item group by Active = 0 ,ItemType = '" + "Book" +"'";
+        try (ResultSet resultSet = statement.executeQuery(sql)) {
+            ResultSetMetaData metaData = resultSet.getMetaData();
+            while (resultSet.next()) {
+
+                String columnName = metaData.getColumnLabel(1);
+                number = resultSet.getInt(columnName);
+                System.out.println("found" + number);
+            }
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        //end : look up status
+
+        return number;    }
+
+    @Override
+    public int getBookedMagNumber() {
+        java.sql.Connection connection = this.conn;
+        Statement statement = null;
+        try {
+            statement = connection.createStatement();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        int  number = 0 ;
+        // look up status
+        String sql = "SELECT  count(*) FROM Item group by Active = 0 ,ItemType = '" + "Magazine" +"'";
+        try (ResultSet resultSet = statement.executeQuery(sql)) {
+            ResultSetMetaData metaData = resultSet.getMetaData();
+            while (resultSet.next()) {
+
+                String columnName = metaData.getColumnLabel(1);
+                number = resultSet.getInt(columnName);
+                System.out.println("found" + number);
+            }
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        //end : look up status
+
+        return number;
+    }
+
+    @Override
+    public int getBookedVideoNumber() {
+        java.sql.Connection connection = this.conn;
+        Statement statement = null;
+        try {
+            statement = connection.createStatement();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        int  number = 0 ;
+        // look up status
+        String sql = "SELECT  count(*) FROM Item group by Active = 0 ,ItemType = '" + "Video" +"'";
+        try (ResultSet resultSet = statement.executeQuery(sql)) {
+            ResultSetMetaData metaData = resultSet.getMetaData();
+            while (resultSet.next()) {
+
+                String columnName = metaData.getColumnLabel(1);
+                number = resultSet.getInt(columnName);
+                System.out.println("found" + number);
+            }
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        //end : look up status
+
+        return number;
+    }
 
     public int getSetNumber(String itemId){
         java.sql.Connection connection = this.conn;
@@ -352,8 +506,6 @@ public class ItemDAOImpl extends AbstractDAO implements ItemDAO {
                 String columnName = metaData.getColumnLabel(1);
                 setNumber = resultSet.getInt(columnName);
             }
-
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
