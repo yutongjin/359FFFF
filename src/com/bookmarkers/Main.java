@@ -61,12 +61,11 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         System.out.println("start called");
-        stageManager = new StageManager();
+        stageManager = StageManager.getInstance();
 
         //将主舞台交给控制器处理
 
-
-        stageManager.setPrimaryStage("primaryStage", primaryStage);
+        //stageManager.setPrimaryStage("primaryStage", primaryStage);
 
         User user = new Mem();
         user.logout();
