@@ -48,6 +48,7 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public int getBookNumber() throws SQLException {
+
         return DAOFactory.getItemDAOInstance(dbc).getBookNumber();
     }
 

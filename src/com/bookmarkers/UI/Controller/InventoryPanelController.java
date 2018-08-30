@@ -49,6 +49,9 @@ public class InventoryPanelController implements StageController {
     @Override
     public void initUI() {
 
+        labelNoOfBooks.textProperty().bind(stageManager.getUserModel().allBookProperty());
+        labelNoOfMag.textProperty().bind(stageManager.getUserModel().allMagProperty());
+        labelNoOfVideo.textProperty().bind(stageManager.getUserModel().allVideoProperty());
     }
 }
 

@@ -26,7 +26,7 @@
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <Label text="Account Status:">
+                  <Label text="UserName">
                      <font>
                         <Font size="15.0" />
                      </font>

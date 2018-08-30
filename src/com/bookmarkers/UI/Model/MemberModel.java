@@ -17,8 +17,24 @@ public class MemberModel extends UserModel {
 //    StringProperty SpPhone;
 //    boolean SpIsAdmin;
 
+    StringProperty bookBalance;
     public MemberModel(String spId, String spName, String spEmail, String spPhone, boolean spIsAdmin) {
         super(spId, spName, spEmail, spPhone, spIsAdmin);
+
+    }
+
+    public String getBookBalance() {
+        return bookBalance.get();
+    }
+
+    public StringProperty bookBalanceProperty() {
+        return bookBalance;
+    }
+
+    public MemberModel(String spId, String spName, String spEmail, String spPhone, boolean spIsAdmin, String bookBalance) {
+        super(spId, spName, spEmail, spPhone, spIsAdmin);
+        this.bookBalance = new SimpleStringProperty(bookBalance);
+
     }
 
 //    public void setSpName(String spName) {

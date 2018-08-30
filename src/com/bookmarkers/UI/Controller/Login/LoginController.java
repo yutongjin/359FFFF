@@ -1,5 +1,6 @@
 package com.bookmarkers.UI.Controller.Login;
 
+import com.bookmarkers.DB.Factory.DAOFactory.ServiceFactory;
 import com.bookmarkers.DB.Service.Impl.AdminServiceImpl;
 import com.bookmarkers.DB.Service.Impl.UserServiceImpl;
 import com.bookmarkers.Data.Admin;
@@ -66,7 +67,11 @@ public class LoginController implements StageController, Initializable {
                stageManager.setUser(user);
                user.login();
 
-               UserModel memberModel = new MemberModel(user.getId(),user.getName(),user.getEmail(),user.getPhone(),user.isAdmin());
+               UserModel memberModel = new UserModel(user.getId(),user.getName(),user.getEmail(),user.getPhone(),user.isAdmin(),
+                       ServiceFactory.getUserServiceInstance().getBookBalance(user.getId()),
+                       ServiceFactory.getUserServiceInstance().getMagazineBalance(user.getId()),
+                       ServiceFactory.getUserServiceInstance().getVideoBalance(user.getId()),
+                       0,"000","000","000","000","000");
 
                stageManager.setUserModel(memberModel);
 
@@ -90,7 +95,7 @@ public class LoginController implements StageController, Initializable {
     }
 
     @FXML
-    void loginAsAdmin(ActionEvent event) {
+    void loginAsAdmin(ActionEvent event) throws SQLException {
 
         if (!stageManager.getUser().isLoggedin()){
             String userName = username.getText();
@@ -104,9 +109,13 @@ public class LoginController implements StageController, Initializable {
                 User user = new Admin(new AdminServiceImpl().getName(userName,passWord),true);
                 stageManager.setUser(user);
 
-                UserModel adminModel = new AdminModel(user.getId(),user.getName(),user.getEmail(),user.getPhone(),user.isAdmin());
+                UserModel adminModel = new UserModel(user.getId(),user.getName(),user.getEmail(),user.getPhone(),user.isAdmin(),"000","000","000",
+                        new AdminServiceImpl().getBookNumber(),String.valueOf(new AdminServiceImpl().getMagNumber()),String.valueOf(new AdminServiceImpl().getVideoNumber()),
+                        String.valueOf(new AdminServiceImpl().getBookedBookNumber()),String.valueOf(new AdminServiceImpl().getBookedMagNumber()),String.valueOf(new AdminServiceImpl().getBookedVideoNumber()));
 
+                System.out.println(new AdminServiceImpl().getBookNumber() + "转换之后"+String.valueOf(new AdminServiceImpl().getBookNumber())) ;
                 stageManager.setUserModel(adminModel);
+
 //                stageManager.getUserModel().setSpName(user.getName());
 
                 //stage.close();

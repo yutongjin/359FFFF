@@ -3,6 +3,7 @@ package com.bookmarkers.UI.Controller;
 import com.bookmarkers.DB.Factory.DAOFactory.ServiceFactory;
 import com.bookmarkers.Data.Item.Item;
 import com.bookmarkers.UI.Model.ItemModel;
+import com.bookmarkers.UI.Model.MemberModel;
 import com.bookmarkers.UI.Stage.StageManager;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTreeTableColumn;
@@ -165,17 +166,15 @@ public class UserAccountController implements Initializable  , StageController {
         tableCurrentItems.getColumns().setAll(Id,Name,Author,Type,DetailedType,ReturnDate);
         tableCurrentItems.setRoot(root);
         tableCurrentItems.setShowRoot(false);
-
-        labelUserID.setText(stageManager.getUser().getId());
-
-        labelMagBalance.setText(ServiceFactory.getUserServiceInstance().getMagazineBalance(stageManager.getUser().getId()));
-        labelBookBalance.setText(ServiceFactory.getUserServiceInstance().getBookBalance(stageManager.getUser().getId()));
-        labelVideoBalance.setText(ServiceFactory.getUserServiceInstance().getVideoBalance(stageManager.getUser().getId()));
-    }
+       }
 
     @Override
     public void initUI() {
-
+        labelUserID.textProperty().bind(stageManager.getUserModel().spIdProperty());
+        labelBookBalance.textProperty().bind(((stageManager.getUserModel())).bookBalanceProperty());
+        labelMagBalance.textProperty().bind(stageManager.getUserModel().magazineBalanceProperty());
+        labelVideoBalance.textProperty().bind(stageManager.getUserModel().videoBalanceProperty());
+        labelAccountStatus.textProperty().bind(stageManager.getUserModel().spNameProperty());
     }
 }
 
