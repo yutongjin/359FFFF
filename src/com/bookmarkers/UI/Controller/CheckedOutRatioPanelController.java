@@ -18,7 +18,8 @@ public class CheckedOutRatioPanelController implements StageController {
     public void initUI() {
 
         labelNoOfBooks.textProperty().bind(stageManager.getUserModel().bookedBookProperty());
-        labelNoOfMag.textProperty().bind(stageManager.getUserModel().bookedMagProperty());
+//        labelNoOfMag.textProperty().bind(stageManager.getUserModel().bookedMagProperty());
+        labelNoOfMag.setText("25.00");
         labelNoOfVideo.textProperty().bind(stageManager.getUserModel().bookedVideoProperty());
     }
 
