@@ -31,12 +31,12 @@
                   <Insets left="40.0" />
                </padding>
                <children>
-                  <ImageView fitHeight="32.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="49.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@icons8-contacts-50.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="32.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="48.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@icons8-key-64.png" />
                      </image>
@@ -69,7 +69,7 @@
                </cursor></JFXButton>
          </children>
       </HBox>
-      <ImageView fitHeight="51.0" fitWidth="62.0" layoutX="130.0" layoutY="78.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="66.0" fitWidth="70.0" layoutX="130.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@icons8-study-48.png" />
          </image>
