@@ -19,7 +19,7 @@
 <AnchorPane prefHeight="640.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bookmarkers.UI.Controller.Login.LoginController">
    <children>
       <Line endX="900.0" fill="#f8f8f8" layoutX="5.0" layoutY="172.0" stroke="#0a0808" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-      <Label layoutX="151.0" layoutY="78.0" prefHeight="51.0" prefWidth="509.0" text="Welcome To Bookmarks Library" textFill="WHITE" AnchorPane.rightAnchor="171.0">
+      <Label layoutX="151.0" layoutY="78.0" prefHeight="51.0" prefWidth="509.0" text="Welcome To Bookmarkers Library" textFill="WHITE" AnchorPane.rightAnchor="171.0">
          <font>
             <Font size="30.0" />
          </font>
@@ -56,7 +56,7 @@
       </HBox>
       <HBox layoutX="260.0" layoutY="462.0" prefHeight="39.0" prefWidth="379.0" spacing="60.0">
          <children>
-            <JFXButton fx:id="userlogin" onAction="#userLogin" text="Reader Login" textAlignment="CENTER">
+            <JFXButton fx:id="memberlogin" onAction="#memberLogin" text="Reader Login" textAlignment="CENTER">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>

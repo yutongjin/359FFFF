@@ -5,7 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 //2 mem login success
-public class UserPanelController implements StageController {
+public class MemberPanelController implements StageController {
     StageManager stageManager;
     @FXML
     private JFXButton btnCheckMyAccount;

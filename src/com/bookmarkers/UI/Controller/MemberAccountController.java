@@ -30,7 +30,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 //4 account
-public class UserAccountController implements Initializable  , StageController {
+public class MemberAccountController implements Initializable  , StageController {
     StageManager stageManager;
     @Override
     public void setStageController(StageManager stageManager) {

@@ -22,6 +22,7 @@ public  class UserModel {
     StringProperty bookedBook;
     StringProperty bookedMag;
     StringProperty bookedVideo;
+
     public String getMagazineBalance() {
         return magazineBalance.get();
     }

@@ -10,7 +10,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="640.0" prefWidth="900.0" stylesheets="@blueTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bookmarkers.UI.Controller.UserPanelController">
+<AnchorPane prefHeight="640.0" prefWidth="900.0" stylesheets="@blueTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bookmarkers.UI.Controller.MemberPanelController">
     <children>
         <HBox layoutX="71.0" layoutY="42.0" prefHeight="57.0" prefWidth="495.0" spacing="10.0">
             <children>

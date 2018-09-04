@@ -8,8 +8,6 @@ import com.bookmarkers.Data.Mem;
 import com.bookmarkers.Data.User;
 import com.bookmarkers.UI.Controller.AlertMarker;
 import com.bookmarkers.UI.Controller.StageController;
-import com.bookmarkers.UI.Model.AdminModel;
-import com.bookmarkers.UI.Model.MemberModel;
 import com.bookmarkers.UI.Model.UserModel;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
@@ -50,12 +48,12 @@ public class LoginController implements StageController, Initializable {
     private JFXButton adminlogin;
 
     @FXML
-    void userLogin(ActionEvent event) throws SQLException {
+    void memberLogin(ActionEvent event) throws SQLException {
         if (!stageManager.getUser().isLoggedin()){
             String userName = username.getText();
             String passWord = password.getText();
 //            System.out.println("userInput Member" + userName +" "+ passWord);
-            loginValidator = new UserLoginValidator();
+            loginValidator = new MemberLoginValidator();
             boolean result = loginValidator.validateLogin(userName, passWord);
             if(result){
                //
