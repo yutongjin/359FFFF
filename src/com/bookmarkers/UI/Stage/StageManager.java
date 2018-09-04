@@ -24,6 +24,9 @@ public class StageManager implements Manager{
 
     private static final StageManager instance = new StageManager();
 
+    public static StageManager getInstance(){
+        return instance;
+    }
 
     //建立一个专门存储Stage的Map，全部用于存放Stage对象
     private HashMap<String, Stage> stages = new HashMap<String, Stage>();
@@ -34,9 +37,7 @@ public class StageManager implements Manager{
 
     UserModel userModel;
 
-    public static StageManager getInstance(){
-        return instance;
-    }
+
 
     public StageManager() {
         this.userModel = new NullUserModel();
@@ -187,13 +188,6 @@ public class StageManager implements Manager{
         for (StageController controller : controllers){
             controller.initUI();
         }
-    }
-    public static void showInfoMessage(String title, String content) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Message");
-        alert.setHeaderText(title);
-        alert.setContentText(content);
-        alert.showAndWait();
     }
 
 }

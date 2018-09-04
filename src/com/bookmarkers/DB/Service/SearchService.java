@@ -8,14 +8,11 @@ import java.sql.Connection;
 import java.util.List;
 
 public abstract class SearchService {
+
     protected List<Item> searchResult;
 
-
-
-    // public SearchService(Connection conn) {
-     //   super(conn);
-    //}
     public abstract List<Item> search(String info);
+
     protected Connection dbc = DataBaseConnection.getInstance().getDBConnection();
 
 }

@@ -15,7 +15,7 @@ public abstract class User {
     String password;
     boolean isAdmin;
 
-    public UserState userState;
+    private UserState userState;
 
     public User(){
 

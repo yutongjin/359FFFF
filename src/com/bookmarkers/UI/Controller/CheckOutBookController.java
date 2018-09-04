@@ -34,9 +34,9 @@ public class CheckOutBookController  implements StageController {
         boolean result = ServiceFactory.getUserServiceInstance().checkOutItem(stageManager.getUser().getId(),textfieldItemID.getText());
         if(result){
 
-            StageManager.showInfoMessage("Check out  Successfully","Congratulations!");
+            AlertMarker.getInstance().showInfoMessage("Check out  Successfully","Congratulations!");
     }
-        else             AlertMarker.showErrorMessage("Check out failed","Please check !");
+        else             AlertMarker.getInstance().showErrorMessage("Check out failed","Please check !");
 
 
         stageManager.setUserModel(  new UserModel(stageManager.getUser().getId(),stageManager.getUser().getName(),stageManager.getUser().getEmail(),stageManager.getUser().getPhone(),stageManager.getUser().isAdmin(),

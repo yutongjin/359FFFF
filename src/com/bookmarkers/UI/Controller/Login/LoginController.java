@@ -136,7 +136,7 @@ public class LoginController implements StageController, Initializable {
 
     private void showErrorAlert(){
         System.out.println("login failed");
-        AlertMarker.showErrorMessage("login failed","Please check username or password");
+        AlertMarker.getInstance().showErrorMessage("login failed","Please check username or password");
     }
 
     @Override

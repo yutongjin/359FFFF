@@ -172,7 +172,7 @@ public class SearchPanelController implements StageController,Initializable {
         JFXTreeTableColumn<ItemModel,String> Type = new JFXTreeTableColumn<>("Type");
         JFXTreeTableColumn<ItemModel,String>  DetailedType= new JFXTreeTableColumn<>("Specific Type");
         JFXTreeTableColumn<ItemModel,String> ReturnDate = new JFXTreeTableColumn<>("Return Date");
-        JFXTreeTableColumn<ItemModel,String> Status = new JFXTreeTableColumn<>("Status");
+        JFXTreeTableColumn<ItemModel,String> Status = new JFXTreeTableColumn<>("Available");
         //JFXTreeTableColumn<Item,String> Booker = new JFXTreeTableColumn<>("Name");
         JFXTreeTableColumn<ItemModel,String> Loc = new JFXTreeTableColumn<>("Location");
         JFXTreeTableColumn<ItemModel,String> Booker = new JFXTreeTableColumn<>("Booker");

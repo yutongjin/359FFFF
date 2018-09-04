@@ -5,14 +5,34 @@ import javafx.scene.control.Alert;
 
 public class AlertMarker {
 
-    private static Alert alert;
+    private Alert errorAlert;
 
-    public static void showErrorMessage(String title, String content) {
-        alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Error");
-        alert.setHeaderText(title);
-        alert.setContentText(content);
-        alert.showAndWait();
+    private Alert infoAlert;
+
+    private AlertMarker() {
+        errorAlert = new Alert(Alert.AlertType.ERROR);
+        infoAlert = new Alert(Alert.AlertType.INFORMATION);
+    }
+
+    private static final AlertMarker FACTORY = new AlertMarker();
+
+    public static AlertMarker getInstance() {
+        return FACTORY;
+    }
+
+    public void showErrorMessage(String title, String content) {
+        errorAlert.setTitle("Error");
+        errorAlert.setHeaderText(title);
+        errorAlert.setContentText(content);
+        errorAlert.showAndWait();
+    }
+
+    public void showInfoMessage(String title, String content) {
+
+        infoAlert.setTitle("Message");
+        infoAlert.setHeaderText(title);
+        infoAlert.setContentText(content);
+        infoAlert.showAndWait();
     }
 
 }

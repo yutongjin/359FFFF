@@ -33,10 +33,10 @@ public class ReturnBookController  implements StageController {
 
         boolean result = ServiceFactory.getUserServiceInstance().returnItem(stageManager.getUser().getId(),textFieldReturnItemID.getText());
         if(result){
-           StageManager.showInfoMessage("Return Successfully","Congratulations");
+            AlertMarker.getInstance().showInfoMessage("Return Successfully","Congratulations");
         }
         else {
-            AlertMarker.showErrorMessage("Return failed","Please check !");
+            AlertMarker.getInstance().showErrorMessage("Return failed","Please check !");
         }
 
         stageManager.setUserModel(  new UserModel(stageManager.getUser().getId(),stageManager.getUser().getName(),stageManager.getUser().getEmail(),stageManager.getUser().getPhone(),stageManager.getUser().isAdmin(),
