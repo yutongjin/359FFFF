@@ -29,7 +29,7 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
 
-//4 用户账号详情页面
+//4 account
 public class UserAccountController implements Initializable  , StageController {
     StageManager stageManager;
     @Override

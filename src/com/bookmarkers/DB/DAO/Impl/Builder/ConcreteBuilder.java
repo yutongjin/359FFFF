@@ -54,7 +54,7 @@ public class ConcreteBuilder implements Builder {
             if (s[5] != null && !s[5].equals("")) {
                 item.setReturnDate(new SimpleDateFormat("yyyy-MM-dd").parse(s[5]));
             } else {
-                item.setReturnDate((new SimpleDateFormat("yyyy-MM-dd").parse("0000-00-00")));
+                item.setReturnDate((new SimpleDateFormat("yyyy-MM-dd").parse("0001-01-01")));
             }
         }
      catch(ParseException e){

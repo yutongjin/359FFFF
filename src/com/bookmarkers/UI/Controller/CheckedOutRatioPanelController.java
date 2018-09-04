@@ -6,7 +6,7 @@ import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-//7 管理员查看借书比
+//7 checked out ratio
 public class CheckedOutRatioPanelController implements StageController {
     StageManager stageManager;
     @Override

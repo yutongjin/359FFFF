@@ -18,14 +18,12 @@ public class AdminDAOImpl extends AbstractDAO implements AdminDAO {
     @Override
     public boolean login(String userName, String passWord) throws SQLException {
         String sql = "SELECT password FROM Admin where adminName ='" + userName+ "'";
-        System.out.println("准备找");
         java.sql.Connection connection = this.conn;
         Statement statement = connection.createStatement();
         String rightPassWord = "";
         try (ResultSet resultSet = statement.executeQuery(sql)) {
             ResultSetMetaData metaData = resultSet.getMetaData();
             while (resultSet.next()) {
-                System.out.println("找到了");
                 String columnName = metaData.getColumnLabel(1);
                 rightPassWord = resultSet.getString(columnName);
             }
@@ -40,14 +38,12 @@ public class AdminDAOImpl extends AbstractDAO implements AdminDAO {
     @Override
     public String getName(String userName, String password) throws SQLException {
         String sql = "SELECT name FROM Admin where adminName ='" + userName + "'";
-        System.out.println("准备找");
         java.sql.Connection connection = this.conn;
         Statement statement = connection.createStatement();
         String name = "";
         try (ResultSet resultSet = statement.executeQuery(sql)) {
             ResultSetMetaData metaData = resultSet.getMetaData();
             while (resultSet.next()) {
-                System.out.println("找到了");
                 String columnName = metaData.getColumnLabel(1);
                 name = resultSet.getString(columnName);
             }

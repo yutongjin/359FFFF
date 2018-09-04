@@ -13,7 +13,7 @@ import java.util.Observable;
 import java.util.Observer;
 import java.util.ResourceBundle;
 
-// 3 管理员登录成功页面
+// 3 admin login
 public class AdminPanelController implements StageController, Observer, Initializable {
     StageManager stageManager;
 

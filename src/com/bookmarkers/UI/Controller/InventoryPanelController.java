@@ -5,7 +5,7 @@ import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-//6 管理员查看库存总数
+//6 admin find total number
 public class InventoryPanelController implements StageController {
     StageManager stageManager;
     @Override
