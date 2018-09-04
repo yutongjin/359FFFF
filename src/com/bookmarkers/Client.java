@@ -6,7 +6,7 @@ import com.bookmarkers.UI.Stage.StageManager;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
-public class Main extends Application {
+public class Client extends Application {
     // 1
     public static String mainViewID = "Login";
     public static String mainViewRes = "Login.fxml";
@@ -52,7 +52,7 @@ public class Main extends Application {
     private StageManager stageManager;
 
 
-    //Button button ;
+
     public static void main(String[] args) {
        launch(args);
     }
@@ -62,7 +62,7 @@ public class Main extends Application {
         System.out.println("start called");
         stageManager = StageManager.getInstance();
 
-        //将主舞台交给控制器处理
+
 
         //stageManager.setPrimaryStage("primaryStage", primaryStage);
 
@@ -70,7 +70,6 @@ public class Main extends Application {
         user.logout();
         stageManager.setUser(user);
 
-        //加载两个舞台，每个界面一个舞台
 
         stageManager.loadStage(mainViewID, mainViewRes);
         stageManager.loadStage(UserPanelID, UserPanelRes);
@@ -82,7 +81,7 @@ public class Main extends Application {
         stageManager.loadStage(ReturnBookID, ReturnBookRes);
         stageManager.loadStage(SearchResultID, SearchResultRes);
         stageManager.loadStage(CheckOutBookID, CheckOutBookRes);
-        //显示MainView舞台
+
         stageManager.setStage(mainViewID);
 
     }

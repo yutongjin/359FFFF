@@ -29,7 +29,7 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-//5 搜索入口界面
+//5 search for items
 public class SearchPanelController implements StageController,Initializable {
 
     StageManager stageManager;

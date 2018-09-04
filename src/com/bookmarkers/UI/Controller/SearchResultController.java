@@ -6,7 +6,7 @@ import com.jfoenix.controls.JFXTreeTableView;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-//10 搜索结果 设计改为用户和管理员共用同一个搜索页面
+//10 search result
 public class SearchResultController implements StageController {
     StageManager stageManager;
     @Override
