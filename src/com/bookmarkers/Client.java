@@ -16,13 +16,13 @@ public class Client extends Application {
 
     // 2 user home page
     public static String UserPanelID = "UserPanel";
-    public static String UserPanelRes = "UserPanel.fxml";
+    public static String UserPanelRes = "MemberPanel.fxml";
     // 3admin home page
     public static String AdminPanelID = "AdminPanel";
     public static String AdminPanelRes = "AdminPanel.fxml";
     // 4 user status
     public static String UserAccountID = "UserAccount";
-    public static String UserAccountRes = "UserAccount.fxml";
+    public static String UserAccountRes = "MemberAccount.fxml";
 
     // 5 search for item
     public static String SearchPanelID = "SearchPanel";

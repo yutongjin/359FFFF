@@ -119,8 +119,6 @@ public  class UserModel {
         this.bookedMag = new SimpleStringProperty(String.valueOf(new DecimalFormat("0.00").format(100*Double.valueOf(bookedmag)/Double.valueOf(allmag))));
         this.bookedVideo = new SimpleStringProperty(String.valueOf(new DecimalFormat("0.00").format(100*Double.valueOf(bookedvideo)/Double.valueOf(allvideo))));
 
-
-
     }
 
     public String getBookBalance() {
